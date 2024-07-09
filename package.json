@@ -1,5 +1,5 @@
 {
-  "name": "vue3-priview",
+  "name": "vue3-preview",
   "private": true,
   "version": "1.0.0",
   "license": "MIT",
@@ -19,10 +19,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.4.29"
+    "@vue-office/docx": "^1.6.2",
+    "@vue-office/excel": "^1.7.8",
+    "@vue-office/pdf": "^2.0.2",
+    "element-plus": "^2.7.6",
+    "vue": "^3.4.29",
+    "vue-demi": "0.14.6"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.5",
+    "sass": "^1.77.6",
     "vite": "^5.3.1"
   }
 }
