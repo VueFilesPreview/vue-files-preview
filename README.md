@@ -4,6 +4,12 @@
 
 使用[vue-office](https://github.com/501351981/vue-office?tab=readme-ov-file)，支持word(.docx)、excel(.xlsx,.xls)、pdf等各类型office文件预览的vue组件集合，提供一站式office文件预览方案，支持vue2和3，也支持React等非Vue框架。Web-based pdf, excel, word preview library
 
+![doc预览](./mdFiles/doc.png)
+
+![xls预览](./mdFiles/xls.png)
+
+![pdf预览](./mdFiles/pdf.png)
+
 ## 2、audio、video solution
 
 使用原生或寻找框架
