@@ -9,6 +9,9 @@
     <div v-else-if="type === 'pdf'">
       <vue-office-pdf :src="pdf" style="height: 100vh" @rendered="renderedHandler" @error="errorHandler" />
     </div>
+    <div v-else-if="type === 'txt'">
+      {{ props.fileRender }}
+    </div>
   </div>
 </template>
 
@@ -34,7 +37,7 @@ const props = defineProps({
     }
   },
   fileRender: {
-    type: ArrayBuffer
+    type: [ArrayBuffer, String]
   }
 })
 
