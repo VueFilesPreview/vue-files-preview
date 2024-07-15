@@ -9,6 +9,9 @@
     <div v-else-if="type === 'pdf'">
       <vue-office-pdf :src="pdf" style="height: 100vh" @rendered="renderedHandler" @error="errorHandler" />
     </div>
+    <div v-else-if="type === 'pic'">
+      <img :src="props.fileRender as string" alt="">
+    </div>
     <div v-else-if="type === 'txt'">
       {{ props.fileRender }}
     </div>

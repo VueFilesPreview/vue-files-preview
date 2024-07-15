@@ -73,6 +73,15 @@ const changeTxtHandle: UploadProps['onChange'] = (uploadFile: UploadFile, upload
   }, 200)
 }
 
+const changePicHandle: UploadProps['onChange'] = async (uploadFile: UploadFile, uploadFiles: UploadFiles) => {
+  const picBlob = uploadFile.raw
+  const url = window.URL.createObjectURL(picBlob)
+  fileRender.value = url
+  setTimeout(() => {
+    fileType.value = 'pic'
+  }, 200)
+}
+
 const uploadItems = [
   {
     name: 'doc',
@@ -94,6 +103,13 @@ const uploadItems = [
     type: ['pdf'],
     accept: 'pdf',
     changeFunc: changePdfHandle
+  },
+  {
+    name: 'pic',
+    ref: 'picUpload',
+    type: ['jpg', 'png', 'jpeg', 'webp'],
+    accept: 'jpg,png,jpeg,webp',
+    changeFunc: changePicHandle
   },
   {
     name: 'txt',
