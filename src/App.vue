@@ -40,14 +40,14 @@ const changeFileHandle = (file) => {
   }
 }
 
-const changeDocHandle: UploadProps['onChange'] = (uploadFile: UploadFile, uploadFiles: UploadFiles) => {
+const changeDocxHandle: UploadProps['onChange'] = (uploadFile: UploadFile, uploadFiles: UploadFiles) => {
   changeFileHandle(uploadFile)
   setTimeout(() => {
     fileType.value = 'docx'
   }, 200)
 }
 
-const changeXlsHandle: UploadProps['onChange'] = (uploadFile: UploadFile, uploadFiles: UploadFiles) => {
+const changeXlsxHandle: UploadProps['onChange'] = (uploadFile: UploadFile, uploadFiles: UploadFiles) => {
   changeFileHandle(uploadFile)
   setTimeout(() => {
     fileType.value = 'xlsx'
@@ -84,18 +84,18 @@ const changePicHandle: UploadProps['onChange'] = async (uploadFile: UploadFile, 
 
 const uploadItems = [
   {
-    name: 'doc',
-    ref: 'docUpload',
-    type: ['doc', 'docx'],
-    accept: 'doc,docx',
-    changeFunc: changeDocHandle
+    name: 'docx',
+    ref: 'docxUpload',
+    type: ['docx'],
+    accept: 'docx',
+    changeFunc: changeDocxHandle
   },
   {
-    name: 'xls',
-    ref: 'xlsUpload',
-    type: ['xls', 'xlsx'],
-    accept: 'xls,xlsx',
-    changeFunc: changeXlsHandle
+    name: 'xlsx',
+    ref: 'xlsxUpload',
+    type: ['xlsx'],
+    accept: 'xlsx',
+    changeFunc: changeXlsxHandle
   },
   {
     name: 'pdf',

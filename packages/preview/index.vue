@@ -1,9 +1,9 @@
 <template>
   <div class="preview">
-    <div v-if="type === 'doc' || type === 'docx'">
+    <div v-if="type === 'docx'">
       <vue-office-docx :src="doc" style="height: 100vh" @rendered="renderedHandler" @error="errorHandler" />
     </div>
-    <div v-else-if="type === 'xls' || type === 'xlsx'">
+    <div v-else-if="type === 'xlsx'">
       <vue-office-excel :src="excel" style="height: 100vh;" @rendered="renderedHandler" @error="errorHandler" />
     </div>
     <div v-else-if="type === 'pdf'">
@@ -55,7 +55,6 @@ watch(
       case 'doc':
       case 'docx':
         doc.value = props.fileRender
-        console.log(doc.value, 'doc')
         break
       case 'xls':
       case 'xlsx':
