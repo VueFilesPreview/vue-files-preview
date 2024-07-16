@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img :src="fileRender" alt="">
+    <img :style="{ width: width, height: height }" :src="fileRender" alt="">
   </div>
 </template>
 
@@ -10,6 +10,18 @@ defineProps({
     type: String,
     default: () => {
       return 'none'
+    }
+  },
+  width: {
+    type: String,
+    default: () => {
+      return '880px'
+    }
+  },
+  height: {
+    type: String,
+    default: () => {
+      return '600px'
     }
   },
   type: {
@@ -24,5 +36,4 @@ defineProps({
 })
 </script>
 
-<style scoped lang='scss'>
-</style>
+<style scoped lang='scss'></style>

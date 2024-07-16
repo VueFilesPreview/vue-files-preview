@@ -1,23 +1,33 @@
 # Vue3 Preview
 
-## 1、doc、excel、pdf solution
+## 1、doc、xls、ppt 解决方案
 
-使用[vue-office](https://github.com/501351981/vue-office?tab=readme-ov-file)，支持word(.docx)、excel(.xlsx,.xls)、pdf等各类型office文件预览的vue组件集合，提供一站式office文件预览方案，支持vue2和3，也支持React等非Vue框架。Web-based pdf, excel, word preview library
+待定
 
-![doc预览](./mdFiles/doc.png)
+## 2、docx、xlsx、pdf 解决方案
 
-![xls预览](./mdFiles/xls.png)
+使用[vue-office](https://github.com/501351981/vue-office?tab=readme-ov-file)，支持word(.docx)、excel(.xlsx)、pdf等各类型office文件预览的vue组件集合，提供一站式office文件预览方案，支持vue2和3，也支持React等非Vue框架。Web-based pdf, excel, word preview library
+
+![doc预览](./mdFiles/docx.png)
+
+![xls预览](./mdFiles/xlsx.png)
 
 ![pdf预览](./mdFiles/pdf.png)
 
-## 2、audio、video solution
+## 3、audio、video 解决方案
 
 使用原生或寻找框架
 
-## 3、image solution
+## 4、image 解决方案
 
 使用原生或 `element` 中图片预览组件
 
-## 4、txt、markdown solution
+![pic预览](./mdFiles/pic.png)
+
+## 5、txt 解决方案
+
+![txt预览](./mdFiles/txt.png)
+
+## 6、markdown 解决方案
 
 待定
