@@ -1,30 +1,30 @@
 <template>
   <div class="preview">
     <div v-if="type === 'docx'">
-      <vue-office-docx :src="doc" style="height: 100vh" @rendered="renderedHandler" @error="errorHandler" />
+      <DocxPreview type="docx" :fileRender="props.fileRender" />
     </div>
-    <div v-else-if="type === 'xlsx'">
-      <vue-office-excel :src="excel" style="height: 100vh;" @rendered="renderedHandler" @error="errorHandler" />
+    <div v-if="type === 'xlsx'">
+      <XlsxPreview type="xlsx" :fileRender="props.fileRender" />
     </div>
-    <div v-else-if="type === 'pdf'">
-      <vue-office-pdf :src="pdf" style="height: 100vh" @rendered="renderedHandler" @error="errorHandler" />
+    <div v-if="type === 'pdf'">
+      <PdfPreview type="pdf" :fileRender="props.fileRender" />
     </div>
-    <div v-else-if="type === 'pic'">
-      <img :src="props.fileRender as string" alt="">
+    <div v-if="type === 'pic'">
+      <PicPreview type="pic" :fileRender="props.fileRender as string" />
     </div>
-    <div v-else-if="type === 'txt'">
-      {{ props.fileRender }}
+    <div v-if="type === 'txt'">
+      <TxtPreview type="txt" :fileRender="props.fileRender as string" />
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, watch } from 'vue'
-import VueOfficeDocx from '@vue-office/docx'
-import VueOfficeExcel from '@vue-office/excel'
-import VueOfficePdf from '@vue-office/pdf'
-import '@vue-office/docx/lib/index.css'
-import '@vue-office/excel/lib/index.css'
+import DocxPreview from '../docx-preview'
+import XlsxPreview from '../xlsx-preview'
+import PdfPreview from '../pdf-preview'
+import PicPreview from '../pic-preview'
+import TxtPreview from '../txt-preview'
+
 
 const props = defineProps({
   url: {
@@ -43,36 +43,6 @@ const props = defineProps({
     type: [ArrayBuffer, String]
   }
 })
-
-const doc = ref()
-const excel = ref()
-const pdf = ref()
-
-watch(
-  () => props.type,
-  (fileType) => {
-    switch (fileType) {
-      case 'doc':
-      case 'docx':
-        doc.value = props.fileRender
-        break
-      case 'xls':
-      case 'xlsx':
-        excel.value = props.fileRender
-        break
-      case 'pdf':
-        pdf.value = props.fileRender
-    }
-  }
-)
-
-const renderedHandler = () => {
-  console.log("渲染完成")
-}
-
-const errorHandler = () => {
-  console.log("渲染失败")
-}
 </script>
 
 <style scoped lang='scss'></style>
