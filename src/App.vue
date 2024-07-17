@@ -88,7 +88,15 @@ const changeCodeHandle: UploadProps['onChange'] = (uploadFile: UploadFile, uploa
   }, 200)
 }
 
-const uploadItems = [
+interface UploadItem {
+  name: string
+  ref: string
+  type: string[]
+  accept: string
+  changeFunc: UploadProps['onChange']
+}
+
+const uploadItems: UploadItem[] = [
   {
     name: 'docx',
     ref: 'docxUpload',
