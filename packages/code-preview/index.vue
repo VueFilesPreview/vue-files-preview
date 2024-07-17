@@ -11,6 +11,8 @@
 import { ref, shallowRef, watch } from 'vue'
 import { Codemirror } from 'vue-codemirror'
 import { javascript } from '@codemirror/lang-javascript'
+import { json } from '@codemirror/lang-json'
+import { html } from '@codemirror/lang-html'
 import { oneDark } from '@codemirror/theme-one-dark'
 
 const props = defineProps({
@@ -32,7 +34,7 @@ const props = defineProps({
 })
 
 const code = ref()
-const extensions = [javascript(), oneDark]
+const extensions = [html(), javascript(), json(), oneDark]
 // Codemirror EditorView instance ref
 const codeViewer = shallowRef()
 const handleReady = (payload) => {
