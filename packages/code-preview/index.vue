@@ -34,7 +34,7 @@ const props = defineProps({
 })
 
 const code = ref()
-const extensions = [html(), javascript(), json(), oneDark]
+const extensions = [javascript(), json(), html(), oneDark]
 // Codemirror EditorView instance ref
 const codeViewer = shallowRef()
 const handleReady = (payload) => {

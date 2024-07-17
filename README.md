@@ -28,6 +28,12 @@
 
 ![txt预览](./mdFiles/txt.png)
 
+## 6、code 解决方案
+
+使用[codemirror](https://github.com/codemirror/dev/)来适配代码预览，支持Angular, CSS, C++, Go, HTML, Java, JavaScript, JSON, Liquid, Markdown, PHP, Python, Rust, Sass, Vue, XML, YAML, C#, CMake, CoffeeScript, Dart, Elixir, GLSL, Haskell, Lua, Objective-C, R, Ruby, Scala, Shell, Swift, TeX, TypeScript, Visual Basic等代码显示
+
+![code预览](./mdFiles/code.png)
+
 ## 6、markdown 解决方案
 
 待定
