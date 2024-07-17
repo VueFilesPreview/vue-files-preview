@@ -15,6 +15,9 @@
     <div v-if="type === 'txt'">
       <TxtPreview type="txt" :fileRender="props.fileRender as string" />
     </div>
+    <div v-if="type === 'code'">
+      <CodePreview type="code" :fileRender="props.fileRender as string" />
+    </div>
   </div>
 </template>
 
@@ -24,7 +27,7 @@ import XlsxPreview from '../xlsx-preview'
 import PdfPreview from '../pdf-preview'
 import PicPreview from '../pic-preview'
 import TxtPreview from '../txt-preview'
-
+import CodePreview from '../code-preview'
 
 const props = defineProps({
   url: {

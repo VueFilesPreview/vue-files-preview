@@ -32,9 +32,13 @@ const handleExceed: UploadProps['onExceed'] = (files) => {
   upload.value!.handleStart(file)
 }
 
-const changeFileHandle = (file) => {
+const changeFileHandle = (file, isReadTxt = false) => {
   const fileReader = new FileReader()
-  fileReader.readAsArrayBuffer(file.raw)
+  if (isReadTxt) {
+    fileReader.readAsText(file.raw)
+  } else {
+    fileReader.readAsArrayBuffer(file.raw)
+  }
   fileReader.onload = () => {
     fileRender.value = fileReader.result;
   }
@@ -62,12 +66,7 @@ const changePdfHandle: UploadProps['onChange'] = (uploadFile: UploadFile, upload
 }
 
 const changeTxtHandle: UploadProps['onChange'] = (uploadFile: UploadFile, uploadFiles: UploadFiles) => {
-  const file = uploadFile
-  const fileReader = new FileReader()
-  fileReader.readAsText(file.raw)
-  fileReader.onload = () => {
-    fileRender.value = fileReader.result;
-  }
+  changeFileHandle(uploadFile, true)
   setTimeout(() => {
     fileType.value = 'txt'
   }, 200)
@@ -79,6 +78,13 @@ const changePicHandle: UploadProps['onChange'] = async (uploadFile: UploadFile, 
   fileRender.value = url
   setTimeout(() => {
     fileType.value = 'pic'
+  }, 200)
+}
+
+const changeCodeHandle: UploadProps['onChange'] = (uploadFile: UploadFile, uploadFiles: UploadFiles) => {
+  changeFileHandle(uploadFile, true)
+  setTimeout(() => {
+    fileType.value = 'code'
   }, 200)
 }
 
@@ -117,7 +123,14 @@ const uploadItems = [
     type: ['txt'],
     accept: 'txt',
     changeFunc: changeTxtHandle
-  }
+  },
+  {
+    name: 'code',
+    ref: 'codeUpload',
+    type: ['html', 'css', 'less', 'scss', 'js', 'json', 'ts', 'vue', 'md', 'txt', 'c', 'cpp', 'java', 'py', 'go', 'php', 'rb', 'pl', 'swift', 'vb', 'cs', 'py', 'sh'],
+    accept: 'html,css,less,scss,js,json,ts,vue,md,c,cpp,java,py,go,php,rb,pl,swift,vb,cs,py,sh',
+    changeFunc: changeCodeHandle
+  },
 ]
 </script>
 
@@ -134,6 +147,7 @@ const uploadItems = [
     flex-direction: column;
     gap: 20px;
     width: 220px;
+    min-width: 220px;
     border-right: 1px solid #9d9d9d;
   }
 
