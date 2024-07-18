@@ -1,0 +1,35 @@
+html,
+body,
+.full-height {
+  height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  padding-bottom: 160px;
+  background-color: #fbfbfb;
+}
+
+/* twbs fix */
+.hljs {
+  padding: 9.5px;
+}
+
+.hljs code {
+  white-space: pre;
+}
+
+.checkbox {
+  margin-right: 10px;
+}
+
+.source {
+  width: 100%;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-size: 13px;
+  padding: 2px;
+}
+
+.hljs img {
+  max-width: 35%;
+}
