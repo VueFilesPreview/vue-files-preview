@@ -4,7 +4,7 @@
 
 <script lang='ts' setup>
 import { ref, watch } from 'vue'
-import { marked } from 'marked';
+import markdownit from 'markdown-it'
 
 const markdownHtml = ref()
 
@@ -30,7 +30,8 @@ watch(
   () => props.fileRender,
   (val) => {
     if (val) {
-      markdownHtml.value = marked.parse(props.fileRender.toString())
+      const md = markdownit()
+      markdownHtml.value = md.render(val);
     }
   },
   { immediate: true }

@@ -36,6 +36,6 @@
 
 ## 7、markdown 解决方案
 
-先试用[marked](https://github.com/markedjs/marked)工具库简单实现，目前公式等可能还存在问题，后续再优化
+先后试用了[marked](https://github.com/markedjs/marked)和[commonmark.js](https://github.com/commonmark/commonmark.js)工具库简单实现，最终采用[markdown-it](https://github.com/markdown-it/markdown-it)工具库，目前公式等可能还存在问题，后续再优化
 
 ![markdown预览](./mdFiles/md.png)
