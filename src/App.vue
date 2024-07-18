@@ -174,6 +174,8 @@ const uploadItems: UploadItem[] = [
   }
 
   .preview-container {
+    height: 100vh;
+    overflow: auto;
     flex: 1;
   }
 }

@@ -46,17 +46,18 @@ Markdown 的语法之所以如此简洁，一方面是因为用一些简单的�
 
 * Markdown 是 HTML 的一种简写，在显示时会“解压缩”成 HTML。理论上可以在 Markdown 里直接插入合法的 HTML 块，他们会成为最终的 HTML 的一部分，做到 Markdown 本身做不到的事。
 * Markdown 的格式可以由 CSS 描述
-    * 预览工具或者用户可以自己决定用什么 CSS 显示，怎么好看怎么来
-    * CSS 是可以怼天怼地怼空气的……
+  * 预览工具或者用户可以自己决定用什么 CSS 显示，怎么好看怎么来
+  * CSS 是可以怼天怼地怼空气的……
 
 # Markdown 语法
+
 ## 标题
 
 使用 # 号可表示 1-6 级标题，一级标题对应一个 # 号，二级标题对应两个 # 号，以此类推。
 
 > \# 一级标题  
 >
-> \#\# 二级标题 
+> \#\# 二级标题
 >
 > \#\#\# 三级标题  
 >
@@ -121,6 +122,7 @@ Markdown 的百度百科在这 [^百度百科]。
 ---
 
 ## 列表
+
 Markdown 支持有序列表和无序列表。
 
 无序列表使用星号(*)、加号(+)或是减号(-)作为列表标记，这些标记后面要添加一个空格，然后再填写内容：
@@ -138,11 +140,11 @@ Markdown 支持有序列表和无序列表。
 列表嵌套只需在子列表中的选项前面添加四个空格即可：
 
 1. 第一项：
-    - 第一项嵌套的第一个元素
-    - 第一项嵌套的第二个元素
+    * 第一项嵌套的第一个元素
+    * 第一项嵌套的第二个元素
 2. 第二项：
-    - 第二项嵌套的第一个元素
-    - 第二项嵌套的第二个元素
+    * 第二项嵌套的第一个元素
+    * 第二项嵌套的第二个元素
 
 ## 引用或区块
 
@@ -174,12 +176,11 @@ Markdown 图片语法格式如下：
     ![alt 属性文本](图片地址 =30x30)    带尺寸的图片
     ![alt 属性文本](图片地址#pic_center =30x30)    居中并且带尺寸的图片
 
-
 * 开头一个感叹号 !
 * 接着一个方括号，里面放上图片的描述文本,不会显示出来,仅仅用于图片无法显示的时候
 * 接着一个普通括号，里面放上图片的网址，最后还可以用引号包住并加上选择性的 'title' 属性的文字。
 
-![快看这个小姐姐x](https://cdn.jsdelivr.net/gh/yang-tian-hub/PictureBed/快看这个小姐姐x.jpg#pic_center =250x250)
+![快看这个小姐姐x](<https://cdn.jsdelivr.net/gh/yang-tian-hub/PictureBed/快看这个小姐姐x.jpg#pic_center> =250x250)
 
 ## 链接
 
@@ -276,14 +277,17 @@ Markdown 制作表格使用 | 来分隔不同的单元格，使用 - 来分隔�
 
 * **右对齐** `<p align=right>测试一下</p>`  
     效果：  
+
 <p align=right>测试一下</p>
 
 * **文字居中** `<center>测试一下</center>`  
     效果：  
+
 <center>测试一下</center>
 
 * **图片居中** `<p align="center"><img src="https://github.com/SmallTeddy/vue3-preview/blob/main/testFiles/test.jpg" width="80%"></p>`  
     效果：  
+
 <p align="center"><img src="https://cdn.jsdelivr.net/gh/yang-tian-hub/PictureBed/140158585091919.jpg" width="60%"></p>
 
 ## 转义
@@ -335,6 +339,7 @@ where, $\hat {\boldsymbol{F}}_{dq}(k)$ denotes the estimated value of the unknow
 1. 使用html标签（此设定并不是所有的浏览器或者平台都支持）  
 `<div style='display: none'>哈哈我是注释，不会在浏览器中显示。</div>`  
 你如果看不到下面的注释说明已经成功注释  
+
 <div style='display: none'>哈哈我是注释，不会在浏览器中显示。</div>  
 
 2. 使用html注释  
