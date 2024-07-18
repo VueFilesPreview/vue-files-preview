@@ -17,6 +17,9 @@ dependencies:
   '@codemirror/theme-one-dark':
     specifier: ^6.1.2
     version: 6.1.2
+  '@highlightjs/vue-plugin':
+    specifier: ^2.1.0
+    version: 2.1.0(highlight.js@11.10.0)(vue@3.4.31)
   '@vue-office/docx':
     specifier: ^1.6.2
     version: 1.6.2(vue-demi@0.14.6)(vue@3.4.31)
@@ -29,6 +32,9 @@ dependencies:
   element-plus:
     specifier: ^2.7.6
     version: 2.7.6(vue@3.4.31)
+  marked:
+    specifier: ^13.0.2
+    version: 13.0.2
   vue:
     specifier: ^3.4.29
     version: 3.4.31
@@ -426,6 +432,16 @@ packages:
 
   /@floating-ui/utils@0.2.4:
     resolution: {integrity: sha512-dWO2pw8hhi+WrXq1YJy2yCuWoL20PddgGaqTgVe4cOS9Q6qklXCiA1tJEqX6BEwRNSCP84/afac9hd4MS+zEUA==}
+    dev: false
+
+  /@highlightjs/vue-plugin@2.1.0(highlight.js@11.10.0)(vue@3.4.31):
+    resolution: {integrity: sha512-E+bmk4ncca+hBEYRV2a+1aIzIV0VSY/e5ArjpuSN9IO7wBJrzUE2u4ESCwrbQD7sAy+jWQjkV5qCCWgc+pu7CQ==}
+    peerDependencies:
+      highlight.js: ^11.0.1
+      vue: ^3
+    dependencies:
+      highlight.js: 11.10.0
+      vue: 3.4.31
     dev: false
 
   /@jridgewell/sourcemap-codec@1.4.15:
@@ -937,6 +953,11 @@ packages:
       is-glob: 4.0.3
     dev: true
 
+  /highlight.js@11.10.0:
+    resolution: {integrity: sha512-SYVnVFswQER+zu1laSya563s+F8VDGt7o35d4utbamowvUNLLMovFqwCLSocpZTz3MgaSRA1IbqRWZv97dtErQ==}
+    engines: {node: '>=12.0.0'}
+    dev: false
+
   /immutable@4.3.6:
     resolution: {integrity: sha512-Ju0+lEMyzMVZarkTn/gqRpdqd5dOPaz1mCZ0SH3JV6iFw81PldE/PEB1hWVEA288HPt4WXW8O7AWxB10M+03QQ==}
     dev: true
@@ -989,6 +1010,12 @@ packages:
     resolution: {integrity: sha512-iIRwTIf0QKV3UAnYK4PU8uiEc4SRh5jX0mwpIwETPpHdhVM4f53RSwS/vXvN1JhGX+Cs7B8qIq3d6AH49O5fAQ==}
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.15
+
+  /marked@13.0.2:
+    resolution: {integrity: sha512-J6CPjP8pS5sgrRqxVRvkCIkZ6MFdRIjDkwUwgJ9nL2fbmM6qGQeB2C16hi8Cc9BOzj6xXzy0jyi0iPIfnMHYzA==}
+    engines: {node: '>= 18'}
+    hasBin: true
+    dev: false
 
   /memoize-one@6.0.0:
     resolution: {integrity: sha512-rkpe71W0N0c0Xz6QD0eJETuWAJGnJ9afsl1srmwPrI+yBCkge5EycXXbYRyvL29zZVUWQCY7InPRCv3GDXuZNw==}

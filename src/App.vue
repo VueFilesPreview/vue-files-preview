@@ -88,6 +88,13 @@ const changeCodeHandle: UploadProps['onChange'] = (uploadFile: UploadFile, uploa
   }, 200)
 }
 
+const changeMdHandle: UploadProps['onChange'] = (uploadFile: UploadFile, uploadFiles: UploadFiles) => {
+  changeFileHandle(uploadFile, true)
+  setTimeout(() => {
+    fileType.value = 'md'
+  }, 200)
+}
+
 interface UploadItem {
   name: string
   ref: string
@@ -138,6 +145,13 @@ const uploadItems: UploadItem[] = [
     type: ['html', 'css', 'less', 'scss', 'js', 'json', 'ts', 'vue', 'md', 'txt', 'c', 'cpp', 'java', 'py', 'go', 'php', 'rb', 'pl', 'swift', 'vb', 'cs', 'py', 'sh'],
     accept: 'html,css,less,scss,js,json,ts,vue,md,c,cpp,java,py,go,php,rb,pl,swift,vb,cs,py,sh',
     changeFunc: changeCodeHandle
+  },
+  {
+    name: 'md',
+    ref: 'mdUpload',
+    type: ['md'],
+    accept: 'md',
+    changeFunc: changeMdHandle
   },
 ]
 </script>

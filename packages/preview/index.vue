@@ -18,6 +18,9 @@
     <div v-if="type === 'code'">
       <CodePreview type="code" :fileRender="props.fileRender as string" />
     </div>
+    <div v-if="type === 'md'">
+      <MdPreview type="md" :fileRender="props.fileRender as string" />
+    </div>
   </div>
 </template>
 
@@ -28,6 +31,7 @@ import PdfPreview from '../pdf-preview'
 import PicPreview from '../pic-preview'
 import TxtPreview from '../txt-preview'
 import CodePreview from '../code-preview'
+import MdPreview from '../md-preview'
 
 const props = defineProps({
   url: {
