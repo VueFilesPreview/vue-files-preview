@@ -10,14 +10,15 @@ body {
   background-color: #fbfbfb;
 }
 
-/* twbs fix */
-.hljs {
-  padding: 9.5px;
+pre {
+  padding: 0;
+  margin: 0;
 }
 
-.hljs code {
-  white-space: pre;
-}
+/* twbs fix */
+/* .hljs {
+  padding: 9.5px;
+} */
 
 .checkbox {
   margin-right: 10px;
@@ -30,6 +31,16 @@ body {
   padding: 2px;
 }
 
+.hljs {
+  overflow: hidden;
+  padding: 10px;
+}
+
 .hljs img {
   max-width: 35%;
+}
+
+.hljs code {
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 14px;
 }

@@ -35,9 +35,15 @@ dependencies:
   markdown-it:
     specifier: ^14.1.0
     version: 14.1.0
+  markdown-it-container:
+    specifier: ^4.0.0
+    version: 4.0.0
   markdown-it-footnote:
     specifier: ^4.0.0
     version: 4.0.0
+  markdown-it-highlightjs:
+    specifier: ^4.1.0
+    version: 4.1.0
   vue:
     specifier: ^3.4.29
     version: 3.4.31
@@ -1014,8 +1020,18 @@ packages:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.15
 
+  /markdown-it-container@4.0.0:
+    resolution: {integrity: sha512-HaNccxUH0l7BNGYbFbjmGpf5aLHAMTinqRZQAEQbMr2cdD3z91Q6kIo1oUn1CQndkT03jat6ckrdRYuwwqLlQw==}
+    dev: false
+
   /markdown-it-footnote@4.0.0:
     resolution: {integrity: sha512-WYJ7urf+khJYl3DqofQpYfEYkZKbmXmwxQV8c8mO/hGIhgZ1wOe7R4HLFNwqx7TjILbnC98fuyeSsin19JdFcQ==}
+    dev: false
+
+  /markdown-it-highlightjs@4.1.0:
+    resolution: {integrity: sha512-aYcgme5aYn10BHEvLZaCNgwxU2oaAX9inK9dwCv38wJdq7tal5FzZrLdQQY8MR3I1H07S3BKgYGRX2kKuPT+sA==}
+    dependencies:
+      highlight.js: 11.10.0
     dev: false
 
   /markdown-it@14.1.0:

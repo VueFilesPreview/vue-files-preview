@@ -29,6 +29,7 @@
     "element-plus": "^2.7.6",
     "highlight.js": "^11.10.0",
     "markdown-it": "^14.1.0",
+    "markdown-it-container": "^4.0.0",
     "markdown-it-footnote": "^4.0.0",
     "vue": "^3.4.29",
     "vue-codemirror": "^6.1.1",

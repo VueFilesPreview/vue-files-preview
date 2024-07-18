@@ -8,6 +8,7 @@
 import { ref, watch } from 'vue'
 import markdownit from 'markdown-it'
 import markdownItFootnote from 'markdown-it-footnote'
+import markdownItContainer from 'markdown-it-container'
 import hljs from 'highlight.js';
 
 const markdownHtml = ref()
@@ -77,9 +78,9 @@ watch(
             } catch (__) { }
           }
 
-          return '<pre><code class="hljs">' + md?.utils?.escapeHtml(str) + '</code></pre>';
+          return '<pre><code class="hljs">' + md!.utils!.escapeHtml(str) + '</code></pre>';
         }
-      }).use(markdownItFootnote);
+      }).use(markdownItFootnote).use(markdownItContainer);
 
       markdownHtml.value = md.render(val);
     }
@@ -91,9 +92,4 @@ watch(
 <style scoped lang='scss'>
 @import 'highlight.js/styles/github-dark-dimmed.css';
 @import './index.css';
-
-.hljs {
-  overflow: hidden;
-  padding: 10px;
-}
 </style>
