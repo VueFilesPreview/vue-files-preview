@@ -95,6 +95,13 @@ const changeMdHandle: UploadProps['onChange'] = (uploadFile: UploadFile, uploadF
   }, 200)
 }
 
+const changeEpubHandle: UploadProps['onChange'] = (uploadFile: UploadFile, uploadFiles: UploadFiles) => {
+  changeFileHandle(uploadFile)
+  setTimeout(() => {
+    fileType.value = 'epub'
+  }, 200)
+}
+
 interface UploadItem {
   name: string
   ref: string
@@ -152,6 +159,13 @@ const uploadItems: UploadItem[] = [
     type: ['md'],
     accept: 'md',
     changeFunc: changeMdHandle
+  },
+  {
+    name: 'epub',
+    ref: 'epubUpload',
+    type: ['epub'],
+    accept: 'epub',
+    changeFunc: changeEpubHandle
   },
 ]
 </script>

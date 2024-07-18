@@ -27,6 +27,7 @@
     "@vue-office/excel": "^1.7.8",
     "@vue-office/pdf": "^2.0.2",
     "element-plus": "^2.7.6",
+    "epubjs": "^0.3.93",
     "highlight.js": "^11.10.0",
     "markdown-it": "^14.1.0",
     "markdown-it-container": "^4.0.0",

@@ -10,16 +10,19 @@
       <PdfPreview type="pdf" :fileRender="props.fileRender" />
     </div>
     <div v-if="type === 'pic'">
-      <PicPreview type="pic" :fileRender="props.fileRender as string" />
+      <PicPreview type="pic" :fileRender="typeof props.fileRender == 'string' && props.fileRender" />
     </div>
     <div v-if="type === 'txt'">
-      <TxtPreview type="txt" :fileRender="props.fileRender as string" />
+      <TxtPreview type="txt" :fileRender="props.fileRender" />
     </div>
     <div v-if="type === 'code'">
-      <CodePreview type="code" :fileRender="props.fileRender as string" />
+      <CodePreview type="code" :fileRender="props.fileRender" />
     </div>
     <div v-if="type === 'md'">
-      <MdPreview type="md" :fileRender="props.fileRender as string" />
+      <MdPreview type="md" :fileRender="props.fileRender" />
+    </div>
+    <div v-if="type === 'epub'">
+      <EpubPreview type="epub" :fileRender="props.fileRender" />
     </div>
   </div>
 </template>
@@ -32,6 +35,7 @@ import PicPreview from '../pic-preview'
 import TxtPreview from '../txt-preview'
 import CodePreview from '../code-preview'
 import MdPreview from '../md-preview'
+import EpubPreview from '../epub-preview'
 
 const props = defineProps({
   url: {
