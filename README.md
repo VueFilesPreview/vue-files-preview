@@ -39,3 +39,9 @@
 先后试用了[marked](https://github.com/markedjs/marked)和[commonmark.js](https://github.com/commonmark/commonmark.js)工具库简单实现，最终采用[markdown-it](https://github.com/markdown-it/markdown-it)工具库，目前公式等可能还存在问题，后续再优化
 
 ![markdown预览](./mdFiles/md.png)
+
+## 8、epub 解决方案
+
+使用[epubjs](http://epubjs.org/documentation/0.3/)来适配epub文件预览，二次开发配置翻页功能
+
+![epub预览](./mdFiles/epub.png)

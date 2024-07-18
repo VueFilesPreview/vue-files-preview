@@ -3,7 +3,7 @@
     <div class="epub-viewer" id="epub-viewer"></div>
     <div class="footer">
       <el-button type="primary" @click="prevPage">
-        上一页  
+        上一页
       </el-button>
       <el-button type="primary" @click="nextPage">
         下一页
@@ -62,7 +62,6 @@ book.value.ready.then(() => {
 // epub翻页
 const prevPage = () => {
   if (rendition.value) {
-    console.log("prev");
     rendition.value.prev();
     // 向前翻页时更新 currentPage
     currentPage.value--;
