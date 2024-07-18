@@ -38,4 +38,4 @@
 
 先试用[marked](https://github.com/markedjs/marked)工具库简单实现，目前公式等可能还存在问题，后续再优化
 
-![markdown预览](./mdFiles/markdown.png)
+![markdown预览](./mdFiles/md.png)
