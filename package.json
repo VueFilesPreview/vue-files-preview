@@ -1,6 +1,7 @@
 {
-  "name": "vue3-preview",
-  "private": true,
+  "name": "vue-files-preview",
+  "author": "SmallTeddy",
+  "private": false,
   "version": "1.0.0",
   "license": "MIT",
   "type": "module",
@@ -17,6 +18,17 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
+  },
+  "main": "dist/vue3-preview.es.js",
+  "module": "dist/vue3-preview.es.js",
+  "unpkg": "dist/vue3-preview.umd.js",
+  "types": "dist/vue3-preview.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SmallTeddy/vue3-preview"
+  },
+  "bugs": {
+    "url": "https://github.com/SmallTeddy/vue3-preview/issues"
   },
   "dependencies": {
     "@codemirror/lang-html": "^6.4.9",
