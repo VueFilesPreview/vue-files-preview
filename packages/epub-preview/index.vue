@@ -3,12 +3,12 @@
   <div class="epub-box">
     <div class="epub-viewer" id="epub-viewer"></div>
     <div class="footer">
-      <!-- <el-button type="primary" @click="prevPage">
+      <el-button type="primary" @click="prevPage">
         上一页
       </el-button>
       <el-button type="primary" @click="nextPage">
         下一页
-      </el-button> -->
+      </el-button>
     </div>
   </div>
 </template>
@@ -67,26 +67,26 @@ watch(
 )
 
 // epub翻页
-// const prevPage = () => {
-//   if (rendition.value) {
-//     rendition.value.prev();
-//     // 向前翻页时更新 currentPage
-//     currentPage.value--;
-//     if (currentPage.value < 1) {
-//       currentPage.value = 1
-//     }
-//   }
-// }
-// const nextPage = () => {
-//   if (rendition.value) {
-//     rendition.value.next();
-//     // 向后翻页时更新 currentPage
-//     currentPage.value++;
-//     if (currentPage.value > totalPages.value) {
-//       currentPage.value = totalPages.value
-//     }
-//   }
-// }
+const prevPage = () => {
+  if (rendition.value) {
+    rendition.value.prev();
+    // 向前翻页时更新 currentPage
+    currentPage.value--;
+    if (currentPage.value < 1) {
+      currentPage.value = 1
+    }
+  }
+}
+const nextPage = () => {
+  if (rendition.value) {
+    rendition.value.next();
+    // 向后翻页时更新 currentPage
+    currentPage.value++;
+    if (currentPage.value > totalPages.value) {
+      currentPage.value = totalPages.value
+    }
+  }
+}
 </script>
 
 <style scoped lang='scss'>
