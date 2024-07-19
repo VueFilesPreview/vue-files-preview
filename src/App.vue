@@ -20,7 +20,6 @@ import { ElUpload } from 'element-plus'
 import { UploadFilled } from '@element-plus/icons-vue'
 import type { UploadInstance, UploadFile, UploadRawFile } from 'element-plus'
 
-
 const uploadRef = ref<UploadInstance>()
 const uploadFile = ref<UploadFile>()
 
