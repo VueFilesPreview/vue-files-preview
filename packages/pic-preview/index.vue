@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img :style="{ width: width, height: height }" :src="fileRender?.toString()" alt="">
+    <img :style="{ width: width, height: height }" :src="fileRender?.toString()" alt="" />
   </div>
 </template>
 
@@ -15,13 +15,13 @@ defineProps({
   width: {
     type: String,
     default: () => {
-      return '880px'
+      return '100%'
     }
   },
   height: {
     type: String,
     default: () => {
-      return '600px'
+      return '100vh'
     }
   },
   type: {

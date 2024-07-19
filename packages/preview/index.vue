@@ -67,7 +67,7 @@ const typeItems: Record<string, string[]> = {
   // 文本
   'txt': ['txt'],
   // 代码
-  'code': ['html', 'css', 'less', 'scss', 'js', 'json', 'ts', 'vue', 'md', 'txt', 'c', 'cpp', 'java', 'py', 'go', 'php', 'lua', 'rb', 'pl', 'swift', 'vb', 'cs', 'sh'],
+  'code': ['html', 'css', 'less', 'scss', 'js', 'json', 'ts', 'vue', 'c', 'cpp', 'java', 'py', 'go', 'php', 'lua', 'rb', 'pl', 'swift', 'vb', 'cs', 'sh'],
   // markdown
   'md': ['md'],
   // epub
@@ -105,8 +105,16 @@ const changeFileHandle = (fileParmas: { file: UploadFile, isReadTxt?: boolean } 
     }
     fileReader.onload = () => {
       fileRender.value = fileReader.result;
+      console.log(fileRender.value, 'fileRender.value')
     }
   }
+}
+
+const changePicHandle = (fileParmas: { file: UploadFile, isReadTxt?: boolean } = { file: null, isReadTxt: false}) => {
+  let { file } = fileParmas
+  const picBlob = file.raw
+  const url = window.URL.createObjectURL(picBlob)
+  fileRender.value = url
 }
 
 watch(
@@ -119,9 +127,11 @@ watch(
       case 'xlsx':
       case 'ppt':
       case 'pdf':
-      case 'pic':
       case 'epub':
-        changeFileHandle({ file: props.uploadFile, isReadTxt: false })
+        changeFileHandle({ file: props.uploadFile })
+        break
+      case 'pic':
+        changePicHandle({ file: props.uploadFile })
         break
       case 'code':
       case 'md':
