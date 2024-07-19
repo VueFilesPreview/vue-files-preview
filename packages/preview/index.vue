@@ -26,7 +26,7 @@ const props = withDefaults(
 const currentPreview = ref<IPreview>(PreviewRules[PreviewType.NONE]);
 const syncPreview = (file: UploadFile) => {
   const preview = PreviewRules[getPreviewTypeByFileType(getFileType(file))];
-  getFileRenderByFile(file).then(render => {
+  getFileRenderByFile(file).then((render: String | ArrayBuffer) => {
     preview.fileRender = render;
     currentPreview.value = preview;
   });
