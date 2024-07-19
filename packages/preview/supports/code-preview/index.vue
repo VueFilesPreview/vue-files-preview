@@ -1,7 +1,7 @@
 <template>
   <div>
-    <codemirror v-model="code" :style="{ height: '100vh' }" :autofocus="true"
-      :indent-with-tab="true" :tab-size="2" :extensions="extensions" @ready="handleReady" />
+    <codemirror v-model="code" :style="{ height: '100vh' }" :autofocus="true" :indent-with-tab="true" :tab-size="2"
+      :extensions="extensions" @ready="handleReady" />
   </div>
 </template>
 

@@ -1,5 +1,5 @@
-import {UploadFile} from "element-plus";
-import {FileRenderType, PreviewType} from "../preview.interface";
+import { UploadFile } from "element-plus";
+import { FileRenderType, PreviewType } from "../preview.interface";
 import {
     arrayBufferPreviewTypeList,
     getPreviewTypeByFileType,

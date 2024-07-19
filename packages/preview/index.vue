@@ -1,27 +1,26 @@
 <template>
   <div class="preview">
-    <component :is="currentPreview.component"
-               :type="currentPreview.type"
-               :fileRender="currentPreview.fileRender"></component>
+    <component :is="currentPreview.component" :type="currentPreview.type" :fileRender="currentPreview.fileRender">
+    </component>
   </div>
 </template>
 
 <script lang="ts" setup>
-import {ref, onBeforeMount} from 'vue';
-import type {UploadFile} from 'element-plus';
-import {getPreviewTypeByFileType, PreviewRules} from "./preview.const";
-import {IPreview, PreviewType} from "./preview.interface";
-import {getFileRenderByFile, getFileType} from "./utils/utils";
+import { ref, onBeforeMount } from 'vue';
+import type { UploadFile } from 'element-plus';
+import { getPreviewTypeByFileType, PreviewRules } from "./preview.const";
+import { IPreview, PreviewType } from "./preview.interface";
+import { getFileRenderByFile, getFileType } from "./utils/utils";
 
 const props = withDefaults(
-    defineProps<{
-      url?: String
-      uploadFile: UploadFile
-    }>(),
-    {
-      url: () => null,
-      uploadFile: () => null
-    }
+  defineProps<{
+    url?: String
+    uploadFile: UploadFile
+  }>(),
+  {
+    url: () => null,
+    uploadFile: () => null
+  }
 )
 
 const currentPreview = ref<IPreview>(PreviewRules[PreviewType.NONE]);

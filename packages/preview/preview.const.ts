@@ -6,7 +6,7 @@ import TxtPreview from './supports/txt-preview'
 import CodePreview from './supports/code-preview'
 import MdPreview from './supports/md-preview'
 import EpubPreview from './supports/epub-preview'
-import {IPreview, PreviewType} from "./preview.interface";
+import { IPreview, PreviewType } from "./preview.interface";
 
 /**
  * 根据文件类型获取rule
@@ -23,7 +23,7 @@ export const getPreviewTypeByFileType = (type: string) => {
     return getRuleByFileType(type).type;
 }
 
-export const textFilePreviewTypeList = [PreviewType.CODE,PreviewType.TXT,PreviewType.MD];
+export const textFilePreviewTypeList = [PreviewType.CODE, PreviewType.TXT, PreviewType.MD];
 export const arrayBufferPreviewTypeList = [PreviewType.DOC, PreviewType.DOCX, PreviewType.XLS, PreviewType.XLSX, PreviewType.PPT, PreviewType.PDF, PreviewType.EPUB];
 export const imagePreviewTypeList = [PreviewType.PIC];
 
