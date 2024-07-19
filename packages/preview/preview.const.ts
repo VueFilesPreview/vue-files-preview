@@ -38,7 +38,7 @@ export const PreviewRules: Record<PreviewType, IPreview> = {
         component: CodePreview,
         type: PreviewType.CODE,
         fileRender: undefined,
-        accept: ['html', 'css', 'less', 'scss', 'js', 'json', 'ts', 'vue', 'c', 'cpp', 'java', 'py', 'go', 'php', 'lua', 'rb', 'pl', 'swift', 'vb', 'cs', 'sh'],
+        accept: ['html', 'css', 'less', 'scss', 'js', 'json', 'ts', 'vue', 'c', 'cpp', 'java', 'py', 'go', 'php', 'lua', 'rb', 'pl', 'swift', 'vb', 'cs', 'sh', 'rs', 'vim', 'log', 'lock', 'swift', 'mod'],
     },
     [PreviewType.DOC]: {
         component: DocxPreview,
@@ -74,7 +74,7 @@ export const PreviewRules: Record<PreviewType, IPreview> = {
         component: PicPreview,
         type: PreviewType.PIC,
         fileRender: undefined,
-        accept: ['jpg', 'png', 'jpeg', 'webp', 'gif', 'bmp', 'svg'],
+        accept: ['jpg', 'png', 'jpeg', 'webp', 'gif', 'bmp', 'svg', 'ico'],
     },
     [PreviewType.TXT]: {
         component: TxtPreview,
