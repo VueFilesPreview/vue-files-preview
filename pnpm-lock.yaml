@@ -17,6 +17,9 @@ dependencies:
   '@codemirror/theme-one-dark':
     specifier: ^6.1.2
     version: 6.1.2
+  '@element-plus/icons-vue':
+    specifier: ^2.3.1
+    version: 2.3.1(vue@3.4.31)
   '@vue-office/docx':
     specifier: ^1.6.2
     version: 1.6.2(vue-demi@0.14.6)(vue@3.4.31)

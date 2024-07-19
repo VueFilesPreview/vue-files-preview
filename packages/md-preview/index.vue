@@ -31,8 +31,6 @@ const props = defineProps({
   }
 })
 
-console.log(props.fileRender, 'props.fileRender')
-
 watch(
   () => props.fileRender,
   (val) => {

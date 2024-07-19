@@ -23,6 +23,7 @@
     "@codemirror/lang-javascript": "^6.2.2",
     "@codemirror/lang-json": "^6.0.1",
     "@codemirror/theme-one-dark": "^6.1.2",
+    "@element-plus/icons-vue": "^2.3.1",
     "@vue-office/docx": "^1.6.2",
     "@vue-office/excel": "^1.7.8",
     "@vue-office/pdf": "^2.0.2",

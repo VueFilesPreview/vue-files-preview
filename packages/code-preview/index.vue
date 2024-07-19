@@ -1,9 +1,7 @@
 <template>
   <div>
     <codemirror v-model="code" :style="{ height: '100vh' }" :autofocus="true"
-      :indent-with-tab="true" :tab-size="2" :extensions="extensions" @ready="handleReady"
-      @change="console.log('change', $event)" @focus="console.log('focus', $event)"
-      @blur="console.log('blur', $event)" />
+      :indent-with-tab="true" :tab-size="2" :extensions="extensions" @ready="handleReady" />
   </div>
 </template>
 
@@ -38,7 +36,6 @@ const extensions = [javascript(), json(), html(), oneDark]
 // Codemirror EditorView instance ref
 const codeViewer = shallowRef()
 const handleReady = (payload) => {
-  console.log(payload, 111)
   codeViewer.value = payload.view
 }
 
