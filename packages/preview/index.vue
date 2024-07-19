@@ -10,7 +10,7 @@
       <PdfPreview type="pdf" :fileRender="props.fileRender" />
     </div>
     <div v-if="type === 'pic'">
-      <PicPreview type="pic" :fileRender="typeof props.fileRender == 'string' && props.fileRender" />
+      <PicPreview type="pic" :fileRender="props.fileRender" />
     </div>
     <div v-if="type === 'txt'">
       <TxtPreview type="txt" :fileRender="props.fileRender" />

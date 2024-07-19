@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img :style="{ width: width, height: height }" :src="fileRender" alt="">
+    <img :style="{ width: width, height: height }" :src="fileRender?.toString()" alt="">
   </div>
 </template>
 
@@ -31,7 +31,7 @@ defineProps({
     }
   },
   fileRender: {
-    type: [String]
+    type: [ArrayBuffer, String]
   }
 })
 </script>
