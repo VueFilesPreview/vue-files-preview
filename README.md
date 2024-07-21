@@ -26,7 +26,9 @@
 
 ## 5、audio、video 预览
 
-使用原生或寻找框架
+由于原生的 audio 标签和 video 标签不能支持更多的音频和视频格式
+音频暂时采用 [vue-audio-player](https://github.com/1014156094/vue-audio-player) 实现
+视频暂时采用 [vue3-video-player](https://github.com/LarchLiu/vue3-video-player) 实现
 
 ## 6、image 预览
 
