@@ -7,8 +7,8 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/vue3-preview.js",
-      "require": "./dist/vue3-preview.js"
+      "import": "./dist/vue-files-preview.js",
+      "require": "./dist/vue-files-preview.js"
     }
   },
   "files": [
@@ -19,15 +19,15 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "main": "dist/vue3-preview.js",
-  "module": "dist/vue3-preview.js",
-  "unpkg": "dist/vue3-preview.umd.cjs",
+  "main": "dist/vue-files-preview.js",
+  "module": "dist/vue-files-preview.js",
+  "unpkg": "dist/vue-files-preview.umd.cjs",
   "repository": {
     "type": "git",
-    "url": "https://github.com/SmallTeddy/vue3-preview"
+    "url": "https://github.com/SmallTeddy/vue-files-preview"
   },
   "bugs": {
-    "url": "https://github.com/SmallTeddy/vue3-preview/issues"
+    "url": "https://github.com/SmallTeddy/vue-files-preview/issues"
   },
   "dependencies": {
     "@codemirror/lang-html": "^6.4.9",

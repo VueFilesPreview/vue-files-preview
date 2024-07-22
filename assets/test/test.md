@@ -180,7 +180,7 @@ Markdown 图片语法格式如下：
 * 接着一个方括号，里面放上图片的描述文本,不会显示出来,仅仅用于图片无法显示的时候
 * 接着一个普通括号，里面放上图片的网址，最后还可以用引号包住并加上选择性的 'title' 属性的文字。
 
-![test](https://github.com/SmallTeddy/vue3-preview/blob/main/testFiles/test.jpg)
+![test](https://github.com/SmallTeddy/vue-files-preview/blob/main/testFiles/test.jpg)
 
 ## 链接
 
@@ -285,7 +285,7 @@ Markdown 制作表格使用 | 来分隔不同的单元格，使用 - 来分隔�
 
 <center>测试一下</center>
 
-* **图片居中** `<p align="center"><img src="https://github.com/SmallTeddy/vue3-preview/blob/main/testFiles/test.jpg" width="80%"></p>`  
+* **图片居中** `<p align="center"><img src="https://github.com/SmallTeddy/vue-files-preview/blob/main/testFiles/test.jpg" width="80%"></p>`  
     效果：  
 
 <p align="center"><img src="https://cdn.jsdelivr.net/gh/yang-tian-hub/PictureBed/140158585091919.jpg" width="60%"></p>

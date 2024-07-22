@@ -8,7 +8,7 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      name: 'vue3-preview',
+      name: 'vue-files-preview',
       entry: './packages/index'
     }
   }
