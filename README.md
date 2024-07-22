@@ -76,7 +76,9 @@ using [codemirror](https://github.com/codemirror/dev/) to adapt the code file pr
 
 ## markdown preview
 
-先后试用了[marked](https://github.com/markedjs/marked)和[commonmark.js](https://github.com/commonmark/commonmark.js)工具库简单实现，最终采用[markdown-it](https://github.com/markdown-it/markdown-it)工具库，目前公式等可能还存在问题，后续再优化
+I have tried using both the [marked](https://github.com/markedjs/marked) and [commonmark.js](https://github.com/commonmark/commonmark.js) tool libraries for simple implementation, and ultimately adopted the [markdown-it](https://github.com/markdown-it/markdown-it) tool library
+
+Currently, there may still be issues with formulas and other aspects, which will be further optimized in the future
 
 ![markdown preview](assets/images/readme/md.png)
 
