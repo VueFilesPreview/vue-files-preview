@@ -1,0 +1,21 @@
+name: gen-org-contributors
+
+on:
+    schedule:
+        - cron: '0 0 * * *'
+    workflow_dispatch:
+
+jobs:
+    generate:
+        runs-on: ubuntu-latest
+        if: github.repository == 'SmallTeddy/vue-files-preview'
+        steps:
+            - uses: thinkasany/organize-contributors@master
+              with:
+                  organize_name: SmallTeddy
+                  github_token: ${{ secrets.ACTION_TOKEN }}
+                  png_path: images/contributors.png
+                  json_path: contributors.json
+                  branch: svg
+                  commit_message: 'chore: update contributors'
+                  excludes_list: 'ImgBotApp,github-actions[bot],actions-user,imgbot[bot],dependabot[bot]'
