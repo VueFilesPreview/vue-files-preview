@@ -1,33 +1,52 @@
 {
   "name": "vue-files-preview",
   "author": "SmallTeddy",
-  "private": false,
   "version": "1.0.1",
+  "description": "A tool for previewing files such as doc, excel, pdf, image, markdown, txt, audio, and video and so on.",
+  "private": false,
   "license": "MIT",
-  "type": "module",
+  "files": [
+    "dist/vue-files-preview.js",
+    "dist/vue-files-preview.common.js",
+    "src"
+  ],
+  "keywords": [
+    "vue-file-preview",
+    "vue3-file-preview",
+    "file-preview",
+    "vue-preview",
+    "vue3-preview",
+    "vue3-viewer",
+    "vue3-file-viewer",
+    "vue",
+    "vue3"
+  ],
+  "homepage": "https://github.com/SmallTeddy/vue-files-preview",
   "exports": {
     ".": {
       "import": "./dist/vue-files-preview.js",
       "require": "./dist/vue-files-preview.js"
     }
   },
-  "files": [
-    "dist/*"
-  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
-  "main": "dist/vue-files-preview.js",
-  "module": "dist/vue-files-preview.js",
-  "unpkg": "dist/vue-files-preview.umd.cjs",
+  "main": "dist/vue-files-preview.mjs",
   "repository": {
     "type": "git",
     "url": "https://github.com/SmallTeddy/vue-files-preview"
   },
   "bugs": {
     "url": "https://github.com/SmallTeddy/vue-files-preview/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "style": "dist/index.css",
+  "peerDependencies": {
+    "vue": "^3.2.0"
   },
   "dependencies": {
     "@codemirror/lang-html": "^6.4.9",
@@ -52,5 +71,10 @@
     "@vitejs/plugin-vue": "^5.0.5",
     "sass": "^1.77.6",
     "vite": "^5.3.1"
-  }
+  },
+  "browserslist": [
+    "> 1%",
+    "not ie 11",
+    "not op_mini all"
+  ]
 }
