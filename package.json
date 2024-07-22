@@ -45,7 +45,7 @@
     "markdown-it": "^14.1.0",
     "markdown-it-container": "^4.0.0",
     "markdown-it-footnote": "^4.0.0",
-    "vue": "^3.4.29",
+    "vue": "^3.4.33",
     "vue-codemirror": "^6.1.1",
     "vue-demi": "0.14.8"
   },
