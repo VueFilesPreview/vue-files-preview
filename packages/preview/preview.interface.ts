@@ -1,5 +1,5 @@
 import { Component } from "vue";
-import { getFileRenderType } from "./utils/utils";
+
 // 预览组件类型 有多少预览模式 有多少个项
 export enum PreviewType {
     NONE = 'none', // 无类型

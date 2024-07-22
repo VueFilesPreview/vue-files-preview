@@ -29,75 +29,75 @@ export const imagePreviewTypeList = [PreviewType.PIC];
 
 export const PreviewRules: Record<PreviewType, IPreview> = {
     [PreviewType.NONE]: {
-        component: undefined,
+        component: void 0,
         type: PreviewType.NONE,
-        fileRender: undefined,
+        fileRender: void 0,
         accept: []
     },
     [PreviewType.CODE]: {
         component: CodePreview,
         type: PreviewType.CODE,
-        fileRender: undefined,
+        fileRender: void 0,
         accept: ['html', 'css', 'less', 'scss', 'js', 'json', 'ts', 'vue', 'c', 'cpp', 'java', 'py', 'go', 'php', 'lua', 'rb', 'pl', 'swift', 'vb', 'cs', 'sh', 'rs', 'vim', 'log', 'lock', 'swift', 'mod'],
     },
     [PreviewType.DOC]: {
         component: DocxPreview,
         type: PreviewType.DOC,
-        fileRender: undefined,
+        fileRender: void 0,
         accept: ['doc']
     },
     [PreviewType.DOCX]: {
         component: DocxPreview,
         type: PreviewType.DOCX,
-        fileRender: undefined,
+        fileRender: void 0,
         accept: ['docx']
     },
     [PreviewType.EPUB]: {
         component: EpubPreview,
         type: PreviewType.EPUB,
-        fileRender: undefined,
+        fileRender: void 0,
         accept: ['epub']
     },
     [PreviewType.MD]: {
         component: MdPreview,
         type: PreviewType.MD,
-        fileRender: undefined,
+        fileRender: void 0,
         accept: ['md'],
     },
     [PreviewType.PDF]: {
         component: PdfPreview,
         type: PreviewType.PDF,
-        fileRender: undefined,
+        fileRender: void 0,
         accept: ['pdf'],
     },
     [PreviewType.PIC]: {
         component: PicPreview,
         type: PreviewType.PIC,
-        fileRender: undefined,
+        fileRender: void 0,
         accept: ['jpg', 'png', 'jpeg', 'webp', 'gif', 'bmp', 'svg', 'ico'],
     },
     [PreviewType.TXT]: {
         component: TxtPreview,
         type: PreviewType.TXT,
-        fileRender: undefined,
+        fileRender: void 0,
         accept: ['txt']
     },
     [PreviewType.XLS]: {
-        component: null,
+        component: void 0,
         type: PreviewType.XLS,
-        fileRender: undefined,
+        fileRender: void 0,
         accept: ['xls'],
     },
     [PreviewType.XLSX]: {
         component: XlsxPreview,
         type: PreviewType.XLSX,
-        fileRender: undefined,
+        fileRender: void 0,
         accept: ['xlsx'],
     },
     [PreviewType.PPT]: {
-        component: null,
+        component: void 0,
         type: PreviewType.PPT,
-        fileRender: undefined,
+        fileRender: void 0,
         accept: ['ppt'],
     },
 };
