@@ -1,0 +1,13 @@
+<svg width="1024" height="1024" xmlns="http://www.w3.org/2000/svg" p-id="1252" version="1.1" class="icon" t="1721619615552">
+ <defs>
+  <filter id="svg_4_blur">
+   <feGaussianBlur stdDeviation="0" in="SourceGraphic"/>
+  </filter>
+ </defs>
+ <g>
+  <title>Layer 1</title>
+  <path id="svg_1" p-id="1253" fill="#4CB050" d="m160,0l512,0l256,256l0,704c0,35.3472 -28.6528,64 -64,64l-704,0c-35.3472,0 -64,-28.6528 -64,-64l0,-896c0,-35.3472 28.6528,-64 64,-64z"/>
+  <path id="svg_3" p-id="1255" fill="#B7DFB9" d="m672,0l256,256l-192,0c-35.3472,0 -64,-28.6528 -64,-64l0,-192z"/>
+  <text filter="url(#svg_4_blur)" transform="matrix(7.617 0 0 7.617 -2686.5 -3656.1)" stroke="null" xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="24" stroke-width="0" id="svg_4" y="562.50835" x="388.40778" fill="#ffffff">EPUB</text>
+ </g>
+</svg>
