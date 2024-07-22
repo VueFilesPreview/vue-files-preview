@@ -16,7 +16,7 @@ Project repository: [https://github.com/SmallTeddy/vue-files-preview](https://gi
 
 > From v1.0.0 version
 >
-> it only works for Vue 3
+> It only works for Vue 3
 
 ```bash
 # npm install
