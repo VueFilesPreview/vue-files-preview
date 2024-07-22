@@ -12,7 +12,7 @@ jobs:
         steps:
             - uses: thinkasany/organize-contributors@master
               with:
-                  organize_name: SmallTeddy
+                  organize_name: SmallTeddyTools
                   github_token: ${{ secrets.ACTION_TOKEN }}
                   png_path: images/contributors.png
                   json_path: contributors.json
