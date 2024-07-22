@@ -47,7 +47,7 @@
     "markdown-it-footnote": "^4.0.0",
     "vue": "^3.4.29",
     "vue-codemirror": "^6.1.1",
-    "vue-demi": "0.14.6"
+    "vue-demi": "0.14.8"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.5",
