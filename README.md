@@ -61,7 +61,7 @@ using native img tags to implement image preview
 
 ## code preview
 
-using [codemirror](https://github.com/codemirror/dev/) to adapt the code file preview，support `Angular, CSS, C++, Go, HTML, Java, JavaScript, JSON, Liquid, Markdown, PHP, Python, Rust, Sass, Vue, XML, YAML, C#, CMake, CoffeeScript, Dart, Elixir, GLSL, Haskell, Lua, Objective-C, R, Ruby, Scala, Shell, Swift, TeX, TypeScript, Visual Basic` code file preview
+using [codemirror](https://github.com/codemirror/dev/) to adapt the code file preview, support `Angular, CSS, C++, Go, HTML, Java, JavaScript, JSON, Liquid, Markdown, PHP, Python, Rust, Sass, Vue, XML, YAML, C#, CMake, CoffeeScript, Dart, Elixir, GLSL, Haskell, Lua, Objective-C, R, Ruby, Scala, Shell, Swift, TeX, TypeScript, Visual Basic` code file preview
 
 <p style="text-align: center">
   <img src="assets/images/readme/html.png" alt="html preview" style="width: 20%" />
@@ -84,6 +84,6 @@ Currently, there may still be issues with formulas and other aspects, which will
 
 ## epub preview
 
-using [epubjs](http://epubjs.org/documentation/0.3/) to adapt to EPUB file preview and configure page flipping function for secondary development
+using [epubjs](http://epubjs.org/documentation/0.3/) to adapt to EPUB file preview and configure page-flipping function for secondary development
 
 ![epub preview](assets/images/readme/epub.png)
