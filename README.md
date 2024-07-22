@@ -1,5 +1,11 @@
 # Vue Files Preview
 
+> ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️
+>
+> This repository is still deploying
+>
+> Please wait for the official release
+
 ## Introduce
 
 This project is dedicated to previewing any file format on the `Vue3` framework, supporting file previews such as docx, xlsx, pdf, image, txt, epub, markdown, code, etc
@@ -8,7 +14,9 @@ Project repository: [https://github.com/SmallTeddy/vue-files-preview](https://gi
 
 ## 📦 Install
 
-> 🎩 From v1.0, it only works for Vue 3
+> From v1.0.0 version
+>
+> it only works for Vue 3
 
 ```bash
 # npm install
