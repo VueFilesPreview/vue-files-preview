@@ -1,72 +1,87 @@
 # Vue Files Preview
 
-## 1、项目介绍
+## Introduce
 
-该项目致力于在 `Vue3` 框架上对任意文件格式进行预览，支持docx、xlsx、pdf、image、txt、epub、markdown、code等文件预览
+This project is dedicated to previewing any file format on the `Vue3` framework, supporting file previews such as docx, xlsx, pdf, image, txt, epub, markdown, code, etc
 
-项目仓库地址[github](https://github.com/SmallTeddy/vue-files-preview)
+Project repository: [https://github.com/SmallTeddy/vue-files-preview](https://github.com/SmallTeddy/vue-files-preview)
 
-## 2、测试默认界面
+## 📦 Install
+
+> 🎩 From v1.0, it only works for Vue 3
+
+```bash
+# npm install
+npm i vue-files-preview
+# yarn install
+yarn add vue-files-preview
+# pnpm install
+pnpm i vue-files-preview
+```
+
+## Default
 
 ![测试默认界面](assets/images/readme/default.png)
 
-## 3、doc、xls、ppt 预览
+## doc、xls、ppt preview
 
-待定
+Be pending
 
-## 4、docx、xlsx、pdf 预览
+## docx、xlsx、pdf preview
 
-使用[vue-office](https://github.com/501351981/vue-office?tab=readme-ov-file)，支持word(.docx)、excel(.xlsx)、pdf等各类型office文件预览的vue组件集合，提供一站式office文件预览方案，支持vue2和3，也支持React等非Vue框架。Web-based pdf, excel, word preview library
-
-<p style="text-align: center">
-  <img src="assets/images/readme/docx.png" alt="docx预览" style="width: 30%" />
-  <img src="assets/images/readme/xlsx.png" alt="xlsx预览" style="width: 30%" />
-  <img src="assets/images/readme/pdf.png" alt="pdf预览" style="width: 30%" />
-<p>
-
-## 5、audio、video 预览
-
-由于原生的 audio 标签和 video 标签不能支持更多的音频和视频格式
-音频暂时采用 [vue-audio-player](https://github.com/1014156094/vue-audio-player) 实现
-视频暂时采用 [vue3-video-player](https://github.com/LarchLiu/vue3-video-player) 实现
-
-## 6、image 预览
-
-使用原生或 `element` 中图片预览组件
+Using [Vue Office](https://github.com/501351981/vue-office?tab=readme) to implement preview of doc, excel, and pdf files
 
 <p style="text-align: center">
-  <img src="assets/images/readme/jpg.png" alt="jpg预览" style="width: 30%" />
-  <img src="assets/images/readme/jpeg.png" alt="jpeg预览" style="width: 30%" />
-  <img src="assets/images/readme/png.png" alt="png预览" style="width: 30%" />
+  <img src="assets/images/readme/docx.png" alt="docx preview" style="width: 30%" />
+  <img src="assets/images/readme/xlsx.png" alt="xlsx preview" style="width: 30%" />
+  <img src="assets/images/readme/pdf.png" alt="pdf preview" style="width: 30%" />
 <p>
 
-## 7、txt 预览
+## audio、video preview
 
-![txt预览](assets/images/readme/txt.png)
+Due to the inability of native audio and video tags to support more audio and video formats
 
-## 8、code 预览
+The audio is temporarily using [vue-audio-player](https://github.com/1014156094/vue-audio-player) to implement
 
-使用[codemirror](https://github.com/codemirror/dev/)来适配代码预览，支持Angular, CSS, C++, Go, HTML, Java, JavaScript, JSON, Liquid, Markdown, PHP, Python, Rust, Sass, Vue, XML, YAML, C#, CMake, CoffeeScript, Dart, Elixir, GLSL, Haskell, Lua, Objective-C, R, Ruby, Scala, Shell, Swift, TeX, TypeScript, Visual Basic等代码显示
+The video is temporarily using [vue3-video-player](https://github.com/LarchLiu/vue3-video-player) to implement
+
+## image preview
+
+using native img tags to implement image preview
 
 <p style="text-align: center">
-  <img src="assets/images/readme/html.png" alt="html预览" style="width: 20%" />
-  <img src="assets/images/readme/css.png" alt="css预览" style="width: 20%" />
-  <img src="assets/images/readme/js.png" alt="js预览" style="width: 20%" />
-  <img src="assets/images/readme/py.png" alt="py预览" style="width: 20%" />
-  <img src="assets/images/readme/rs.png" alt="rs预览" style="width: 20%" />
-  <img src="assets/images/readme/go.png" alt="go预览" style="width: 20%" />
-  <img src="assets/images/readme/lua.png" alt="lua预览" style="width: 20%" />
-  <img src="assets/images/readme/c.png" alt="c预览" style="width: 20%" />
+  <img src="assets/images/readme/jpg.png" alt="jpg preview" style="width: 30%" />
+  <img src="assets/images/readme/jpeg.png" alt="jpeg preview" style="width: 30%" />
+  <img src="assets/images/readme/png.png" alt="png preview" style="width: 30%" />
 <p>
 
-## 9、markdown 预览
+## txt preview
+
+![txt preview](assets/images/readme/txt.png)
+
+## code preview
+
+using [codemirror](https://github.com/codemirror/dev/) to adapt the code file preview，support `Angular, CSS, C++, Go, HTML, Java, JavaScript, JSON, Liquid, Markdown, PHP, Python, Rust, Sass, Vue, XML, YAML, C#, CMake, CoffeeScript, Dart, Elixir, GLSL, Haskell, Lua, Objective-C, R, Ruby, Scala, Shell, Swift, TeX, TypeScript, Visual Basic` code file preview
+
+<p style="text-align: center">
+  <img src="assets/images/readme/html.png" alt="html preview" style="width: 20%" />
+  <img src="assets/images/readme/css.png" alt="css preview" style="width: 20%" />
+  <img src="assets/images/readme/js.png" alt="js preview" style="width: 20%" />
+  <img src="assets/images/readme/py.png" alt="py preview" style="width: 20%" />
+  <img src="assets/images/readme/rs.png" alt="rs preview" style="width: 20%" />
+  <img src="assets/images/readme/go.png" alt="go preview" style="width: 20%" />
+  <img src="assets/images/readme/lua.png" alt="lua preview" style="width: 20%" />
+  <img src="assets/images/readme/c.png" alt="c preview" style="width: 20%" />
+<p>
+
+## markdown preview
 
 先后试用了[marked](https://github.com/markedjs/marked)和[commonmark.js](https://github.com/commonmark/commonmark.js)工具库简单实现，最终采用[markdown-it](https://github.com/markdown-it/markdown-it)工具库，目前公式等可能还存在问题，后续再优化
 
-![markdown预览](assets/images/readme/md.png)
+![markdown preview](assets/images/readme/md.png)
 
-## 10、epub 预览
+## epub preview
 
-使用[epubjs](http://epubjs.org/documentation/0.3/)来适配epub文件预览，二次开发配置翻页功能
+using [epubjs](http://epubjs.org/documentation/0.3/) to adapt to EPUB file preview and configure page flipping function for secondary development
 
-![epub预览](assets/images/readme/epub.png)
+![epub preview](assets/images/readme/epub.png)
