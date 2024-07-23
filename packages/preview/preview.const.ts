@@ -38,13 +38,13 @@ export const PreviewRules: Record<PreviewType, IPreview> = {
         component: CodePreview,
         type: PreviewType.CODE,
         fileRender: void 0,
-        accept: ['html', 'css', 'less', 'scss', 'js', 'json', 'ts', 'vue', 'c', 'cpp', 'java', 'py', 'go', 'php', 'lua', 'rb', 'pl', 'swift', 'vb', 'cs', 'sh', 'rs', 'vim', 'log', 'lock', 'swift', 'mod'],
+        accept: ['html', 'css', 'less', 'scss', 'js', 'json', 'ts', 'vue', 'c', 'cpp', 'java', 'py', 'go', 'php', 'lua', 'rb', 'pl', 'swift', 'vb', 'cs', 'sh', 'rs', 'vim', 'log', 'lock', 'swift', 'mod', 'mht', 'mhtml', 'xml'],
     },
     [PreviewType.DOC]: {
         component: DocxPreview,
         type: PreviewType.DOC,
         fileRender: void 0,
-        accept: ['doc']
+        accept: ['doc', 'docm', 'dot', 'dotx', 'dotm'],
     },
     [PreviewType.DOCX]: {
         component: DocxPreview,
@@ -86,7 +86,7 @@ export const PreviewRules: Record<PreviewType, IPreview> = {
         component: void 0,
         type: PreviewType.XLS,
         fileRender: void 0,
-        accept: ['xls'],
+        accept: ['xls', 'csv', 'et'],
     },
     [PreviewType.XLSX]: {
         component: XlsxPreview,
@@ -98,7 +98,7 @@ export const PreviewRules: Record<PreviewType, IPreview> = {
         component: void 0,
         type: PreviewType.PPT,
         fileRender: void 0,
-        accept: ['ppt'],
+        accept: ['ppt', 'pptx'],
     },
     [PreviewType.AUDIO]: {
         component: void 0,
