@@ -5,11 +5,6 @@
   "description": "A tool for previewing files such as doc, excel, pdf, image, markdown, txt, audio, and video and so on.",
   "private": false,
   "license": "MIT",
-  "files": [
-    "dist/vue-files-preview.js",
-    "dist/vue-files-preview.common.js",
-    "src"
-  ],
   "keywords": [
     "vue-file-preview",
     "vue3-file-preview",
@@ -22,18 +17,15 @@
     "vue3"
   ],
   "homepage": "https://github.com/SmallTeddy/vue-files-preview",
-  "exports": {
-    ".": {
-      "import": "./dist/vue-files-preview.js",
-      "require": "./dist/vue-files-preview.js"
-    }
-  },
   "scripts": {
     "dev": "vite",
+    "prebuild": "npm run clean",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "clean": "rimraf dist"
   },
-  "main": "dist/vue-files-preview.mjs",
+  "type": "module",
+  "main": "src/main.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/SmallTeddy/vue-files-preview"
@@ -44,7 +36,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "style": "dist/index.css",
   "peerDependencies": {
     "vue": "^3.2.0"
   },
@@ -71,9 +62,14 @@
     "vue-demi": "0.14.8"
   },
   "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.6",
     "@vitejs/plugin-vue": "^5.0.5",
+    "rimraf": "^6.0.1",
     "sass": "^1.77.6",
-    "vite": "^5.3.1"
+    "ts-node": "^10.9.2",
+    "tslib": "^2.6.3",
+    "vite": "^5.3.1",
+    "vite-plugin-dts": "4.0.0-beta.1"
   },
   "browserslist": [
     "> 1%",

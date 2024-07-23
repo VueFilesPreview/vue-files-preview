@@ -1,16 +1,29 @@
 import Preview from "./preview/index";
-
-const install = app => {
-  app.use(Preview)
-};
-
-const Vue3Preview = {
-  install,
-  Preview
-};
+import {
+    AudioPreview,
+    CodePreview,
+    DocxPreview,
+    EpubPreview,
+    MdPreview,
+    PdfPreview,
+    PicPreview,
+    TxtPreview,
+    VideoPreview,
+    XlsPreview,
+    XlsxPreview
+} from "./preview/supports";
 
 export {
-  Preview
-};
-
-export default Vue3Preview;
+    Preview,
+    AudioPreview,
+    CodePreview,
+    DocxPreview,
+    EpubPreview,
+    MdPreview,
+    PdfPreview,
+    PicPreview,
+    TxtPreview,
+    VideoPreview,
+    XlsPreview,
+    XlsxPreview
+}
