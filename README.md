@@ -51,7 +51,9 @@ use nature audio tag and canvas to implement the audio preview
 
 ![audio preview](assets/images/readme/audio.png)
 
-The video is temporarily using [vue3-video-player](https://github.com/LarchLiu/vue3-video-player) to implement
+use nature video tag to implement the video preview (just support mp4)
+
+![video preview](assets/images/readme/video.png)
 
 ## image preview
 
