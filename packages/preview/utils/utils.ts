@@ -18,6 +18,16 @@ export const getFileType = (file: UploadFile): string => {
 }
 
 /**
+ * 获取文件名
+ * @param file
+ */
+export const getFileName = (file: UploadFile): string => {
+    const fileAllName = file.name
+    const idx = fileAllName.lastIndexOf('.')
+    return fileAllName.substring(0, idx)
+}
+
+/**
  * 通过文件类型获取fileRender
  */
 export const getFileRenderByFile = (file: UploadFile) => {

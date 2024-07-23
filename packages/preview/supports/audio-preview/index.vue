@@ -2,17 +2,14 @@
   <div class="music-container flex flex-column flex-align">
     <div class="audio-container flex-align">
       <div class="flex-column" style="margin-left: 0.5rem;">
-        <div style="font-size: 1.6rem; color: #999; margin-bottom: 0.2rem;">
-          夜曲
-        </div>
-        <div style="font-size: 1.2rem; color: #999;">
-          周杰伦 - 夜曲
+        <div style="font-size: 1.6rem; color: #999;">
+          {{ name }}
         </div>
       </div>
       <div class="mp3Box">
         <audio ref="audioRef" controls :src="fileRender?.toString()" />
       </div>
-      <div style="width: 60px; text-align: center;">
+      <div>
         <el-button link @click="changeMode">
           {{ mode }}
         </el-button>
@@ -29,6 +26,12 @@ import { getCurrentInstance, computed, onMounted, ref } from 'vue'
 
 defineProps({
   url: {
+    type: String,
+    default: () => {
+      return 'none'
+    }
+  },
+  name: {
     type: String,
     default: () => {
       return 'none'

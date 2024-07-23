@@ -2,6 +2,7 @@
   <div class="preview">
     <component
       :is="currentPreview.component"
+      :name="currentPreview.name"
       :type="currentPreview.type"
       :fileRender="currentPreview.fileRender"
     >
@@ -14,7 +15,7 @@ import { ref, onBeforeMount } from 'vue';
 import type { UploadFile } from 'element-plus';
 import { getPreviewTypeByFileType, PreviewRules } from "./preview.const";
 import { IPreview, PreviewType } from "./preview.interface";
-import { getFileRenderByFile, getFileType } from "./utils/utils";
+import { getFileRenderByFile, getFileType, getFileName } from "./utils/utils";
 
 const props = withDefaults(
   defineProps<{
@@ -33,8 +34,8 @@ const syncPreview = (file: UploadFile) => {
   const preview = PreviewRules[getPreviewTypeByFileType(getFileType(file))];
   getFileRenderByFile(file).then((render: String | ArrayBuffer) => {
     preview.fileRender = render;
+    preview.name = getFileName(file);
     currentPreview.value = preview;
-    console.log(currentPreview.value, 'currentPreview.value')
   });
 }
 

@@ -21,6 +21,7 @@ export enum PreviewType {
 export type FileRenderType = 'text' | 'image' | 'arrayBuffer';
 
 export interface IPreview {
+    name: string;
     type: PreviewType;
     accept: Array<string>;
     component: Component;
