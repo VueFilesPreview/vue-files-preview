@@ -100,4 +100,16 @@ export const PreviewRules: Record<PreviewType, IPreview> = {
         fileRender: void 0,
         accept: ['ppt'],
     },
+    [PreviewType.AUDIO]: {
+        component: void 0,
+        type: PreviewType.AUDIO,
+        fileRender: void 0,
+        accept: ['mp3', 'wav', 'wma', 'ogg', 'aac', 'flac'],
+    },
+    [PreviewType.VIDEO]: {
+        component: void 0,
+        type: PreviewType.VIDEO,
+        fileRender: void 0,
+        accept: ['mp4', 'webm', 'ogg', 'mkv', 'avi', 'mpeg', 'flv', 'mov', 'wmv'],
+    },
 };

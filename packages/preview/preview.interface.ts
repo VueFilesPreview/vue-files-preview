@@ -14,6 +14,8 @@ export enum PreviewType {
     MD = 'md', // Markdown
     EPUB = 'epub', // epub
     PPT = 'ppt',
+    AUDIO = 'audio',
+    VIDEO = 'video',
 }
 // render读取时使用的类型
 export type FileRenderType = 'text' | 'image' | 'arrayBuffer';
