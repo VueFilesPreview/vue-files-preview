@@ -47,9 +47,9 @@ Using [Vue Office](https://github.com/501351981/vue-office?tab=readme) to implem
 
 ## audio、video preview
 
-Due to the inability of native audio and video tags to support more audio and video formats
+use nature audio tag and canvas to implement the audio preview
 
-The audio is temporarily using [vue-audio-player](https://github.com/1014156094/vue-audio-player) to implement
+![audio preview](assets/images/readme/audio.png)
 
 The video is temporarily using [vue3-video-player](https://github.com/LarchLiu/vue3-video-player) to implement
 
