@@ -50,7 +50,7 @@ export const PreviewRules: Record<PreviewType, IPreview> = {
         component: void 0,
         type: PreviewType.DOC,
         fileRender: void 0,
-        accept: ['doc', 'docm', 'dot', 'dotx', 'dotm'],
+        accept: ['doc', 'docm', 'dot', 'dotm', 'dotx', 'fodt', 'mht', 'odt', 'ott', 'rtf', 'djvu', 'xps'],
     },
     [PreviewType.DOCX]: {
         name: '',
@@ -58,6 +58,29 @@ export const PreviewRules: Record<PreviewType, IPreview> = {
         type: PreviewType.DOCX,
         fileRender: void 0,
         accept: ['docx']
+    },
+    // scv: spreadsheet
+    [PreviewType.XLS]: {
+        name: '',
+        component: void 0,
+        type: PreviewType.XLS,
+        fileRender: void 0,
+        accept: ['xls', 'csv', 'fods', 'ods', 'ots', 'xlsm', 'xlt', 'xltm',],
+    },
+    [PreviewType.XLSX]: {
+        name: '',
+        component: XlsxPreview,
+        type: PreviewType.XLSX,
+        fileRender: void 0,
+        accept: ['xlsx'],
+    },
+    // ppt: presentation
+    [PreviewType.PPT]: {
+        name: '',
+        component: void 0,
+        type: PreviewType.PPT,
+        fileRender: void 0,
+        accept: ['ppt', 'pptx', 'fodp', 'odp', 'otp', 'pot', 'potm', 'potx', 'pps', 'ppsm', 'ppsx', 'pptm'],
     },
     [PreviewType.EPUB]: {
         name: '',
@@ -93,27 +116,6 @@ export const PreviewRules: Record<PreviewType, IPreview> = {
         type: PreviewType.TXT,
         fileRender: void 0,
         accept: ['txt']
-    },
-    [PreviewType.XLS]: {
-        name: '',
-        component: void 0,
-        type: PreviewType.XLS,
-        fileRender: void 0,
-        accept: ['xls', 'csv', 'et'],
-    },
-    [PreviewType.XLSX]: {
-        name: '',
-        component: XlsxPreview,
-        type: PreviewType.XLSX,
-        fileRender: void 0,
-        accept: ['xlsx'],
-    },
-    [PreviewType.PPT]: {
-        name: '',
-        component: void 0,
-        type: PreviewType.PPT,
-        fileRender: void 0,
-        accept: ['ppt', 'pptx'],
     },
     [PreviewType.AUDIO]: {
         name: '',
