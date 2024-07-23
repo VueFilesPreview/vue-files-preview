@@ -18,7 +18,7 @@ export enum PreviewType {
     VIDEO = 'video',
 }
 // render读取时使用的类型
-export type FileRenderType = 'text' | 'image' | 'arrayBuffer';
+export type FileRenderType = 'text' | 'image' | 'arrayBuffer' | 'video';
 
 export interface IPreview {
     name: string;

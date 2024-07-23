@@ -44,6 +44,9 @@ dependencies:
   highlight.js:
     specifier: ^11.10.0
     version: 11.10.0
+  hls.js:
+    specifier: ^1.5.13
+    version: 1.5.13
   markdown-it:
     specifier: ^14.1.0
     version: 14.1.0
@@ -1111,6 +1114,10 @@ packages:
   /highlight.js@11.10.0:
     resolution: {integrity: sha512-SYVnVFswQER+zu1laSya563s+F8VDGt7o35d4utbamowvUNLLMovFqwCLSocpZTz3MgaSRA1IbqRWZv97dtErQ==}
     engines: {node: '>=12.0.0'}
+    dev: false
+
+  /hls.js@1.5.13:
+    resolution: {integrity: sha512-xRgKo84nsC7clEvSfIdgn/Tc0NOT+d7vdiL/wvkLO+0k0juc26NRBPPG1SfB8pd5bHXIjMW/F5VM8VYYkOYYdw==}
     dev: false
 
   /hyperformula@2.7.1:

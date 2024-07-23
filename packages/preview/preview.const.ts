@@ -27,7 +27,8 @@ export const getPreviewTypeByFileType = (type: string) => {
 
 export const textFilePreviewTypeList = [PreviewType.CODE, PreviewType.TXT, PreviewType.MD];
 export const arrayBufferPreviewTypeList = [PreviewType.DOC, PreviewType.DOCX, PreviewType.XLS, PreviewType.XLSX, PreviewType.PPT, PreviewType.PDF, PreviewType.EPUB];
-export const imagePreviewTypeList = [PreviewType.PIC, PreviewType.AUDIO, PreviewType.VIDEO];
+export const imagePreviewTypeList = [PreviewType.PIC, PreviewType.AUDIO];
+export const videoPreviewTypeList = [PreviewType.VIDEO];
 
 export const PreviewRules: Record<PreviewType, IPreview> = {
     [PreviewType.NONE]: {

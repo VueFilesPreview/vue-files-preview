@@ -62,6 +62,7 @@
     "epubjs": "^0.3.93",
     "handsontable": "^14.4.0",
     "highlight.js": "^11.10.0",
+    "hls.js": "^1.5.13",
     "markdown-it": "^14.1.0",
     "markdown-it-container": "^4.0.0",
     "markdown-it-footnote": "^4.0.0",

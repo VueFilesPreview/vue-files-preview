@@ -4,7 +4,8 @@ import {
     arrayBufferPreviewTypeList,
     getPreviewTypeByFileType,
     imagePreviewTypeList,
-    textFilePreviewTypeList
+    textFilePreviewTypeList,
+    videoPreviewTypeList
 } from "../preview.const";
 
 /**
@@ -51,7 +52,10 @@ export const getFileRenderByFile = (file: UploadFile) => {
             case "image":
                 resolve(window.URL.createObjectURL(raw));
                 break;
-
+            case "video":
+                const videoBlobUrl = URL.createObjectURL(new Blob([raw], { type: 'video/mp4' }));
+                resolve(videoBlobUrl);
+                break
         }
     })
 }
@@ -64,6 +68,7 @@ export const getFileRenderType = (previewType: PreviewType): FileRenderType => {
         "text": textFilePreviewTypeList.includes(previewType),
         "arrayBuffer": arrayBufferPreviewTypeList.includes(previewType),
         "image": imagePreviewTypeList.includes(previewType),
+        "video": videoPreviewTypeList.includes(previewType),
     }
     return Object.keys(types)!.find((key) => types[key]) as FileRenderType;
 }

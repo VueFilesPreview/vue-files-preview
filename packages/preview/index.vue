@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onBeforeMount } from 'vue';
+import { shallowRef,  onBeforeMount } from 'vue';
 import type { UploadFile } from 'element-plus';
 import { getPreviewTypeByFileType, PreviewRules } from "./preview.const";
 import { IPreview, PreviewType } from "./preview.interface";
@@ -28,7 +28,7 @@ const props = withDefaults(
   }
 )
 
-const currentPreview = ref<IPreview>(PreviewRules[PreviewType.NONE]);
+const currentPreview = shallowRef<IPreview>(PreviewRules[PreviewType.NONE]);
 
 const syncPreview = (file: UploadFile) => {
   const preview = PreviewRules[getPreviewTypeByFileType(getFileType(file))];
