@@ -1,6 +1,10 @@
 <template>
   <div class="preview">
-    <component :is="currentPreview.component" :type="currentPreview.type" :fileRender="currentPreview.fileRender">
+    <component
+      :is="currentPreview.component"
+      :type="currentPreview.type"
+      :fileRender="currentPreview.fileRender"
+    >
     </component>
   </div>
 </template>
