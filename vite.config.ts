@@ -2,19 +2,17 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import typescript from '@rollup/plugin-typescript';
 import {copyPackageJsonPlugin} from "./copy.plugin";
-import dts from "vite-plugin-dts";
 
 // Vite 配置
 export default defineConfig({
   plugins: [
     vue(),
-    dts({ entryRoot: './packages' }),
     copyPackageJsonPlugin()
   ],
   build: {
     sourcemap: true,
     lib: {
-      name: 'VueFilesPreview',
+      name: 'vue-files-preview',
       entry: './packages/index.ts',
       formats: ['es', 'umd']
     },
@@ -23,18 +21,24 @@ export default defineConfig({
         globals: {
           vue: 'Vue'
         },
-        entryFileNames: '[name].[format].js',
-        assetFileNames: '[name].[ext]'
+        entryFileNames: '[format]/[name].[format].js',
+        assetFileNames: 'assets/[name].[ext]'
       },
       external: ['vue'],
       plugins: [
         typescript({
           tsconfig: './tsconfig.json',
           declaration: true,
-          declarationDir: 'dist',
-          rootDir: 'packages',
+          declarationDir: 'dist/types',
+          rootDir: './packages',
+          include: [
+            "./**/*.ts",
+            "./**/*.d.ts",
+            "./**/*.tsx",
+            "./**/*.vue"
+          ],
           exclude: ['./node_modules/**', './dist/**'],
-          sourceMap: true
+          sourceMap: true,
         }),
 
       ]

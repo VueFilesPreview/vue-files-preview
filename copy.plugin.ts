@@ -11,14 +11,14 @@ export const copyPackageJsonPlugin = (): Plugin => {
             const distPackageJson = {
                 name: packageJson.name,
                 version: packageJson.version,
-                main: './index.umd.js',
-                module: './index.es.js',
-                types: './index.d.ts',
+                main: './umd/index.umd.js',
+                module: './es/index.es.js',
+                types: './types/index.d.ts',
                 files:  [
                     './*.js',
                     './*.d.ts',
                     './types/*.d.ts',
-                    './style.css'
+                    './assets/*'
                 ],
                 peerDependencies: packageJson.peerDependencies,
                 dependencies: packageJson.dependencies,

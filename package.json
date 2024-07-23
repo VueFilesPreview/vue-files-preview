@@ -19,9 +19,12 @@
   "homepage": "https://github.com/SmallTeddy/vue-files-preview",
   "scripts": {
     "dev": "vite",
+    "prebuild": "npm run clean",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "clean": "rimraf dist"
   },
+  "type": "module",
   "main": "src/main.ts",
   "repository": {
     "type": "git",

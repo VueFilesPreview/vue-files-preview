@@ -22,11 +22,6 @@
     "declarationDir": "./dist",
     "outDir": "./dist",
     "rootDir": "./",
-    "paths": {
-      "~/*": [
-        "./packages/*"
-      ]
-    }
   },
   "include": [
     "src/**/*.ts",
