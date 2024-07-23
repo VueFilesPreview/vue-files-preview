@@ -6,6 +6,8 @@ import TxtPreview from './supports/txt-preview'
 import CodePreview from './supports/code-preview'
 import MdPreview from './supports/md-preview'
 import EpubPreview from './supports/epub-preview'
+import AudioPreview from './supports/audio-preview'
+import VideoPreview from './supports/video-preview'
 import { IPreview, PreviewType } from "./preview.interface";
 
 /**
@@ -25,7 +27,7 @@ export const getPreviewTypeByFileType = (type: string) => {
 
 export const textFilePreviewTypeList = [PreviewType.CODE, PreviewType.TXT, PreviewType.MD];
 export const arrayBufferPreviewTypeList = [PreviewType.DOC, PreviewType.DOCX, PreviewType.XLS, PreviewType.XLSX, PreviewType.PPT, PreviewType.PDF, PreviewType.EPUB];
-export const imagePreviewTypeList = [PreviewType.PIC];
+export const imagePreviewTypeList = [PreviewType.PIC, PreviewType.AUDIO, PreviewType.VIDEO];
 
 export const PreviewRules: Record<PreviewType, IPreview> = {
     [PreviewType.NONE]: {
@@ -41,7 +43,7 @@ export const PreviewRules: Record<PreviewType, IPreview> = {
         accept: ['html', 'css', 'less', 'scss', 'js', 'json', 'ts', 'vue', 'c', 'cpp', 'java', 'py', 'go', 'php', 'lua', 'rb', 'pl', 'swift', 'vb', 'cs', 'sh', 'rs', 'vim', 'log', 'lock', 'swift', 'mod', 'mht', 'mhtml', 'xml'],
     },
     [PreviewType.DOC]: {
-        component: DocxPreview,
+        component: void 0,
         type: PreviewType.DOC,
         fileRender: void 0,
         accept: ['doc', 'docm', 'dot', 'dotx', 'dotm'],
@@ -101,13 +103,13 @@ export const PreviewRules: Record<PreviewType, IPreview> = {
         accept: ['ppt', 'pptx'],
     },
     [PreviewType.AUDIO]: {
-        component: void 0,
+        component: AudioPreview,
         type: PreviewType.AUDIO,
         fileRender: void 0,
         accept: ['mp3', 'wav', 'wma', 'ogg', 'aac', 'flac'],
     },
     [PreviewType.VIDEO]: {
-        component: void 0,
+        component: VideoPreview,
         type: PreviewType.VIDEO,
         fileRender: void 0,
         accept: ['mp4', 'webm', 'ogg', 'mkv', 'avi', 'mpeg', 'flv', 'mov', 'wmv'],

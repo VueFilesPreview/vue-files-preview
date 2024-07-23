@@ -1,7 +1,6 @@
 <template>
   <div class="music-container flex flex-column flex-align">
     <div class="audio-container flex-align">
-      <!-- <img src="../../assets/十一月的肖邦.png" alt="十一月的肖邦" style="width: 5.2rem;"> -->
       <div class="flex-column" style="margin-left: 0.5rem;">
         <div style="font-size: 1.6rem; color: #999; margin-bottom: 0.2rem;">
           夜曲
@@ -11,20 +10,13 @@
         </div>
       </div>
       <div class="mp3Box">
-        <audio ref="audioRef" controls :src="musicUrl" />
+        <audio ref="audioRef" controls :src="fileRender?.toString()" />
       </div>
       <div style="width: 60px; text-align: center;">
         <el-button link @click="changeMode">
           {{ mode }}
         </el-button>
       </div>
-    </div>
-    <div ref="containerRef" class="lrc-container">
-      <ul ref="ulRef" class="lrc-list">
-        <li v-for="lrcItem in lrcLines" :key="lrcItem.time">
-          {{ lrcItem.words }}
-        </li>
-      </ul>
     </div>
     <div class="cvs-container">
       <canvas ref="canvasRef" />
@@ -34,10 +26,26 @@
 
 <script lang='ts' setup>
 import { getCurrentInstance, computed, onMounted, ref } from 'vue'
-import musicUrl from '../../../../assets/test/夜曲.mp3'
+
+defineProps({
+  url: {
+    type: String,
+    default: () => {
+      return 'none'
+    }
+  },
+  type: {
+    type: String,
+    default: () => {
+      return 'none'
+    }
+  },
+  fileRender: {
+    type: [ArrayBuffer, String]
+  }
+})
 
 const { proxy } = getCurrentInstance() as any
-const lrcLines: any = ref([])
 
 const audioDom = ref()
 const ulDom = ref()
@@ -69,37 +77,6 @@ const liHeight = computed(() => {
 const maxOffset = computed(() => {
   return ulDom.value?.clientHeight - containerHeight.value
 })
-
-/**
- * 获取当前播放时间
- */
-function findIndex() {
-  const curTime = audioDom.value.currentTime
-  for (let i = 0; i < lrcLines.value.length; i++) {
-    if (curTime < lrcLines.value[i].time)
-      return i - 1
-  }
-  return lrcLines.value.length - 1
-}
-
-/**
- * 设置偏移
- */
-function setOffset() {
-  const index = findIndex()
-  let offset = liHeight.value * index + liHeight.value / 2 - containerHeight.value / 2
-  offset = offset < 0 ? 0 : offset
-  offset = offset > maxOffset.value ? maxOffset.value : offset
-  ulDom.value.style.transform = `translateY(-${offset}px)`
-  // 去掉之前的 active 样式
-  let li = ulDom.value.querySelector('.active')
-  if (li)
-    li.classList.remove('active')
-
-  li = ulDom.value.children[index]
-  if (li)
-    li.classList.add('active')
-}
 
 /**
  * 初始化canvas
@@ -196,13 +173,12 @@ onMounted(() => {
   audioPlay() // 音频播放
   initCanvas() // 初始化 canvas
   drawWavy() // 绘制波浪
-  audioDom.value.addEventListener('timeupdate', setOffset) // 根据歌曲播放设置歌词偏移
 })
 </script>
 
 <style scoped lang="scss">
 .music-container {
-  height: calc(100vh - 60px);
+  height: 100vh;
   background: #1b1d1d;
 
   audio {
@@ -280,5 +256,16 @@ onMounted(() => {
   .cvs-container {
     padding-top: 10px;
   }
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-align {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

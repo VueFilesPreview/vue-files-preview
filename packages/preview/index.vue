@@ -34,6 +34,7 @@ const syncPreview = (file: UploadFile) => {
   getFileRenderByFile(file).then((render: String | ArrayBuffer) => {
     preview.fileRender = render;
     currentPreview.value = preview;
+    console.log(currentPreview.value, 'currentPreview.value')
   });
 }
 
