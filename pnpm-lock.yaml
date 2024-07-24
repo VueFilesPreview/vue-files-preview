@@ -23,6 +23,9 @@ dependencies:
   '@handsontable/vue3':
     specifier: ^14.4.0
     version: 14.4.0(handsontable@14.4.0)(vue@3.4.33)
+  '@pdftron/pdfjs-express':
+    specifier: ^8.7.5
+    version: 8.7.5
   '@vue-office/docx':
     specifier: ^1.6.2
     version: 1.6.2(vue-demi@0.14.8)(vue@3.4.33)
@@ -518,6 +521,10 @@ packages:
     resolution: {integrity: sha512-CHsKq8DMKBf9b3yXPDIU4DbH+ZJd/sJdYOW2llbW/HudP5u0VS6Bfq1hLYfgU7uAYGFIyGGQIsSOXGPEErZiJw==}
     dependencies:
       '@lezer/common': 1.2.1
+    dev: false
+
+  /@pdftron/pdfjs-express@8.7.5:
+    resolution: {integrity: sha512-e0jlnsaK0WXx4Wg/IRuBlfBfhrRCR9o48SzjKxhOxT+PrLIy2hFVnXU0MlozSNb+VEcz3jV2K63yDuaHd41QVQ==}
     dev: false
 
   /@rollup/rollup-android-arm-eabi@4.18.1:

@@ -26,8 +26,9 @@ export const getPreviewTypeByFileType = (type: string) => {
 }
 
 export const textFilePreviewTypeList = [PreviewType.CODE, PreviewType.TXT, PreviewType.MD];
-export const arrayBufferPreviewTypeList = [PreviewType.DOC, PreviewType.DOCX, PreviewType.XLS, PreviewType.XLSX, PreviewType.PPT, PreviewType.PDF, PreviewType.EPUB];
+export const arrayBufferPreviewTypeList = [PreviewType.DOC, PreviewType.DOCX, PreviewType.XLS, PreviewType.XLSX, PreviewType.PPT, PreviewType.EPUB];
 export const imagePreviewTypeList = [PreviewType.PIC, PreviewType.AUDIO];
+export const pdfPreviewTypeList = [PreviewType.PDF];
 export const videoPreviewTypeList = [PreviewType.VIDEO];
 
 export const PreviewRules: Record<PreviewType, IPreview> = {
@@ -82,6 +83,13 @@ export const PreviewRules: Record<PreviewType, IPreview> = {
         fileRender: void 0,
         accept: ['ppt', 'pptx', 'fodp', 'odp', 'otp', 'pot', 'potm', 'potx', 'pps', 'ppsm', 'ppsx', 'pptm'],
     },
+    [PreviewType.PDF]: {
+        name: '',
+        component: PdfPreview,
+        type: PreviewType.PDF,
+        fileRender: void 0,
+        accept: ['pdf'],
+    },
     [PreviewType.EPUB]: {
         name: '',
         component: EpubPreview,
@@ -95,13 +103,6 @@ export const PreviewRules: Record<PreviewType, IPreview> = {
         type: PreviewType.MD,
         fileRender: void 0,
         accept: ['md'],
-    },
-    [PreviewType.PDF]: {
-        name: '',
-        component: PdfPreview,
-        type: PreviewType.PDF,
-        fileRender: void 0,
-        accept: ['pdf'],
     },
     [PreviewType.PIC]: {
         name: '',

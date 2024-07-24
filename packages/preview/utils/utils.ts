@@ -4,6 +4,7 @@ import {
     arrayBufferPreviewTypeList,
     getPreviewTypeByFileType,
     imagePreviewTypeList,
+    pdfPreviewTypeList,
     textFilePreviewTypeList,
     videoPreviewTypeList
 } from "../preview.const";
@@ -36,21 +37,27 @@ export const getFileRenderByFile = (file: UploadFile) => {
     const renderType = getFileRenderType(previewType);
     return new Promise(resolve => {
         const raw = file.raw;
+        const  fileReader = new FileReader()
         switch (renderType) {
             case "text":
-            case "arrayBuffer":
-                const fileReader = new FileReader()
-                if (renderType == 'text') {
-                    fileReader.readAsText(raw)
-                } else {
-                    fileReader.readAsArrayBuffer(raw)
+                fileReader.readAsText(raw)
+                fileReader.onload = () => {
+                    resolve(fileReader.result);
                 }
+                break;
+            case "arrayBuffer":
+                fileReader.readAsArrayBuffer(raw)
                 fileReader.onload = () => {
                     resolve(fileReader.result);
                 }
                 break;
             case "image":
                 resolve(window.URL.createObjectURL(raw));
+                break;
+            case "pdf":
+                // const pdfBlobUrl = new Blob([raw], { type: 'application/pdf' });
+                const pdfBlobUrl = raw;
+                resolve(pdfBlobUrl);
                 break;
             case "video":
                 const videoBlobUrl = URL.createObjectURL(new Blob([raw], { type: 'video/mp4' }));
@@ -68,6 +75,7 @@ export const getFileRenderType = (previewType: PreviewType): FileRenderType => {
         "text": textFilePreviewTypeList.includes(previewType),
         "arrayBuffer": arrayBufferPreviewTypeList.includes(previewType),
         "image": imagePreviewTypeList.includes(previewType),
+        "pdf": pdfPreviewTypeList.includes(previewType),
         "video": videoPreviewTypeList.includes(previewType),
     }
     return Object.keys(types)!.find((key) => types[key]) as FileRenderType;

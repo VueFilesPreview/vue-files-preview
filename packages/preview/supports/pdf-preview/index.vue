@@ -1,20 +1,25 @@
 <template>
   <div>
     <vue-office-pdf :src="fileRender" style="height: 100vh" @rendered="renderedHandler" @error="errorHandler" />
+    <!-- <div id="pdf-preview-box"></div> -->
   </div>
 </template>
 
 <script lang='ts' setup>
-import VueOfficePdf from '@vue-office/pdf'
+import { onMounted, shallowRef } from 'vue'
+// import VueOfficePdf from '@vue-office/pdf'
+// import WebViewer from '@pdftron/pdfjs-express'
 
-defineProps({
+const pdfViewer = shallowRef();
+
+const props = defineProps({
   url: {
     type: String,
     default: () => {
       return 'none'
     }
   },
-  type: {
+  name: {
     type: String,
     default: () => {
       return 'none'
@@ -32,6 +37,36 @@ const renderedHandler = () => {
 const errorHandler = () => {
   console.log("渲染失败")
 }
+
+const initPdf = () => {
+  console.log(props.fileRender)
+  WebViewer({
+    // path: props.fileRender,
+    // initialDoc: props.fileRender,
+  }, pdfViewer.value).then((instance) => {
+    instance.UI.loadDocument(props.fileRender, { filename: `${props.name}.pdf` });
+    instance.UI.setTheme('dark');
+    // instance.UI.disableElements(['leftPanel', 'leftPanelButton']);
+    const { documentViewer, annotationManager, Annotations } = instance.Core;
+    documentViewer.addEventListener('documentLoaded', () => {
+      const rectangleAnnot = new Annotations.RectangleAnnotation();
+      rectangleAnnot.PageNumber = 1;
+      rectangleAnnot.X = 100;
+      rectangleAnnot.Y = 150;
+      rectangleAnnot.Width = 200;
+      rectangleAnnot.Height = 50;
+
+      annotationManager.addAnnotation(rectangleAnnot);
+    })
+  });
+}
+
+onMounted(() => {
+  // pdfViewer.value = document.getElementById('pdf-preview-box');
+  // if (pdfViewer.value) {
+  //   initPdf()
+  // }
+})
 </script>
 
 <style scoped lang='scss'></style>
