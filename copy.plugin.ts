@@ -17,7 +17,7 @@ export const copyPackageJsonPlugin = (): Plugin => {
                 files:  [
                     './',
                 ],
-                peerDependencies: packageJson.peerDependencies,
+                // peerDependencies: packageJson.peerDependencies,
                 dependencies: packageJson.dependencies,
                 description: packageJson.description,
                 keywords: packageJson.keywords,

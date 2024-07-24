@@ -1,12 +1,12 @@
 <template>
   <div>
-    <vue-office-pdf :src="fileRender" style="height: 100vh" @rendered="renderedHandler" @error="errorHandler" />
-    <!-- <div id="pdf-preview-box"></div> -->
+    <vue-office-pdf :src="fileRender" style="height: 100vh" @rendered="renderedHandler" @error="errorHandler"/>
+    <div id="pdf-preview-box"></div>
   </div>
 </template>
 
 <script lang='ts' setup>
-import { onMounted, shallowRef } from 'vue'
+import {onMounted, shallowRef} from 'vue'
 import VueOfficePdf from '@vue-office/pdf'
 // import WebViewer from '@pdftron/pdfjs-express'
 
