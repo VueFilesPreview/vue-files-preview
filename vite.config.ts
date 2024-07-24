@@ -33,6 +33,6 @@ export default defineConfig({
             },
             external: ['vue'],
         },
-        minify: true
+        minify: false
     }
 });
