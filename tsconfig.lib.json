@@ -15,9 +15,6 @@
       "esnext",
       "dom"
     ],
-    "types": [
-      "element-plus/global"
-    ],
     "declaration": true,
     "declarationDir": "./dist",
     "outDir": "./dist",

@@ -3,12 +3,12 @@
   <div class="epub-box">
     <div class="epub-viewer" id="epub-viewer"></div>
     <div class="footer">
-      <el-button type="primary" @click="prevPage">
+      <button @click="prevPage">
         上一页
-      </el-button>
-      <el-button type="primary" @click="nextPage">
+      </button>
+      <button @click="nextPage">
         下一页
-      </el-button>
+      </button>
     </div>
   </div>
 </template>

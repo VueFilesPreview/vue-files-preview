@@ -1,4 +1,3 @@
-import { UploadFile } from "element-plus";
 import { FileRenderType, PreviewType } from "../preview.interface";
 import {
     arrayBufferPreviewTypeList,
@@ -13,7 +12,7 @@ import {
  * 获取文件类型
  * @param file
  */
-export const getFileType = (file: UploadFile): string => {
+export const getFileType = (file: File): string => {
     const fileName = file.name
     const idx = fileName.lastIndexOf('.')
     return fileName.substring(idx + 1)
@@ -23,7 +22,7 @@ export const getFileType = (file: UploadFile): string => {
  * 获取文件名
  * @param file
  */
-export const getFileName = (file: UploadFile): string => {
+export const getFileName = (file: File): string => {
     const fileAllName = file.name
     const idx = fileAllName.lastIndexOf('.')
     return fileAllName.substring(0, idx)
@@ -32,7 +31,7 @@ export const getFileName = (file: UploadFile): string => {
 /**
  * 通过文件类型获取fileRender
  */
-export const getFileRenderByFile = (file: UploadFile) => {
+export const getFileRenderByFile = (file: any) => {
     const previewType = getPreviewTypeByFileType(getFileType(file));
     const renderType = getFileRenderType(previewType);
     return new Promise(resolve => {

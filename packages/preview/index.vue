@@ -12,7 +12,6 @@
 
 <script lang="ts" setup>
 import { shallowRef,  onBeforeMount } from 'vue';
-import type { UploadFile } from 'element-plus';
 import { getPreviewTypeByFileType, PreviewRules } from "./preview.const";
 import { IPreview, PreviewType } from "./preview.interface";
 import { getFileRenderByFile, getFileType, getFileName } from "./utils/utils";
@@ -20,7 +19,7 @@ import { getFileRenderByFile, getFileType, getFileName } from "./utils/utils";
 const props = withDefaults(
   defineProps<{
     url?: String
-    uploadFile: UploadFile
+    uploadFile: File
   }>(),
   {
     url: () => null,
@@ -30,7 +29,7 @@ const props = withDefaults(
 
 const currentPreview = shallowRef<IPreview>(PreviewRules[PreviewType.NONE]);
 
-const syncPreview = (file: UploadFile) => {
+const syncPreview = (file: File) => {
   const preview = PreviewRules[getPreviewTypeByFileType(getFileType(file))];
   getFileRenderByFile(file).then((render: String | ArrayBuffer) => {
     preview.fileRender = render;
