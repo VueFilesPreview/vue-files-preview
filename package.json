@@ -18,11 +18,8 @@
   ],
   "homepage": "https://github.com/SmallTeddy/vue-files-preview",
   "scripts": {
-    "predev": "pnpm remove vue-files-preview||true||echo 'Not matter the error!'",
-    "dev": "vite",
     "prebuild": "npm run clean",
     "build": "vite build",
-    "localDept": "pnpm run build && pnpm add ./dist",
     "preview": "vite preview",
     "clean": "rimraf dist",
     "unpub": "npm unpublish",
