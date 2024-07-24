@@ -15,10 +15,7 @@ export const copyPackageJsonPlugin = (): Plugin => {
                 module: './es/index.es.js',
                 types: './types/index.d.ts',
                 files:  [
-                    './*.js',
-                    './*.d.ts',
-                    './types/*.d.ts',
-                    './assets/*'
+                    './',
                 ],
                 peerDependencies: packageJson.peerDependencies,
                 dependencies: packageJson.dependencies,

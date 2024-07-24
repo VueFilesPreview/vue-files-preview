@@ -30,7 +30,8 @@ export default defineConfig({
           tsconfig: './tsconfig.json',
           declaration: true,
           declarationDir: 'dist/types',
-          rootDir: './packages',
+          emitDeclarationOnly: true,
+          rootDir: 'packages',
           include: [
             "./**/*.ts",
             "./**/*.d.ts",
@@ -43,6 +44,6 @@ export default defineConfig({
 
       ]
     },
-    minify: false
+    minify: true
   }
 });
