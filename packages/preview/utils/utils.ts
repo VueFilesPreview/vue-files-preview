@@ -56,8 +56,12 @@ export const getFileRenderByFile = (file: UploadFile) => {
                 break;
             case "pdf":
                 // const pdfBlobUrl = new Blob([raw], { type: 'application/pdf' });
-                const pdfBlobUrl = raw;
-                resolve(pdfBlobUrl);
+                // const pdfBlobUrl = raw;
+                // resolve(pdfBlobUrl);
+                fileReader.readAsArrayBuffer(raw)
+                fileReader.onload = () => {
+                    resolve(fileReader.result);
+                }
                 break;
             case "video":
                 const videoBlobUrl = URL.createObjectURL(new Blob([raw], { type: 'video/mp4' }));

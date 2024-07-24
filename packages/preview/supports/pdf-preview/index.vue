@@ -7,7 +7,7 @@
 
 <script lang='ts' setup>
 import { onMounted, shallowRef } from 'vue'
-// import VueOfficePdf from '@vue-office/pdf'
+import VueOfficePdf from '@vue-office/pdf'
 // import WebViewer from '@pdftron/pdfjs-express'
 
 const pdfViewer = shallowRef();
@@ -39,26 +39,25 @@ const errorHandler = () => {
 }
 
 const initPdf = () => {
-  console.log(props.fileRender)
-  WebViewer({
-    // path: props.fileRender,
-    // initialDoc: props.fileRender,
-  }, pdfViewer.value).then((instance) => {
-    instance.UI.loadDocument(props.fileRender, { filename: `${props.name}.pdf` });
-    instance.UI.setTheme('dark');
-    // instance.UI.disableElements(['leftPanel', 'leftPanelButton']);
-    const { documentViewer, annotationManager, Annotations } = instance.Core;
-    documentViewer.addEventListener('documentLoaded', () => {
-      const rectangleAnnot = new Annotations.RectangleAnnotation();
-      rectangleAnnot.PageNumber = 1;
-      rectangleAnnot.X = 100;
-      rectangleAnnot.Y = 150;
-      rectangleAnnot.Width = 200;
-      rectangleAnnot.Height = 50;
+  // WebViewer({
+  //   // path: props.fileRender,
+  //   // initialDoc: props.fileRender,
+  // }, pdfViewer.value).then((instance) => {
+  //   instance.UI.loadDocument(props.fileRender, { filename: `${props.name}.pdf` });
+  //   instance.UI.setTheme('dark');
+  //   // instance.UI.disableElements(['leftPanel', 'leftPanelButton']);
+  //   const { documentViewer, annotationManager, Annotations } = instance.Core;
+  //   documentViewer.addEventListener('documentLoaded', () => {
+  //     const rectangleAnnot = new Annotations.RectangleAnnotation();
+  //     rectangleAnnot.PageNumber = 1;
+  //     rectangleAnnot.X = 100;
+  //     rectangleAnnot.Y = 150;
+  //     rectangleAnnot.Width = 200;
+  //     rectangleAnnot.Height = 50;
 
-      annotationManager.addAnnotation(rectangleAnnot);
-    })
-  });
+  //     annotationManager.addAnnotation(rectangleAnnot);
+  //   })
+  // });
 }
 
 onMounted(() => {
