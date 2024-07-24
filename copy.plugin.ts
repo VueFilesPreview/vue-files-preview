@@ -1,6 +1,6 @@
-import {Plugin} from 'vite';
-import {writeFile, copyFileSync} from 'fs';
-import {join} from 'path';
+import { Plugin } from 'vite';
+import { writeFile, copyFileSync } from 'fs';
+import { join } from 'path';
 
 // 自定义插件来复制并修改 package.json
 export const copyPackageJsonPlugin = (): Plugin => {
@@ -14,7 +14,7 @@ export const copyPackageJsonPlugin = (): Plugin => {
                 main: './umd/index.umd.js',
                 module: './es/index.es.js',
                 types: './types/index.d.ts',
-                files:  [
+                files: [
                     './',
                 ],
                 // peerDependencies: packageJson.peerDependencies,

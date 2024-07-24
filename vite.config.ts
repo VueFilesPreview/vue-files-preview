@@ -1,6 +1,6 @@
-import {defineConfig} from 'vite'
+import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import {copyPackageJsonPlugin} from "./copy.plugin";
+import { copyPackageJsonPlugin } from "./copy.plugin";
 import dts from "vite-plugin-dts"
 import tsconfigPaths from "vite-tsconfig-paths";
 // Vite 配置
