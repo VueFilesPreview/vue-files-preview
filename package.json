@@ -26,7 +26,7 @@
     "preview": "vite preview",
     "clean": "rimraf dist",
     "unpub": "npm unpublish",
-    "pub": "cd dist && npm publish --access=public --registry http://npm.runtongqiuben.com"
+    "pub": "cd dist && npm publish --access=public"
   },
   "repository": {
     "type": "git",
