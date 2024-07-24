@@ -1,6 +1,6 @@
 import { App } from 'vue';
-import Preview from './preview/index.vue';
 import {
+    VueFilesPreview,
     AudioPreview,
     CodePreview,
     DocxPreview,
@@ -15,7 +15,7 @@ import {
 } from './preview/supports';
 
 const components = {
-    Preview,
+    VueFilesPreview,
     AudioPreview,
     CodePreview,
     DocxPreview,
@@ -36,7 +36,7 @@ const install = (app: App) => {
 };
 
 export {
-    Preview,
+    VueFilesPreview,
     AudioPreview,
     CodePreview,
     DocxPreview,
@@ -50,6 +50,4 @@ export {
     XlsxPreview
 };
 
-export default {
-    install
-};
+export default install;

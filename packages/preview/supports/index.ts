@@ -1,3 +1,4 @@
+import VueFilesPreview from "./vue-files-preview/index";
 import AudioPreview from "./audio-preview/index";
 import CodePreview from "./code-preview/index";
 import DocxPreview from "./docx-preview/index";
@@ -11,6 +12,7 @@ import XlsPreview from "./xls-preview/index";
 import XlsxPreview from "./xlsx-preview/index";
 
 export {
+    VueFilesPreview,
     AudioPreview,
     CodePreview,
     DocxPreview,

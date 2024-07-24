@@ -12,9 +12,9 @@
 
 <script lang="ts" setup>
 import { shallowRef,  onBeforeMount } from 'vue';
-import { getPreviewTypeByFileType, PreviewRules } from "./preview.const";
-import { IPreview, PreviewType } from "./preview.interface";
-import { getFileRenderByFile, getFileType, getFileName } from "./utils/utils";
+import { getPreviewTypeByFileType, PreviewRules } from "../../preview.const";
+import { IPreview, PreviewType } from "../../preview.interface";
+import { getFileRenderByFile, getFileType, getFileName } from "../../utils/utils";
 
 const props = withDefaults(
   defineProps<{
