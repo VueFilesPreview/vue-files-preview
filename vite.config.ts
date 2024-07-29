@@ -22,7 +22,11 @@ export default defineConfig({
             name: 'vue-files-preview',
             entry: './packages/index.ts',
         },
+        commonjsOptions: {
+            esmExternals: true
+        },
         rollupOptions: {
+            external: ['vue'],
             output: [
                 {
                     globals: {
@@ -34,7 +38,7 @@ export default defineConfig({
                     entryFileNames: "[name].mjs",
                     //让打包目录和我们目录对应
                     preserveModules: true,
-                    exports: "named",
+                    exports: "auto",
                     //配置打包根目录
                     dir: "./dist/es",
                 },
@@ -48,7 +52,7 @@ export default defineConfig({
                     entryFileNames: "[name].js",
                     //让打包目录和我们目录对应
                     preserveModules: true,
-                    exports: "named",
+                    exports: "auto",
                     //配置打包根目录
                     dir: "./dist/lib",
                 },
@@ -58,7 +62,6 @@ export default defineConfig({
                 //     exports: "auto",
                 // }
             ],
-            external: ['vue'],
         },
         minify: true
     }

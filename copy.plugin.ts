@@ -11,12 +11,9 @@ export const copyPackageJsonPlugin = (): Plugin => {
                 const distPackageJson = {
                     name: packageJson.name,
                     version: packageJson.version,
-                    main: './lib/packages/index.js',
+                    main: './es/packages/index.mjs',
                     module: './es/packages/index.mjs',
                     types: './types/index.d.ts',
-                    files: [
-                        './',
-                    ],
                     exports: {
                         ".": {
                             "types": "./types/index.d.ts",

@@ -12,9 +12,29 @@ import {
     XlsPreview,
     XlsxPreview
 } from './preview/supports/index.js';
-import installer from "./installer.js";
+const components = {
+    FilesPreview,
+    AudioPreview,
+    CodePreview,
+    DocxPreview,
+    EpubPreview,
+    MdPreview,
+    PdfPreview,
+    PicPreview,
+    TxtPreview,
+    VideoPreview,
+    XlsPreview,
+    XlsxPreview,
+};
+
+const install = (app: import("vue").App<any>) => {
+    Object.keys(components).forEach(key => {
+        app.component(key, components[key]);
+    });
+};
 
 export {
+    install,
     FilesPreview,
     AudioPreview,
     CodePreview,
@@ -28,4 +48,3 @@ export {
     XlsPreview,
     XlsxPreview
 };
-export default installer;
