@@ -1,14 +1,14 @@
-import DocxPreview from './supports/docx-preview'
-import XlsxPreview from './supports/xlsx-preview'
-import PdfPreview from './supports/pdf-preview'
-import PicPreview from './supports/pic-preview'
-import TxtPreview from './supports/txt-preview'
-import CodePreview from './supports/code-preview'
-import MdPreview from './supports/md-preview'
-import EpubPreview from './supports/epub-preview'
-import AudioPreview from './supports/audio-preview'
-import VideoPreview from './supports/video-preview'
-import { IPreview, PreviewType } from "./preview.interface";
+import DocxPreview from './supports/docx-preview/index.js'
+import XlsxPreview from './supports/xlsx-preview/index.js'
+import PdfPreview from './supports/pdf-preview/index.js'
+import PicPreview from './supports/pic-preview/index.js'
+import TxtPreview from './supports/txt-preview/index.js'
+import CodePreview from './supports/code-preview/index.js'
+import MdPreview from './supports/md-preview/index.js'
+import EpubPreview from './supports/epub-preview/index.js'
+import AudioPreview from './supports/audio-preview/index.js'
+import VideoPreview from './supports/video-preview/index.js'
+import { IPreview, PreviewType } from "./preview.interface.js";
 
 /**
  * 根据文件类型获取rule

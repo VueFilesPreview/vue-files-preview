@@ -1,4 +1,4 @@
-import { FileRenderType, PreviewType } from "../preview.interface";
+import { FileRenderType, PreviewType } from "../preview.interface.js";
 import {
     arrayBufferPreviewTypeList,
     getPreviewTypeByFileType,

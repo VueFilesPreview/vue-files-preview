@@ -1,6 +1,5 @@
-import { App } from 'vue';
 import {
-    VueFilesPreview,
+    FilesPreview,
     AudioPreview,
     CodePreview,
     DocxPreview,
@@ -12,31 +11,11 @@ import {
     VideoPreview,
     XlsPreview,
     XlsxPreview
-} from './preview/supports';
-
-const components = {
-    VueFilesPreview,
-    AudioPreview,
-    CodePreview,
-    DocxPreview,
-    EpubPreview,
-    MdPreview,
-    PdfPreview,
-    PicPreview,
-    TxtPreview,
-    VideoPreview,
-    XlsPreview,
-    XlsxPreview,
-};
-
-const install = (app: App) => {
-    Object.keys(components).forEach(key => {
-        app.component(key, components[key]);
-    });
-};
+} from './preview/supports/index.js';
+import installer from "./installer.js";
 
 export {
-    VueFilesPreview,
+    FilesPreview,
     AudioPreview,
     CodePreview,
     DocxPreview,
@@ -49,5 +28,4 @@ export {
     XlsPreview,
     XlsxPreview
 };
-
-export default install;
+export default installer;

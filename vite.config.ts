@@ -12,7 +12,7 @@ export default defineConfig({
             insertTypesEntry: true,
             outDir: 'dist/types',
             include: ['./packages/**/*.ts', './packages/**/*.tsx', './packages/**/*.vue'],  // 添加此行
-            tsconfigPath: './tsconfig.lib.json'  // 明确指定 tsconfig 文件路径
+            tsconfigPath: './tsconfig.json'  // 明确指定 tsconfig 文件路径
         }),
         copyPackageJsonPlugin()
     ],
@@ -20,19 +20,46 @@ export default defineConfig({
         sourcemap: true,
         lib: {
             name: 'vue-files-preview',
-            entry: './packages/index.ts'
+            entry: './packages/index.ts',
         },
         rollupOptions: {
-            output: {
-                globals: {
-                    vue: 'Vue'
+            output: [
+                {
+                    globals: {
+                        vue: 'Vue'
+                    },
+                    //打包格式
+                    format: "es",
+                    //打包后文件名
+                    entryFileNames: "[name].mjs",
+                    //让打包目录和我们目录对应
+                    preserveModules: true,
+                    exports: "named",
+                    //配置打包根目录
+                    dir: "./dist/es",
                 },
-                entryFileNames: '[format]/[name].[format].js',
-                assetFileNames: 'assets/[name].[ext]',
-                exports: "auto",
-            },
+                {
+                    globals: {
+                        vue: 'Vue'
+                    },
+                    //打包格式
+                    format: "cjs",
+                    //打包后文件名
+                    entryFileNames: "[name].js",
+                    //让打包目录和我们目录对应
+                    preserveModules: true,
+                    exports: "named",
+                    //配置打包根目录
+                    dir: "./dist/lib",
+                },
+                // {
+                //     entryFileNames: '[format]/[name].[format].js',
+                //     assetFileNames: 'assets/[name].[ext]',
+                //     exports: "auto",
+                // }
+            ],
             external: ['vue'],
         },
-        minify: false
+        minify: true
     }
 });
