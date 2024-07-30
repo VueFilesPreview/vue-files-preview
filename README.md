@@ -1,11 +1,5 @@
 # Vue Files Preview
 
-> ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️
->
-> This repository is still deploying
->
-> Please wait for the official release
-
 ## Introduce
 
 This project is dedicated to previewing any file format on the `Vue3` framework, supporting file previews such as docx, xlsx, pdf, image, txt, epub, markdown, code, etc
@@ -18,6 +12,9 @@ Project repository: [https://github.com/SmallTeddy/vue-files-preview](https://gi
 >
 > It only works for Vue 3
 
+
+## Install
+
 ```bash
 # npm install
 npm i vue-files-preview
@@ -27,9 +24,87 @@ yarn add vue-files-preview
 pnpm i vue-files-preview
 ```
 
-## Default
+## Usage
+
+### In Main.js
+```javascript
+import { createApp } from 'vue'
+import App from './App.vue'
+import VueFilesPreview from 'vue-files-preview'
+import 'vue-files-preview/dist/vue-files-preview.css'
+
+const app = createApp(App)
+app.use(VueFilesPreview)
+app.mount('#app')
+```
+
+### In Component
+
+> ⚠️ If you want import all preview component, you must be import `FilePreview` like this！
+
+```javascript
+<template>
+  <FilePreview :upload-file="uploadFile" />
+  <!-- or -->
+  <file-preview :upload-file="uploadFile" />
+</template>
+
+<script>
+import { FilePreview } from 'vue-files-preview'
+</script>
+```
+
+## Demo
+
+### Code
+
+```javascript
+<template>
+  <div class="main-container">
+    <div v-if="uploadFile" class="preview-container">
+      <files-preview :upload-file="uploadFile" />
+    </div>
+    <div v-else class="upload-btn">
+      <el-upload
+        ref="uploadRef"
+        drag
+        action="null"
+        :limit="1"
+        :before-upload="beforeFileUpload"
+      >
+        <el-icon class="el-icon--upload"><upload-filled /></el-icon>
+        <div class="el-upload__text">Drop file here or <em>click to upload</em></div>
+      </el-upload>
+    </div>
+  </div>
+</template>
+
+<script lang="ts" setup>
+import { ref } from "vue";
+import { ElUpload } from "element-plus";
+import { UploadFilled } from "@element-plus/icons-vue";
+
+const uploadRef = ref();
+const uploadFile = ref();
+
+const beforeFileUpload = (rawFile) => {
+  uploadFile.value = {
+    name: rawFile.name,
+    size: rawFile.size,
+    status: "ready",
+    uid: rawFile.uid,
+    raw: rawFile,
+  };
+  return false;
+};
+</script>
+```
+
+### Page
 
 ![测试默认界面](assets/images/readme/default.png)
+
+This demo is already here [vue-files-preview-demo](https://github.com/VueFilesPreview/vue-files-preview-demo), click to view it.
 
 ## doc、xls、ppt preview
 
