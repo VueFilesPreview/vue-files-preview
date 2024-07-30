@@ -1,4 +1,4 @@
-import FilesPreview from "./vue-files-preview/index.js";
+import VueFilesPreview from "./vue-files-preview/index.js";
 import AudioPreview from "./audio-preview/index.js";
 import CodePreview from "./code-preview/index.js";
 import DocxPreview from "./docx-preview/index.js";
@@ -12,7 +12,7 @@ import XlsPreview from "./xls-preview/index.js";
 import XlsxPreview from "./xlsx-preview/index.js";
 
 export {
-    FilesPreview,
+    VueFilesPreview,
     AudioPreview,
     CodePreview,
     DocxPreview,
