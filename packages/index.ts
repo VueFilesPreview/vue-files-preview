@@ -27,14 +27,14 @@ const components = {
     XlsxPreview,
 };
 
-const install = (app: import("vue").App<any>) => {
+const VueFilesPreview = (app: import("vue").App<any>) => {
     Object.keys(components).forEach(key => {
         app.component(key, components[key]);
     });
 };
 
 export {
-    install,
+    VueFilesPreview,
     FilesPreview,
     AudioPreview,
     CodePreview,
