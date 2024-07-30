@@ -1,5 +1,5 @@
 import {
-    FilesPreview,
+    VueFilesPreview,
     AudioPreview,
     CodePreview,
     DocxPreview,
@@ -13,7 +13,7 @@ import {
     XlsxPreview
 } from './preview/supports/index.js';
 const components = {
-    FilesPreview,
+    VueFilesPreview,
     AudioPreview,
     CodePreview,
     DocxPreview,
@@ -34,7 +34,7 @@ const install = (app: import("vue").App<any>) => {
 };
 export default { install };
 export {
-    FilesPreview,
+    VueFilesPreview,
     AudioPreview,
     CodePreview,
     DocxPreview,

@@ -1,6 +1,6 @@
-import FilesPreview from './index.vue';
+import VueFilesPreview from './index.vue';
 import { App as Application } from 'vue'
-FilesPreview.install = (app: Application) => {
-  app.component("FilesPreview", FilesPreview);
+VueFilesPreview.install = (app: Application) => {
+  app.component("VueFilesPreview", VueFilesPreview);
 };
-export default FilesPreview;
+export default VueFilesPreview;
