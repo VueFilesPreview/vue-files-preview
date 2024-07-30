@@ -1,12 +1,11 @@
 <template>
-  <div class="preview">
+  <div class="vue-files-preview" :style="{ width, height }">
     <component
       :is="currentPreview.component"
       :name="currentPreview.name"
       :type="currentPreview.type"
       :fileRender="currentPreview.fileRender"
-    >
-    </component>
+    />
   </div>
 </template>
 
@@ -18,12 +17,16 @@ import { getFileRenderByFile, getFileType, getFileName } from "../../utils/utils
 
 const props = withDefaults(
   defineProps<{
-    url?: String
-    uploadFile: File
+    uploadFile?: File,
+    url?: string
+    width?: string,
+    height?: string
   }>(),
   {
+    uploadFile: () => null,
     url: () => null,
-    uploadFile: () => null
+    width: () => '100%',
+    height: () => '100%'
   }
 )
 

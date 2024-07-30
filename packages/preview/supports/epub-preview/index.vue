@@ -1,6 +1,6 @@
 <template>
   <!-- <div class="epub-box" v-loading="!bookAvailable" element-loading-text="正在加载..."> -->
-  <div class="epub-box">
+  <div class="epub-box" :style="{ width, height }">
     <div class="epub-viewer" id="epub-viewer"></div>
     <div class="footer">
       <button @click="prevPage">
@@ -17,17 +17,24 @@
 import { ref, watch } from 'vue'
 import ePub from 'epubjs'
 
-const props = defineProps({
-  url: {
-    type: String,
-    default: () => {
-      return 'none'
-    }
-  },
-  fileRender: {
-    type: [ArrayBuffer, String]
+const props = withDefaults(
+  defineProps<{
+    url?: string,
+    name?: string
+    type?: string
+    fileRender?: string | ArrayBuffer
+    width?: string,
+    height?: string
+  }>(),
+  {
+    url: () => null,
+    name: () => null,
+    fileRender: () => null,
+    type: () => null,
+    width: () => '100%',
+    height: () => '100%'
   }
-})
+)
 
 const navigation = ref()
 const locations = ref()

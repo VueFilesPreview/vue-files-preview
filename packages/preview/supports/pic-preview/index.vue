@@ -1,39 +1,24 @@
 <template>
   <div>
-    <img :style="{ width: width, height: height }" :src="fileRender?.toString()" alt="" />
+    <img :src="fileRender?.toString()" alt="" />
   </div>
 </template>
 
 <script lang='ts' setup>
-defineProps({
-  url: {
-    type: String,
-    default: () => {
-      return 'none'
-    }
-  },
-  width: {
-    type: String,
-    default: () => {
-      return '100%'
-    }
-  },
-  height: {
-    type: String,
-    default: () => {
-      return '100vh'
-    }
-  },
-  type: {
-    type: String,
-    default: () => {
-      return 'none'
-    }
-  },
-  fileRender: {
-    type: [ArrayBuffer, String]
+withDefaults(
+  defineProps<{
+    url?: string,
+    name?: string
+    type?: string
+    fileRender?: string | ArrayBuffer
+  }>(),
+  {
+    url: () => null,
+    name: () => null,
+    fileRender: () => null,
+    type: () => null
   }
-})
+)
 </script>
 
 <style scoped lang='scss'></style>

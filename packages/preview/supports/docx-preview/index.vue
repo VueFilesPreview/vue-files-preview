@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vue-office-docx :src="fileRender" style="height: 100vh" @rendered="renderedHandler" @error="errorHandler" />
+    <vue-office-docx :src="fileRender" @rendered="renderedHandler" @error="errorHandler" />
   </div>
 </template>
 
@@ -8,23 +8,20 @@
 import VueOfficeDocx from '@vue-office/docx'
 import '@vue-office/docx/lib/index.css'
 
-defineProps({
-  url: {
-    type: String,
-    default: () => {
-      return 'none'
-    }
-  },
-  type: {
-    type: String,
-    default: () => {
-      return 'none'
-    }
-  },
-  fileRender: {
-    type: [ArrayBuffer, String]
+withDefaults(
+  defineProps<{
+    url?: string,
+    name?: string
+    type?: string
+    fileRender?: string | ArrayBuffer
+  }>(),
+  {
+    url: () => null,
+    name: () => null,
+    fileRender: () => null,
+    type: () => null
   }
-})
+)
 
 const renderedHandler = () => {
   console.log("渲染完成")

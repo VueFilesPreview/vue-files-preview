@@ -15,11 +15,6 @@ pre {
   margin: 0;
 }
 
-/* twbs fix */
-/* .hljs {
-  padding: 9.5px;
-} */
-
 .checkbox {
   margin-right: 10px;
 }
@@ -33,7 +28,6 @@ pre {
 
 .hljs {
   overflow: hidden;
-  padding: 10px;
 }
 
 .hljs img {

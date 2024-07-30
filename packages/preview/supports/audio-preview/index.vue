@@ -24,29 +24,20 @@
 <script lang='ts' setup>
 import { getCurrentInstance, computed, onMounted, ref } from 'vue'
 
-defineProps({
-  url: {
-    type: String,
-    default: () => {
-      return 'none'
-    }
-  },
-  name: {
-    type: String,
-    default: () => {
-      return 'none'
-    }
-  },
-  type: {
-    type: String,
-    default: () => {
-      return 'none'
-    }
-  },
-  fileRender: {
-    type: [ArrayBuffer, String]
+withDefaults(
+  defineProps<{
+    url?: string,
+    name?: string
+    type?: string
+    fileRender?: string | ArrayBuffer
+  }>(),
+  {
+    url: () => null,
+    name: () => null,
+    fileRender: () => null,
+    type: () => null
   }
-})
+)
 
 const { proxy } = getCurrentInstance() as any
 

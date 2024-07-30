@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vue-office-excel :src="fileRender" style="height: 100vh" @rendered="renderedHandler" @error="errorHandler" />
+    <vue-office-excel :src="fileRender" @rendered="renderedHandler" @error="errorHandler" />
   </div>
 </template>
 
@@ -8,23 +8,22 @@
 import VueOfficeExcel from '@vue-office/excel'
 import '@vue-office/excel/lib/index.css'
 
-defineProps({
-  url: {
-    type: String,
-    default: () => {
-      return 'none'
-    }
-  },
-  type: {
-    type: String,
-    default: () => {
-      return 'none'
-    }
-  },
-  fileRender: {
-    type: [ArrayBuffer, String]
+withDefaults(
+  defineProps<{
+    url?: string,
+    name?: string
+    type?: string
+    fileRender?: string | ArrayBuffer
+    width?: string,
+    height?: string
+  }>(),
+  {
+    url: () => null,
+    name: () => null,
+    fileRender: () => null,
+    type: () => null
   }
-})
+)
 
 const renderedHandler = () => {
   console.log("渲染完成")

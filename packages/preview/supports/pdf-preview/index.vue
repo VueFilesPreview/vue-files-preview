@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vue-office-pdf :src="fileRender" style="height: 100vh" @rendered="renderedHandler" @error="errorHandler"/>
+    <vue-office-pdf :src="fileRender" @rendered="renderedHandler" @error="errorHandler"/>
     <div id="pdf-preview-box"></div>
   </div>
 </template>
@@ -12,23 +12,20 @@ import VueOfficePdf from '@vue-office/pdf'
 
 const pdfViewer = shallowRef();
 
-const props = defineProps({
-  url: {
-    type: String,
-    default: () => {
-      return 'none'
-    }
-  },
-  name: {
-    type: String,
-    default: () => {
-      return 'none'
-    }
-  },
-  fileRender: {
-    type: [ArrayBuffer, String]
+const props = withDefaults(
+  defineProps<{
+    url?: string,
+    name?: string
+    type?: string
+    fileRender?: string | ArrayBuffer
+  }>(),
+  {
+    url: () => null,
+    name: () => null,
+    fileRender: () => null,
+    type: () => null
   }
-})
+)
 
 const renderedHandler = () => {
   console.log("渲染完成")

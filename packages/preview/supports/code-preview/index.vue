@@ -1,6 +1,6 @@
 <template>
   <div>
-    <codemirror v-model="code" :style="{ height: '100vh' }" :autofocus="true" :indent-with-tab="true" :tab-size="2"
+    <codemirror v-model="code" :autofocus="true" :indent-with-tab="true" :tab-size="2"
       :extensions="extensions" @ready="handleReady" />
   </div>
 </template>
@@ -13,23 +13,20 @@ import { json } from '@codemirror/lang-json'
 import { html } from '@codemirror/lang-html'
 import { oneDark } from '@codemirror/theme-one-dark'
 
-const props = defineProps({
-  url: {
-    type: String,
-    default: () => {
-      return 'none'
-    }
-  },
-  type: {
-    type: String,
-    default: () => {
-      return 'none'
-    }
-  },
-  fileRender: {
-    type: [ArrayBuffer, String]
+const props = withDefaults(
+  defineProps<{
+    url?: string,
+    name?: string
+    type?: string
+    fileRender?: string | ArrayBuffer
+  }>(),
+  {
+    url: () => null,
+    name: () => null,
+    fileRender: () => null,
+    type: () => null
   }
-})
+)
 
 const code = ref()
 const extensions = [javascript(), json(), html(), oneDark]
