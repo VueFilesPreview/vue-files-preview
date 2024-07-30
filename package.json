@@ -1,7 +1,7 @@
 {
   "name": "vue-files-preview",
   "author": "SmallTeddy",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "A tool for previewing files such as doc, excel, pdf, image, markdown, txt, audio, and video and so on.",
   "private": false,
   "license": "MIT",
@@ -21,7 +21,6 @@
     "prebuild": "npm run clean",
     "build": "vite build",
     "preview": "vite preview",
-    "clean": "rimraf dist",
     "unpub": "npm unpublish",
     "pub": "cd dist && npm publish --access=public"
   },
@@ -62,7 +61,6 @@
   "devDependencies": {
     "@rollup/plugin-typescript": "^11.1.6",
     "@vitejs/plugin-vue": "^5.0.5",
-    "rimraf": "^6.0.1",
     "sass": "^1.77.6",
     "ts-node": "^10.9.2",
     "tslib": "^2.6.3",
