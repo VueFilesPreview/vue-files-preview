@@ -44,13 +44,13 @@ app.mount('#app')
 
 ```javascript
 <template>
-  <FilePreview :upload-file="uploadFile" />
+  <VueFilesPreview :upload-file="uploadFile" />
   <!-- or -->
-  <file-preview :upload-file="uploadFile" />
+  <vue-files-preview :upload-file="uploadFile" />
 </template>
 
 <script>
-import { FilePreview } from 'vue-files-preview'
+import { VueFilesPreview } from 'vue-files-preview'
 </script>
 ```
 
@@ -62,7 +62,7 @@ import { FilePreview } from 'vue-files-preview'
 <template>
   <div class="main-container">
     <div v-if="uploadFile" class="preview-container">
-      <files-preview :upload-file="uploadFile" />
+      <vue-files-preview :upload-file="uploadFile" />
     </div>
     <div v-else class="upload-btn">
       <el-upload
