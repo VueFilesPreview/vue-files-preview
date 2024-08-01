@@ -1,15 +1,7 @@
 <template>
   <!-- <div class="epub-box" v-loading="!bookAvailable" element-loading-text="正在加载..."> -->
   <div class="epub-box" :style="{ width, height }">
-    <div class="epub-viewer" id="epub-viewer"></div>
-    <div class="footer">
-      <button @click="prevPage">
-        上一页
-      </button>
-      <button @click="nextPage">
-        下一页
-      </button>
-    </div>
+    <div class="epub-viewer" id="epub-viewer" @keydown="keyDownHandler"></div>
   </div>
 </template>
 
@@ -92,6 +84,14 @@ const nextPage = () => {
     if (currentPage.value > totalPages.value) {
       currentPage.value = totalPages.value
     }
+  }
+}
+
+const keyDownHandler = (e) => {
+  if (e.keyCode === 37) {
+    prevPage()
+  } else if (e.keyCode === 39) {
+    nextPage()
   }
 }
 </script>
