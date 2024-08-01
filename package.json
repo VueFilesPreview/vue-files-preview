@@ -1,7 +1,14 @@
 {
   "name": "vue-files-preview",
   "author": "SmallTeddy",
-  "version": "1.0.19",
+  "maintainers": [
+    {
+      "url": "https://github.com/wh131462",
+      "name": "EternalHeart",
+      "email": "hao131462@qq.com"
+    }
+  ],
+  "version": "1.0.20",
   "description": "A tool for previewing files such as doc, excel, pdf, image, markdown, txt, audio, and video and so on.",
   "private": false,
   "license": "MIT",
@@ -16,8 +23,9 @@
     "vue",
     "vue3"
   ],
-  "homepage": "https://github.com/SmallTeddy/vue-files-preview",
+  "homepage": "https://github.com/VueFilesPreview",
   "scripts": {
+    "clean": "rimraf dist",
     "prebuild": "npm run clean",
     "build": "vite build",
     "preview": "vite preview",
@@ -26,10 +34,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/SmallTeddy/vue-files-preview"
+    "url": "https://github.com/VueFilesPreview/vue-files-preview"
   },
   "bugs": {
-    "url": "https://github.com/SmallTeddy/vue-files-preview/issues"
+    "url": "https://github.com/VueFilesPreview/vue-files-preview/issues"
   },
   "publishConfig": {
     "access": "public"
