@@ -13,8 +13,6 @@ Project repository: [https://github.com/SmallTeddy/vue-files-preview](https://gi
 > It only works for Vue 3
 
 
-## Install
-
 ```bash
 # npm install
 npm i vue-files-preview
@@ -23,8 +21,6 @@ yarn add vue-files-preview
 # pnpm install
 pnpm i vue-files-preview
 ```
-
-## Usage
 
 ### In Main.js
 ```javascript
@@ -40,7 +36,7 @@ app.mount('#app')
 
 ### In Component
 
-> ⚠️ If you want import all preview component, you must be import `FilePreview` like this！
+> ⚠️ If you want import all preview component, you must be import `Vue3FilePreview` like this！
 
 ```javascript
 <template>
