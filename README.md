@@ -4,14 +4,13 @@
 
 This project is dedicated to previewing any file format on the `Vue3` framework, supporting file previews such as docx, xlsx, pdf, image, txt, epub, markdown, code, etc
 
-Project repository: [https://github.com/SmallTeddy/vue-files-preview](https://github.com/SmallTeddy/vue-files-preview)
+Project repository: [https://github.com/VueFilesPreview/vue-files-preview](https://github.com/VueFilesPreview/vue-files-preview)
 
 ## 📦 Install
 
 > From v1.0.0 version
 >
 > It only works for Vue 3
-
 
 ```bash
 # npm install
@@ -23,6 +22,7 @@ pnpm i vue-files-preview
 ```
 
 ### In Main.js
+
 ```javascript
 import { createApp } from 'vue'
 import App from './App.vue'
@@ -39,14 +39,14 @@ app.mount('#app')
 > ⚠️ If you want import all preview component, you must be import `Vue3FilePreview` like this！
 
 ```javascript
-<template>
-  <VueFilesPreview :upload-file="uploadFile" />
-  <!-- or -->
-  <vue-files-preview :upload-file="uploadFile" />
+< template >
+  <VueFilesPreview: upload - file = "uploadFile" />
+  <!-- or -- >
+  <vue-files-preview: upload - file = "uploadFile" />
 </template>
 
-<script>
-import { VueFilesPreview } from 'vue-files-preview'
+<script >
+  import { VueFilesPreview } from 'vue-files-preview';
 </script>
 ```
 
@@ -58,7 +58,7 @@ import { VueFilesPreview } from 'vue-files-preview'
 <template>
   <div class="main-container">
     <div v-if="uploadFile" class="preview-container">
-      <vue-files-preview :upload-file="uploadFile" />
+      <VueFilesPreview :upload-file="uploadFile" />
     </div>
     <div v-else class="upload-btn">
       <el-upload
@@ -68,7 +68,7 @@ import { VueFilesPreview } from 'vue-files-preview'
         :limit="1"
         :before-upload="beforeFileUpload"
       >
-        <el-icon class="el-icon--upload"><upload-filled /></el-icon>
+        <el-icon class="el-icon--upload"><i-ep-upload-filled /></el-icon>
         <div class="el-upload__text">Drop file here or <em>click to upload</em></div>
       </el-upload>
     </div>
@@ -76,10 +76,6 @@ import { VueFilesPreview } from 'vue-files-preview'
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
-import { ElUpload } from "element-plus";
-import { UploadFilled } from "@element-plus/icons-vue";
-
 const uploadRef = ref();
 const uploadFile = ref();
 
