@@ -8,7 +8,7 @@
       "email": "hao131462@qq.com"
     }
   ],
-  "version": "1.0.20",
+  "version": "1.0.21",
   "description": "A tool for previewing files such as doc, excel, pdf, image, markdown, txt, audio, and video and so on.",
   "private": false,
   "license": "MIT",
