@@ -36,7 +36,7 @@ export const getFileRenderByFile = (file: any) => {
     const renderType = getFileRenderType(previewType);
     return new Promise(resolve => {
         const raw = file.raw;
-        const  fileReader = new FileReader()
+        const fileReader = new FileReader()
         switch (renderType) {
             case "text":
                 fileReader.readAsText(raw)

@@ -5,8 +5,6 @@
 </template>
 
 <script lang='ts' setup>
-import { shallowRef, onBeforeUnmount, onMounted } from 'vue';
-
 const props = defineProps({
   url: {
     type: String,

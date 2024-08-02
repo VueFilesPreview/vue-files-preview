@@ -5,7 +5,6 @@
 </template>
 
 <script lang='ts' setup>
-import { ref, watch } from 'vue'
 import markdownit from 'markdown-it'
 import markdownItFootnote from 'markdown-it-footnote'
 import markdownItContainer from 'markdown-it-container'

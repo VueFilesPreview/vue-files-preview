@@ -6,7 +6,6 @@
 </template>
 
 <script lang='ts' setup>
-import { ref, shallowRef, watch } from 'vue'
 import { Codemirror } from 'vue-codemirror'
 import { javascript } from '@codemirror/lang-javascript'
 import { json } from '@codemirror/lang-json'

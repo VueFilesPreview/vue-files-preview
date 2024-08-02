@@ -8,7 +8,7 @@
       "email": "hao131462@qq.com"
     }
   ],
-  "version": "1.0.21",
+  "version": "1.0.22",
   "description": "A tool for previewing files such as doc, excel, pdf, image, markdown, txt, audio, and video and so on.",
   "private": false,
   "license": "MIT",
@@ -25,6 +25,7 @@
   ],
   "homepage": "https://github.com/VueFilesPreview",
   "scripts": {
+    "dev": "vite",
     "clean": "rimraf dist",
     "prebuild": "npm run clean",
     "build": "vite build",
@@ -55,6 +56,7 @@
     "@vue-office/docx": "^1.6.2",
     "@vue-office/excel": "^1.7.8",
     "@vue-office/pdf": "^2.0.2",
+    "@vueuse/core": "^10.11.0",
     "epubjs": "^0.3.93",
     "handsontable": "^14.4.0",
     "highlight.js": "^11.10.0",
@@ -72,6 +74,7 @@
     "sass": "^1.77.6",
     "ts-node": "^10.9.2",
     "tslib": "^2.6.3",
+    "unplugin-auto-import": "^0.18.2",
     "vite": "^5.3.1",
     "vite-plugin-dts": "4.0.0-beta.1",
     "vite-tsconfig-paths": "^4.3.2"

@@ -1,12 +1,12 @@
 <template>
-  <!-- <div class="epub-box" v-loading="!bookAvailable" element-loading-text="正在加载..."> -->
   <div class="epub-box" :style="{ width, height }">
+    <button class="btn" @keydown="prevKeyDown" style="display: none">上一页</button>
     <div class="epub-viewer" id="epub-viewer"></div>
+    <button class="btn" @keydown="downKeyDown" style="display: none">下一页</button>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, watch, onMounted } from "vue";
 import ePub from "epubjs";
 
 const props = withDefaults(
@@ -41,8 +41,8 @@ const initEpub = () => {
     book.value = ePub(props.fileRender as ArrayBuffer);
     rendition.value = book.value.renderTo("epub-viewer", {
       // 滚动模式
-      width: "100%",
-      height: "calc(100vh - 80x)",
+      width: props.width,
+      height: props.height,
       flow: "scrolled",
       allowScriptedContent: true,
     });
@@ -76,6 +76,7 @@ const prevPage = () => {
     }
   }
 };
+
 const nextPage = () => {
   if (rendition.value) {
     rendition.value.next();
@@ -87,16 +88,21 @@ const nextPage = () => {
   }
 };
 
-onMounted(() => {
-  document.onkeydown = (event) => {
-    const key = event.key;
-    if (key === "ArrowLeft") {
-      prevPage();
-    } else if (key === "ArrowRight") {
-      nextPage();
-    }
-  };
-});
+const prevKeyDown = (e) => {
+  e.preventDefault()
+}
+
+const downKeyDown = (e) => {
+  e.preventDefault()
+}
+
+onKeyStroke('ArrowLeft', (e) => {
+  prevPage()
+})
+
+onKeyStroke('ArrowRight', (e) => {
+  nextPage()
+})
 </script>
 
 <style scoped lang="scss">

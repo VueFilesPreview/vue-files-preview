@@ -22,8 +22,6 @@
 </template>
 
 <script lang='ts' setup>
-import { getCurrentInstance, computed, onMounted, ref } from 'vue'
-
 withDefaults(
   defineProps<{
     url?: string,
