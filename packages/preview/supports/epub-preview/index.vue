@@ -1,51 +1,51 @@
 <template>
   <!-- <div class="epub-box" v-loading="!bookAvailable" element-loading-text="正在加载..."> -->
   <div class="epub-box" :style="{ width, height }">
-    <div class="epub-viewer" id="epub-viewer" @keydown="keyDownHandler"></div>
+    <div class="epub-viewer" id="epub-viewer"></div>
   </div>
 </template>
 
-<script lang='ts' setup>
-import { ref, watch } from 'vue'
-import ePub from 'epubjs'
+<script lang="ts" setup>
+import { ref, watch, onMounted } from "vue";
+import ePub from "epubjs";
 
 const props = withDefaults(
   defineProps<{
-    url?: string,
-    name?: string
-    type?: string
-    fileRender?: string | ArrayBuffer
-    width?: string,
-    height?: string
+    url?: string;
+    name?: string;
+    type?: string;
+    fileRender?: string | ArrayBuffer;
+    width?: string;
+    height?: string;
   }>(),
   {
     url: () => null,
     name: () => null,
     fileRender: () => null,
     type: () => null,
-    width: () => '100%',
-    height: () => '100%'
+    width: () => "100%",
+    height: () => "100%",
   }
-)
+);
 
-const navigation = ref()
-const locations = ref()
-const currentPage = ref(1)
-const totalPages = ref()
-const bookAvailable = ref(false)
-const book = ref()
+const navigation = ref();
+const locations = ref();
+const currentPage = ref(1);
+const totalPages = ref();
+const bookAvailable = ref(false);
+const book = ref();
 const rendition = ref();
 
 const initEpub = () => {
   if (props.fileRender) {
-    book.value = ePub(props.fileRender as ArrayBuffer)
+    book.value = ePub(props.fileRender as ArrayBuffer);
     rendition.value = book.value.renderTo("epub-viewer", {
       // 滚动模式
-      width: '100%',
-      height: 'calc(100vh - 80x)',
+      width: "100%",
+      height: "calc(100vh - 80x)",
       flow: "scrolled",
       allowScriptedContent: true,
-    })
+    });
     book.value.ready.then(() => {
       navigation.value = book.value.navigation;
       locations.value = book.value.locations;
@@ -53,17 +53,17 @@ const initEpub = () => {
       // // 获取总页数
       totalPages.value = locations.value.length();
       rendition.value.display();
-    })
+    });
   }
-}
+};
 
 watch(
   () => props.fileRender,
   () => {
-    initEpub()
+    initEpub();
   },
   { immediate: true }
-)
+);
 
 // epub翻页
 const prevPage = () => {
@@ -72,31 +72,34 @@ const prevPage = () => {
     // 向前翻页时更新 currentPage
     currentPage.value--;
     if (currentPage.value < 1) {
-      currentPage.value = 1
+      currentPage.value = 1;
     }
   }
-}
+};
 const nextPage = () => {
   if (rendition.value) {
     rendition.value.next();
     // 向后翻页时更新 currentPage
     currentPage.value++;
     if (currentPage.value > totalPages.value) {
-      currentPage.value = totalPages.value
+      currentPage.value = totalPages.value;
     }
   }
-}
+};
 
-const keyDownHandler = (e) => {
-  if (e.keyCode === 37) {
-    prevPage()
-  } else if (e.keyCode === 39) {
-    nextPage()
-  }
-}
+onMounted(() => {
+  document.onkeydown = (event) => {
+    const key = event.key;
+    if (key === "ArrowLeft") {
+      prevPage();
+    } else if (key === "ArrowRight") {
+      nextPage();
+    }
+  };
+});
 </script>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
 .epub-box {
   height: 100vh;
   width: 100%;
@@ -114,6 +117,6 @@ const keyDownHandler = (e) => {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px
+  padding: 10px;
 }
 </style>
