@@ -1,26 +1,33 @@
 <template>
   <div>
-    <vue-office-docx :src="fileRender" @rendered="renderedHandler" @error="errorHandler" />
+    <vue-office-docx :src="fileRender" @rendered="renderedHandler" @error="errorHandler"/>
   </div>
 </template>
 
 <script lang='ts' setup>
 import VueOfficeDocx from '@vue-office/docx'
 import '@vue-office/docx/lib/index.css'
+import {PreviewProps} from "../../preview.interface";
+import {onBeforeMount, ref, watch} from "vue";
+import {getFileRenderByFile} from "../../utils/utils";
 
-withDefaults(
-  defineProps<{
-    url?: string,
-    name?: string
-    type?: string
-    fileRender?: string | ArrayBuffer
-  }>(),
-  {
-    url: () => null,
-    name: () => null,
-    fileRender: () => null,
-    type: () => null
-  }
+const props = withDefaults(
+    defineProps<PreviewProps>(),
+    {
+      url: () => null,
+      file: () => null
+    }
+)
+
+const fileRender = ref(null)
+watch(
+    () => props.file,
+    () => {
+      getFileRenderByFile(props.file).then(render => {
+        fileRender.value = render;
+      })
+    },
+    {immediate: true}
 )
 
 const renderedHandler = () => {

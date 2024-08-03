@@ -6,25 +6,22 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-import ePub from "epubjs";
+<script lang='ts' setup>
+import { ref, watch } from 'vue'
+import ePub from 'epubjs'
+import {PreviewProps} from "../../preview.interface";
+import {getFileRenderByFile} from "../../utils/utils";
 
 const props = withDefaults(
-  defineProps<{
-    url?: string;
-    name?: string;
-    type?: string;
-    fileRender?: string | ArrayBuffer;
-    width?: string;
-    height?: string;
+  defineProps<PreviewProps&{
+    width?: string,
+    height?: string
   }>(),
   {
     url: () => null,
-    name: () => null,
-    fileRender: () => null,
-    type: () => null,
-    width: () => "100%",
-    height: () => "100%",
+    file: () => null,
+    width: () => '100%',
+    height: () => '100%'
   }
 );
 
@@ -37,28 +34,31 @@ const book = ref();
 const rendition = ref();
 
 const initEpub = () => {
-  if (props.fileRender) {
-    book.value = ePub(props.fileRender as ArrayBuffer);
-    rendition.value = book.value.renderTo("epub-viewer", {
-      // 滚动模式
-      width: props.width,
-      height: props.height,
-      flow: "scrolled",
-      allowScriptedContent: true,
-    });
-    book.value.ready.then(() => {
-      navigation.value = book.value.navigation;
-      locations.value = book.value.locations;
-      bookAvailable.value = true;
-      // // 获取总页数
-      totalPages.value = locations.value.length();
-      rendition.value.display();
-    });
+  if (props.file) {
+    getFileRenderByFile(props.file).then(render=>{
+      book.value = ePub(render as ArrayBuffer)
+      rendition.value = book.value.renderTo("epub-viewer", {
+        // 滚动模式
+        width: '100%',
+        height: 'calc(100vh - 80x)',
+        flow: "scrolled",
+        allowScriptedContent: true,
+      })
+      book.value.ready.then(() => {
+        navigation.value = book.value.navigation;
+        locations.value = book.value.locations;
+        bookAvailable.value = true;
+        // // 获取总页数
+        totalPages.value = locations.value.length();
+        rendition.value.display();
+      })
+    })
+
   }
 };
 
 watch(
-  () => props.fileRender,
+  () => props.file,
   () => {
     initEpub();
   },
