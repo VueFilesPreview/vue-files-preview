@@ -27,7 +27,7 @@ pnpm i vue-files-preview
 import { createApp } from 'vue'
 import App from './App.vue'
 import VueFilesPreview from 'vue-files-preview'
-import 'vue-files-preview/dist/vue-files-preview.css'
+import 'vue-files-preview/lib/style.css'
 
 const app = createApp(App)
 app.use(VueFilesPreview)

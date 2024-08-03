@@ -22,7 +22,11 @@ watch(
     (file) => {
       if (file) {
         fileRender.value && URL.revokeObjectURL(fileRender.value);
-        getFileRenderByFile(file).then(render=>fileRender.value=render);
+        getFileRenderByFile(file).then(render=> {
+          fileRender.value = render;
+          // 设置视频元素的src
+          videoPreviewRef.value.src = fileRender.value;
+        });
 
       }
     },
@@ -30,8 +34,6 @@ watch(
 )
 const videoPreviewRef = shallowRef(null);
 onMounted(() => {
-  // 设置视频元素的src
-  videoPreviewRef.value.src = fileRender;
   // 监听视频元素的loadedmetadata事件，以便在视频加载完成后自动播放
   videoPreviewRef.value.addEventListener('loadedmetadata', () => {
     videoPreviewRef.value.play();
@@ -56,13 +58,13 @@ onBeforeUnmount(() => {
   top: 0;
   width: 100vw !important;
   height: 100vh !important;
+  overflow: auto;
 }
 
 .player-video-main {
   width: 100%;
-  height: 100%;
+  object-fit: scale-down;
   transition: .2s;
-
 
   &.video-mirror {
     transform: rotateY(180deg);
