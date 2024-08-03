@@ -7,20 +7,25 @@
 <script lang='ts' setup>
 import VueOfficeDocx from '@vue-office/docx'
 import '@vue-office/docx/lib/index.css'
+import {PreviewProps} from "../../preview.interface";
+import {onBeforeMount, ref, watch} from "vue";
+import {getFileRenderByFile} from "../../utils/utils";
 
-withDefaults(
-  defineProps<{
-    url?: string,
-    name?: string
-    type?: string
-    fileRender?: string | ArrayBuffer
-  }>(),
+const props = withDefaults(
+  defineProps<PreviewProps>(),
   {
     url: () => null,
-    name: () => null,
-    fileRender: () => null,
-    type: () => null
+    file: ()=> null
   }
+)
+
+const fileRender = ref(null)
+watch(
+    () => props.file,
+    () => {
+      fileRender.value = getFileRenderByFile(props.file)
+    },
+    { immediate: true }
 )
 
 const renderedHandler = () => {

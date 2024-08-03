@@ -11,19 +11,14 @@ import { javascript } from '@codemirror/lang-javascript'
 import { json } from '@codemirror/lang-json'
 import { html } from '@codemirror/lang-html'
 import { oneDark } from '@codemirror/theme-one-dark'
+import {PreviewProps} from "../../preview.interface";
+import {getFileRenderByFile} from "../../utils/utils";
 
 const props = withDefaults(
-  defineProps<{
-    url?: string,
-    name?: string
-    type?: string
-    fileRender?: string | ArrayBuffer
-  }>(),
+  defineProps<PreviewProps>(),
   {
     url: () => null,
-    name: () => null,
-    fileRender: () => null,
-    type: () => null
+    file: ()=>null,
   }
 )
 
@@ -36,9 +31,9 @@ const handleReady = (payload) => {
 }
 
 watch(
-  () => props.fileRender,
+  () => props.file,
   () => {
-    code.value = props.fileRender
+    code.value = getFileRenderByFile(props.file)
   },
   {
     immediate: true

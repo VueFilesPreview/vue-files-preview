@@ -1,11 +1,10 @@
 <template>
   <div class="vue-files-preview" :style="{ width, height }">
     <component
-        :is="currentPreview.component"
-        :name="currentPreview.name"
-        :type="currentPreview.type"
-        :file="file"
-        :url="url"
+      :is="currentPreview.component"
+      :name="currentPreview.name"
+      :file="file"
+      :url="url"
     />
   </div>
 </template>

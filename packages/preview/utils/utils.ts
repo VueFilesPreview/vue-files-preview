@@ -31,7 +31,7 @@ export const getFileName = (file: File): string => {
 /**
  * 通过文件类型获取fileRender
  */
-export const getFileRenderByFile = (file: any) => {
+export const getFileRenderByFile = (file: any):Promise<ArrayBuffer|string> => {
     const previewType = getPreviewTypeByFileType(getFileType(file));
     const renderType = getFileRenderType(previewType);
     return new Promise(resolve => {

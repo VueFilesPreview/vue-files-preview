@@ -5,35 +5,32 @@
 </template>
 
 <script lang='ts' setup>
-const props = defineProps({
-  url: {
-    type: String,
-    default: () => {
-      return 'none'
+import {shallowRef, onBeforeUnmount, onMounted, ref, watch} from 'vue';
+import {PreviewProps} from "../../preview.interface";
+import {getFileRenderByFile} from "../../utils/utils";
+const props = withDefaults(
+    defineProps<PreviewProps>(),
+    {
+      url: () => null,
+      file: () => null,
     }
-  },
-  name: {
-    type: String,
-    default: () => {
-      return 'none'
-    }
-  },
-  type: {
-    type: String,
-    default: () => {
-      return 'none'
-    }
-  },
-  fileRender: {
-    type: [ArrayBuffer, String]
-  }
-})
+)
 
+const fileRender = ref(null);
+watch(
+    () => props.file,
+    (file) => {
+      if (file) {
+        fileRender.value && URL.revokeObjectURL(fileRender.value);
+        fileRender.value = getFileRenderByFile(file);
+      }
+    },
+    { immediate: true }
+)
 const videoPreviewRef = shallowRef(null);
-
 onMounted(() => {
   // 设置视频元素的src
-  videoPreviewRef.value.src = props.fileRender;
+  videoPreviewRef.value.src = fileRender;
   // 监听视频元素的loadedmetadata事件，以便在视频加载完成后自动播放
   videoPreviewRef.value.addEventListener('loadedmetadata', () => {
     videoPreviewRef.value.play();
@@ -43,8 +40,8 @@ onMounted(() => {
 onBeforeUnmount(() => {
   // 组件销毁时，释放视频元素的src
   videoPreviewRef.value.pause();
-  if (props.fileRender) {
-    URL.revokeObjectURL(props.fileRender?.toString());
+  if (props.file) {
+    URL.revokeObjectURL(fileRender.value);
   }
 });
 

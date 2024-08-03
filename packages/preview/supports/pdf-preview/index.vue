@@ -5,27 +5,22 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-import VueOfficePdf from "@vue-office/pdf";
+<script lang='ts' setup>
+import {onMounted, shallowRef} from 'vue'
+import VueOfficePdf from '@vue-office/pdf'
+import {PreviewProps} from "../../preview.interface";
 // import WebViewer from '@pdftron/pdfjs-express'
 
 const pdfViewer = shallowRef();
 
 const props = withDefaults(
-  defineProps<{
-    url?: string;
-    name?: string;
-    type?: string;
-    fileRender?: string | ArrayBuffer;
-  }>(),
+  defineProps<PreviewProps>(),
   {
     url: () => null,
-    name: () => null,
-    fileRender: () => null,
-    type: () => null,
+    file: () => null,
   }
 );
-
+const fileRender = ref(null);
 const renderedHandler = () => {
   console.log("渲染完成");
 };

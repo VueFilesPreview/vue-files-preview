@@ -5,19 +5,27 @@
 </template>
 
 <script lang='ts' setup>
-withDefaults(
-  defineProps<{
-    url?: string,
-    name?: string
-    type?: string
-    fileRender?: string | ArrayBuffer
-  }>(),
+import {ref, watch} from "vue";
+import {getFileRenderByFile} from "../../utils/utils";
+import {PreviewProps} from "../../preview.interface";
+
+const props = withDefaults(
+  defineProps<PreviewProps>(),
   {
     url: () => null,
-    name: () => null,
-    fileRender: () => null,
-    type: () => null
+    file: () => null,
   }
+)
+
+const fileRender = ref(null);
+watch(
+    () => props.file,
+    (file) => {
+      if (file) {
+        fileRender.value = getFileRenderByFile(file);
+      }
+    },
+    { immediate: true }
 )
 </script>
 
