@@ -22,7 +22,8 @@ watch(
     (file) => {
       if (file) {
         fileRender.value && URL.revokeObjectURL(fileRender.value);
-        fileRender.value = getFileRenderByFile(file);
+        getFileRenderByFile(file).then(render=>fileRender.value=render);
+
       }
     },
     { immediate: true }

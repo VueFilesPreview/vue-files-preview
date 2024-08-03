@@ -31,11 +31,11 @@ export const getFileName = (file: File): string => {
 /**
  * 通过文件类型获取fileRender
  */
-export const getFileRenderByFile = (file: any):Promise<ArrayBuffer|string> => {
+export const getFileRenderByFile = (file: File):Promise<ArrayBuffer|string> => {
     const previewType = getPreviewTypeByFileType(getFileType(file));
     const renderType = getFileRenderType(previewType);
     return new Promise(resolve => {
-        const raw = file.raw;
+        const raw = file;
         const fileReader = new FileReader()
         switch (renderType) {
             case "text":

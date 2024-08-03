@@ -22,7 +22,9 @@ watch(
     () => props.file,
     (file) => {
       if (file) {
-        fileRender.value = getFileRenderByFile(file);
+        getFileRenderByFile(file).then(render=>{
+          fileRender.value = render;
+        });
       }
     },
     { immediate: true }

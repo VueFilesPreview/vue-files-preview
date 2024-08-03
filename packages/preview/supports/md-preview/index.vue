@@ -70,7 +70,9 @@ watch(
           return '<pre><code class="hljs">' + md!.utils!.escapeHtml(str) + '</code></pre>';
         }
       }).use(markdownItFootnote).use(markdownItContainer);
-      markdownHtml.value = md.render(getFileRenderByFile(val));
+      getFileRenderByFile(val).then(render => {
+        markdownHtml.value = md.render(render);
+      })
     }
   },
   { immediate: true }

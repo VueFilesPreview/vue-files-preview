@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vue-office-docx :src="fileRender" @rendered="renderedHandler" @error="errorHandler" />
+    <vue-office-docx :src="fileRender" @rendered="renderedHandler" @error="errorHandler"/>
   </div>
 </template>
 
@@ -12,20 +12,22 @@ import {onBeforeMount, ref, watch} from "vue";
 import {getFileRenderByFile} from "../../utils/utils";
 
 const props = withDefaults(
-  defineProps<PreviewProps>(),
-  {
-    url: () => null,
-    file: ()=> null
-  }
+    defineProps<PreviewProps>(),
+    {
+      url: () => null,
+      file: () => null
+    }
 )
 
 const fileRender = ref(null)
 watch(
     () => props.file,
     () => {
-      fileRender.value = getFileRenderByFile(props.file)
+      getFileRenderByFile(props.file).then(render => {
+        fileRender.value = render;
+      })
     },
-    { immediate: true }
+    {immediate: true}
 )
 
 const renderedHandler = () => {

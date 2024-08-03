@@ -12,7 +12,8 @@
 <script lang="ts" setup>
 import {getPreviewTypeByFileType, PreviewRules} from "../../preview.const";
 import {IPreviewRule, PreviewProps, PreviewType} from "../../preview.interface";
-import {getFileType, getFileName} from "../../utils/utils";
+import {getFileType, getFileName, getFileRenderByFile} from "../../utils/utils";
+import {watch} from "vue";
 
 const props = withDefaults(
     defineProps<PreviewProps & {
@@ -31,14 +32,20 @@ const currentPreview = shallowRef<IPreviewRule>(PreviewRules[PreviewType.NONE]);
 
 const syncPreview = (file: File) => {
   const preview = PreviewRules[getPreviewTypeByFileType(getFileType(file))];
-  preview.name = getFileName(file);
-  currentPreview.value = preview;
+  if(preview){
+    preview.name = getFileName(file);
+    currentPreview.value = preview;
+  }
 }
-
-onBeforeMount(() => {
-  // todo url需要分流 默认url后缀也能获取内容
-  syncPreview(props.file);
-});
+watch(
+    () => props.file,
+    (file) => {
+      if (file) {
+        syncPreview(file)
+      }
+    },
+    { immediate: true }
+)
 </script>
 
 <style scoped lang="scss"></style>

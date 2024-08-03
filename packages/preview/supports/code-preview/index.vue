@@ -33,7 +33,9 @@ const handleReady = (payload) => {
 watch(
   () => props.file,
   () => {
-    code.value = getFileRenderByFile(props.file)
+    getFileRenderByFile(props.file).then(render => {
+      code.value = render;
+    });
   },
   {
     immediate: true

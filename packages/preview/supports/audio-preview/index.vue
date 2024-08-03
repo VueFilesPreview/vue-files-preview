@@ -46,6 +46,7 @@ const analyser = ref()
 const dataSource = ref()
 const mode = ref('Wavy')
 const src = ref(null)
+
 /**
  * 初始化 Dom
  */
@@ -156,8 +157,11 @@ function changeMode() {
   mode.value = mode.value === 'Columnar' ? 'Wavy' : 'Columnar'
   mode.value == 'Columnar' ? drawColumnar() : drawWavy()
 }
-onBeforeMount(()=>{
-    src.value = getFileRenderByFile(props.url ||props.file);
+
+onBeforeMount(() => {
+  getFileRenderByFile(props.file).then(render => {
+    src.value = render;
+  });
 })
 onMounted(() => {
   initDom() // 初始化 Dom
