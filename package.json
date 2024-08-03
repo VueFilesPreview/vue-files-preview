@@ -25,7 +25,6 @@
   ],
   "homepage": "https://github.com/VueFilesPreview",
   "scripts": {
-    "dev": "vite",
     "clean": "rimraf dist",
     "prebuild": "npm run clean",
     "build": "vite build",
