@@ -1,5 +1,4 @@
-#!/usr/bin/env ts-node
-import {writeFileSync, readFileSync} from 'fs';
+import {writeFileSync, readFileSync, existsSync,rmSync} from 'fs';
 import {join} from 'path';
 
 const packageJson = JSON.parse(readFileSync(join(__dirname, "../package.json"), 'utf-8'));
