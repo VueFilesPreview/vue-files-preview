@@ -6,9 +6,10 @@
 </template>
 
 <script lang='ts' setup>
-import {onMounted, shallowRef} from 'vue'
+import {onMounted, shallowRef, watch} from 'vue'
 import VueOfficePdf from '@vue-office/pdf'
 import {PreviewProps} from "../../preview.interface";
+import {getFileRenderByFile} from "../../utils/utils";
 // import WebViewer from '@pdftron/pdfjs-express'
 
 const pdfViewer = shallowRef();
@@ -21,6 +22,15 @@ const props = withDefaults(
   }
 );
 const fileRender = ref(null);
+watch(
+    () => props.file,
+    (file) => {
+      if (file) {
+        fileRender.value = getFileRenderByFile(file);
+      }
+    },
+    { immediate: true }
+)
 const renderedHandler = () => {
   console.log("渲染完成");
 };
