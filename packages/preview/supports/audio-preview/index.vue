@@ -7,7 +7,7 @@
         </div>
       </div>
       <div class="mp3Box">
-        <audio ref="audioRef" controls :src="fileRender?.toString()" />
+        <audio ref="audioRef" controls :src="src"/>
       </div>
       <div>
         <el-button link @click="changeMode">
@@ -16,28 +16,25 @@
       </div>
     </div>
     <div class="cvs-container">
-      <canvas ref="canvasRef" />
+      <canvas ref="canvasRef"/>
     </div>
   </div>
 </template>
 
 <script lang='ts' setup>
-withDefaults(
-  defineProps<{
-    url?: string,
-    name?: string
-    type?: string
-    fileRender?: string | ArrayBuffer
-  }>(),
-  {
-    url: () => null,
-    name: () => null,
-    fileRender: () => null,
-    type: () => null
-  }
+import {getCurrentInstance, computed, onMounted, ref, onBeforeMount} from 'vue'
+import {PreviewProps} from "../../preview.interface";
+import {getFileRenderByFile} from "../../utils/utils";
+
+const props = withDefaults(
+    defineProps<PreviewProps>(),
+    {
+      file: () => null,
+      name: () => null
+    }
 )
 
-const { proxy } = getCurrentInstance() as any
+const {proxy} = getCurrentInstance() as any
 
 const audioDom = ref()
 const ulDom = ref()
@@ -48,6 +45,7 @@ const isInit = ref(false)
 const analyser = ref()
 const dataSource = ref()
 const mode = ref('Wavy')
+const src = ref(null)
 
 /**
  * 初始化 Dom
@@ -100,7 +98,7 @@ function audioPlay() {
 // 柱状
 function drawColumnar() {
   requestAnimationFrame(drawColumnar)
-  const { width, height } = canvasDom.value
+  const {width, height} = canvasDom.value
   ctx.value.clearRect(0, 0, width, height)
   if (!isInit.value)
     return
@@ -122,7 +120,7 @@ function drawColumnar() {
 // 波浪
 function drawWavy() {
   requestAnimationFrame(drawWavy)
-  const { width, height } = canvasDom.value
+  const {width, height} = canvasDom.value
   ctx.value.clearRect(0, 0, width, height)
   if (!isInit.value)
     return
@@ -160,6 +158,11 @@ function changeMode() {
   mode.value == 'Columnar' ? drawColumnar() : drawWavy()
 }
 
+onBeforeMount(() => {
+  getFileRenderByFile(props.file).then(render => {
+    src.value = render;
+  });
+})
 onMounted(() => {
   initDom() // 初始化 Dom
   audioPlay() // 音频播放

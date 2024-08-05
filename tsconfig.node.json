@@ -2,8 +2,14 @@
   "compilerOptions": {
     "composite": true,
     "module": "esnext",
+    "esModuleInterop": true,
     "moduleResolution": "node",
+    "types": ["node"],
     "allowSyntheticDefaultImports": true
   },
-  "include": ["vite.config.ts","copy.plugin.ts"]
+  "include": [
+    "vite.config.ts",
+    "vite-plugins/copy.plugin.ts",
+    "scripts/**/*.ts"
+  ],
 }

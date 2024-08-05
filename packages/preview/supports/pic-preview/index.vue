@@ -1,23 +1,32 @@
 <template>
   <div>
-    <img :src="fileRender?.toString()" alt="" />
+    <img :src="fileRender" alt="" />
   </div>
 </template>
 
 <script lang='ts' setup>
-withDefaults(
-  defineProps<{
-    url?: string,
-    name?: string
-    type?: string
-    fileRender?: string | ArrayBuffer
-  }>(),
+import {PreviewProps} from "../../preview.interface";
+import {ref, watch} from "vue";
+import {getFileRenderByFile} from "../../utils/utils";
+
+const props = withDefaults(
+  defineProps<PreviewProps>(),
   {
     url: () => null,
-    name: () => null,
-    fileRender: () => null,
-    type: () => null
+    file: () => null,
   }
+)
+const fileRender = ref(null);
+watch(
+    () => props.file,
+    (file) => {
+      if (file) {
+       getFileRenderByFile(file).then(render=>{
+         fileRender.value = render;
+       })
+      }
+    },
+    { immediate: true }
 )
 </script>
 

@@ -7,22 +7,29 @@
 <script lang='ts' setup>
 import VueOfficeExcel from '@vue-office/excel'
 import '@vue-office/excel/lib/index.css'
+import {PreviewProps} from "../../preview.interface";
+import {ref, watch} from "vue";
+import {getFileRenderByFile} from "../../utils/utils";
 
-withDefaults(
-  defineProps<{
-    url?: string,
-    name?: string
-    type?: string
-    fileRender?: string | ArrayBuffer
+const props = withDefaults(
+  defineProps<PreviewProps&{
     width?: string,
     height?: string
   }>(),
   {
     url: () => null,
-    name: () => null,
-    fileRender: () => null,
-    type: () => null
+    file: () => null,
   }
+)
+const fileRender = ref(null);
+watch(
+    () => props.file,
+    (file) => {
+      if (file) {
+        getFileRenderByFile(file).then(render=>fileRender.value=render);
+      }
+    },
+    { immediate: true }
 )
 
 const renderedHandler = () => {

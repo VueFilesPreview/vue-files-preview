@@ -9,26 +9,21 @@ import markdownit from 'markdown-it'
 import markdownItFootnote from 'markdown-it-footnote'
 import markdownItContainer from 'markdown-it-container'
 import hljs from 'highlight.js';
+import {PreviewProps} from "../../preview.interface";
+import {getFileRenderByFile} from "../../utils/utils";
 
 const markdownHtml = ref()
 
 const props = withDefaults(
-  defineProps<{
-    url?: string,
-    name?: string
-    type?: string
-    fileRender?: string | ArrayBuffer
-  }>(),
+  defineProps<PreviewProps>(),
   {
     url: () => null,
-    name: () => null,
-    fileRender: () => null,
-    type: () => null
+    file: () => null,
   }
 )
 
 watch(
-  () => props.fileRender,
+  () => props.file,
   (val) => {
     if (val) {
       const md = markdownit({
@@ -75,8 +70,9 @@ watch(
           return '<pre><code class="hljs">' + md!.utils!.escapeHtml(str) + '</code></pre>';
         }
       }).use(markdownItFootnote).use(markdownItContainer);
-
-      markdownHtml.value = md.render(val);
+      getFileRenderByFile(val).then(render => {
+        markdownHtml.value = md.render(render);
+      })
     }
   },
   { immediate: true }

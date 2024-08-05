@@ -7,7 +7,7 @@ export const copyPackageJsonPlugin = (): Plugin => {
         name: 'copy-package-json',
         closeBundle() {
             try {
-                const packageJson = require('./package.json');
+                const packageJson = require('../package.json');
                 const distPackageJson = {
                     name: packageJson.name,
                     version: packageJson.version,
@@ -43,6 +43,16 @@ export const copyPackageJsonPlugin = (): Plugin => {
                             ],
                             "import": "./es/packages/*.mjs"
                         },
+                        "./lib/packages/version.js": {
+                            "types": "./types/version.d.ts",
+                            "require": "./lib/packages/version.js"
+                        },
+                        "./es/packages/version.mjs": {
+                            "types": [
+                              "./types/version.d.ts",
+                            ],
+                            "import": "./es/packages/version.mjs"
+                        },
                         "./*": "./*"
                     },
                     peerDependencies: packageJson.peerDependencies,
@@ -56,11 +66,11 @@ export const copyPackageJsonPlugin = (): Plugin => {
                 };
 
                 // 将 distPackageJson 写入 dist 目录
-                writeFileSync(join(__dirname, 'dist', 'package.json'), JSON.stringify(distPackageJson, null, 2));
+                writeFileSync(join(__dirname, '../dist', 'package.json'), JSON.stringify(distPackageJson, null, 2));
                 console.log('package.json copied and modified successfully!');
 
                 // 如果需要，可以复制 README.md 等其他文件到 dist 目录
-                copyFileSync(join(__dirname, 'README.md'), join(__dirname, 'dist', 'README.md'));
+                copyFileSync(join(__dirname, '../README.md'), join(__dirname, '../dist', 'README.md'));
             } catch (error) {
                 console.error('Error while copying and modifying package.json:', error);
             }

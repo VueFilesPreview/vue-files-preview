@@ -32,7 +32,7 @@ pnpm i vue-files-preview
 import { createApp } from 'vue'
 import App from './App.vue'
 import VueFilesPreview from 'vue-files-preview'
-import 'vue-files-preview/dist/vue-files-preview.css'
+import 'vue-files-preview/lib/style.css'
 
 const app = createApp(App)
 app.use(VueFilesPreview)
@@ -41,13 +41,13 @@ app.mount('#app')
 
 ### In Component
 
-> ⚠️ If you want import all preview component, you must be import `Vue3FilePreview` like this！
+> ⚠️ If you want import all preview component, you must be import `VueFilePreview` like this！
 
 ```javascript
 < template >
-  <VueFilesPreview: upload - file = "uploadFile" />
+  <VueFilesPreview :file = "file" />
   <!-- or -- >
-  <vue-files-preview: upload - file = "uploadFile" />
+  <vue-files-preview :file = "file" />
 </template>
 
 <script >
@@ -59,11 +59,11 @@ app.mount('#app')
 
 ### Code
 
-```javascript
+```vue3
 <template>
   <div class="main-container">
     <div v-if="uploadFile" class="preview-container">
-      <VueFilesPreview :upload-file="uploadFile" />
+      <VueFilesPreview :file="uploadFile" />
     </div>
     <div v-else class="upload-btn">
       <el-upload
@@ -85,13 +85,7 @@ const uploadRef = ref();
 const uploadFile = ref();
 
 const beforeFileUpload = (rawFile) => {
-  uploadFile.value = {
-    name: rawFile.name,
-    size: rawFile.size,
-    status: "ready",
-    uid: rawFile.uid,
-    raw: rawFile,
-  };
+  uploadFile.value = rawFile;
   return false;
 };
 </script>

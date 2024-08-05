@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import { copyPackageJsonPlugin } from "./copy.plugin";
+import { copyPackageJsonPlugin } from "./vite-plugins/copy.plugin";
 import dts from "vite-plugin-dts"
 import tsconfigPaths from "vite-tsconfig-paths";
 import AutoImport from 'unplugin-auto-import/vite'
@@ -79,11 +79,6 @@ export default defineConfig({
                     //配置打包根目录
                     dir: "./dist/lib",
                 },
-                // {
-                //     entryFileNames: '[format]/[name].[format].js',
-                //     assetFileNames: 'assets/[name].[ext]',
-                //     exports: "auto",
-                // }
             ],
         },
         minify: true
