@@ -6,6 +6,11 @@ This project is dedicated to previewing any file format on the `Vue3` framework,
 
 Project repository: [https://github.com/VueFilesPreview/vue-files-preview](https://github.com/VueFilesPreview/vue-files-preview)
 
+## 📖 Features
+
+- Support success and error callbacks
+- Reconfiguration pdf-preview
+
 ## 📦 Install
 
 > From v1.0.0 version
