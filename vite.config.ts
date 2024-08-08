@@ -5,6 +5,7 @@ import dts from "vite-plugin-dts"
 import tsconfigPaths from "vite-tsconfig-paths";
 import AutoImport from 'unplugin-auto-import/vite'
 import path from 'path'
+import copy from "rollup-plugin-copy";
 
 const pathSrc = path.resolve(__dirname, 'src');
 const pathPackages = path.resolve(__dirname, 'packages');
@@ -17,6 +18,7 @@ export default defineConfig({
             '@packages': pathPackages,
         },
     },
+    publicDir: "public",
     plugins: [
         vue(),
         tsconfigPaths(),
@@ -25,6 +27,14 @@ export default defineConfig({
             outDir: 'dist/types',
             include: ['./packages/**/*.ts', './packages/**/*.tsx', './packages/**/*.vue'],  // 添加此行
             tsconfigPath: './tsconfig.json'  // 明确指定 tsconfig 文件路径
+        }),
+        copy({
+            targets: [
+                {
+                    src: ['./node_modules/@pdftron/pdfjs-express/public/core','./node_modules/@pdftron/pdfjs-express/public/ui'],
+                    dest: 'public/pdfjs-express'
+                }
+            ]
         }),
         copyPackageJsonPlugin(),
         AutoImport({

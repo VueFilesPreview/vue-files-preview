@@ -1,18 +1,20 @@
 <template>
-  <div>
-    <vue-office-pdf :src="fileRender" @rendered="renderedHandler" @error="errorHandler" />
-    <div id="pdf-preview-box"></div>
-  </div>
+<!--  <vue-office-pdf :src="fileRender" @rendered="renderedHandler" @error="errorHandler" />-->
+  <Viewer :file="file" :url="url" lib-path="/pdfjs-express"></Viewer>
 </template>
 
 <script lang='ts' setup>
-import {onMounted, shallowRef, watch} from 'vue'
-import VueOfficePdf from '@vue-office/pdf'
-import {PreviewProps} from "../../preview.interface";
-import {getFileRenderByFile} from "../../utils/utils";
-// import WebViewer from '@pdftron/pdfjs-express'
+// import VueOfficePdf from '@vue-office/pdf'
+// const renderedHandler = () => {
+// console.log("渲染完成");
+// };
+//
+// const errorHandler = () => {
+//   console.log("渲染失败");
+// };
 
-const pdfViewer = shallowRef();
+import {PreviewProps} from "../../preview.interface";
+import Viewer from "./viewer.vue";
 
 const props = withDefaults(
   defineProps<PreviewProps>(),
@@ -21,51 +23,6 @@ const props = withDefaults(
     file: () => null,
   }
 );
-const fileRender = ref(null);
-watch(
-    () => props.file,
-    (file) => {
-      if (file) {
-        getFileRenderByFile(file).then(render=>fileRender.value=render);
-      }
-    },
-    { immediate: true }
-)
-const renderedHandler = () => {
-  console.log("渲染完成");
-};
-
-const errorHandler = () => {
-  console.log("渲染失败");
-};
-
-const initPdf = () => {
-  // WebViewer({
-  //   // path: props.fileRender,
-  //   // initialDoc: props.fileRender,
-  // }, pdfViewer.value).then((instance) => {
-  //   instance.UI.loadDocument(props.fileRender, { filename: `${props.name}.pdf` });
-  //   instance.UI.setTheme('dark');
-  //   // instance.UI.disableElements(['leftPanel', 'leftPanelButton']);
-  //   const { documentViewer, annotationManager, Annotations } = instance.Core;
-  //   documentViewer.addEventListener('documentLoaded', () => {
-  //     const rectangleAnnot = new Annotations.RectangleAnnotation();
-  //     rectangleAnnot.PageNumber = 1;
-  //     rectangleAnnot.X = 100;
-  //     rectangleAnnot.Y = 150;
-  //     rectangleAnnot.Width = 200;
-  //     rectangleAnnot.Height = 50;
-  //     annotationManager.addAnnotation(rectangleAnnot);
-  //   })
-  // });
-};
-
-onMounted(() => {
-  // pdfViewer.value = document.getElementById('pdf-preview-box');
-  // if (pdfViewer.value) {
-  //   initPdf()
-  // }
-});
 </script>
 
 <style scoped lang="scss"></style>

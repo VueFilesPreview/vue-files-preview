@@ -19,11 +19,6 @@
     "declarationDir": "./dist",
     "outDir": "./dist",
     "rootDir": "./packages",
-    "paths": {
-      "vue-files-preview": [
-        "./packages/index.ts"
-      ],
-    }
   },
   "include": [
     "src/**/*.ts",
