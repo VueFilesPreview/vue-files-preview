@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <vue-office-excel :src="fileRender" @rendered="renderedHandler" @error="errorHandler" />
-  </div>
+  <vue-office-excel :src="fileRender" @rendered="renderedHandler" @error="errorHandler" />
 </template>
 
 <script lang='ts' setup>

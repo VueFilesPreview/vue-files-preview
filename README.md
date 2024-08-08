@@ -8,8 +8,10 @@ Project repository: [https://github.com/VueFilesPreview/vue-files-preview](https
 
 ## 📖 Features
 
-- Support success and error callbacks
-- Reconfiguration pdf-preview
+- [ ] Support success and error callbacks
+- [ ] Reconfiguration pdf-preview
+- [ ] Fix excel-preview style
+- [ ] Friendly interface for unknown file
 
 ## 📦 Install
 
