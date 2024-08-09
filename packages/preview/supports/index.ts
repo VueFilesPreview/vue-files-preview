@@ -8,7 +8,6 @@ import PdfPreview from './pdf-preview/index.js'
 import PicPreview from './pic-preview/index.js'
 import TxtPreview from './txt-preview/index.js'
 import VideoPreview from './video-preview/index.js'
-import XlsPreview from './xls-preview/index.js'
 import XlsxPreview from './xlsx-preview/index.js'
 
 export {
@@ -22,6 +21,5 @@ export {
   PicPreview,
   TxtPreview,
   VideoPreview,
-  XlsPreview,
   XlsxPreview,
 }

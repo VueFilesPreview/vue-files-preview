@@ -57,18 +57,11 @@ export const PreviewRules: Record<PreviewType, IPreviewRule> = {
     type: PreviewType.DOCX,
     accept: ['docx'],
   },
-  // scv: spreadsheet
-  [PreviewType.XLS]: {
-    name: '',
-    component: void 0,
-    type: PreviewType.XLS,
-    accept: ['xls', 'csv', 'fods', 'ods', 'ots', 'xlsm', 'xlt', 'xltm'],
-  },
   [PreviewType.XLSX]: {
     name: '',
     component: XlsxPreview,
     type: PreviewType.XLSX,
-    accept: ['xlsx'],
+    accept: ['xlsx', 'xls', 'csv', 'fods', 'ods', 'ots', 'xlsm', 'xlt', 'xltm'],
   },
   // ppt: presentation
   [PreviewType.PPT]: {

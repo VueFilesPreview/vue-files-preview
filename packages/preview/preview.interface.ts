@@ -18,7 +18,6 @@ export enum PreviewType {
   CODE = 'code', // 代码类型
   DOC = 'doc',
   DOCX = 'docx', // WORD文档
-  XLS = 'xls',
   XLSX = 'xlsx', // Excel文件
   PDF = 'pdf', // PDF
   PIC = 'pic', // 图片
