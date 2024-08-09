@@ -8,8 +8,10 @@ Project repository: [https://github.com/VueFilesPreview/vue-files-preview](https
 
 ## 📖 Features
 
-- Support success and error callbacks
-- Reconfiguration pdf-preview
+- [ ] Support success and error callbacks
+- [ ] Reconfiguration pdf-preview
+- [ ] Fix excel-preview style
+- [ ] Friendly interface for unknown file
 
 ## 📦 Install
 
@@ -43,8 +45,8 @@ app.mount('#app')
 
 > ⚠️ If you want import all preview component, you must be import `VueFilePreview` like this！
 
-```javascript
-< template >
+```vue3
+<template>
   <VueFilesPreview :file="file" />
   <!-- or -- >
   <vue-files-preview :file="file" />

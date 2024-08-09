@@ -38,9 +38,9 @@ function errorHandler(): void {
 </script>
 
 <template>
-  <div>
     <VueOfficeExcel :src="fileRender" @rendered="renderedHandler" @error="errorHandler" />
-  </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+
+</style>
