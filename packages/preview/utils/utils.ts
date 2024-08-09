@@ -1,4 +1,4 @@
-import type { FileRenderType, PreviewType } from '../preview.interface.js'
+import type { FileRenderType, PreviewType } from '../preview.interface'
 import {
   arrayBufferPreviewTypeList,
   getPreviewTypeByFileType,
@@ -53,18 +53,23 @@ export function getFileRenderByFile(file: File): Promise<ArrayBuffer | string> {
       case 'image':
         resolve(window.URL.createObjectURL(raw))
         break
-      case 'pdf':
-        // const pdfBlobUrl = new Blob([raw], { type: 'application/pdf' });
-        // const pdfBlobUrl = raw;
-        // resolve(pdfBlobUrl);
+      case 'pdf': {
+        // const pdfBlobUrl = new Blob([raw], { type: 'application/pdf' })
+        // const pdfBlobUrl = raw
+        // resolve(pdfBlobUrl)
         fileReader.readAsArrayBuffer(raw)
         fileReader.onload = () => {
           resolve(fileReader.result)
         }
         break
-      case 'video':
+      }
+      case 'video': {
         const videoBlobUrl = URL.createObjectURL(new Blob([raw], { type: 'video/mp4' }))
         resolve(videoBlobUrl)
+        break
+      }
+      default:
+        resolve(window.URL.createObjectURL(raw))
         break
     }
   })

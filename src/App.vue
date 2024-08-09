@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
-import PdfPreview from '../packages/preview/supports/pdf-preview'
+import EpubPreview from '../packages/preview/supports/epub-preview'
 
 const fileRender = ref()
 function handleFileChange(e): void {
@@ -11,7 +11,7 @@ function handleFileChange(e): void {
 <template>
   <div>
     <input type="file" @change="handleFileChange">
-    <PdfPreview :file-render="fileRender" />
+    <EpubPreview :file-render="fileRender" />
   </div>
 </template>
 
