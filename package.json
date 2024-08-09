@@ -32,7 +32,6 @@
     "vue3"
   ],
   "scripts": {
-    "dev": "vite",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "clean": "rimraf dist",
