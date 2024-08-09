@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import PdfPreview from '../packages/preview/supports/pdf-preview'
 
 const fileRender = ref()
-function handleFileChange(e) {
+function handleFileChange(e): void {
   fileRender.value = e.target.files[0]
 }
 </script>

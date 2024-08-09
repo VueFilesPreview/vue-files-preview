@@ -27,7 +27,7 @@ const src = ref(null)
 /**
  * 初始化 Dom
  */
-function initDom() {
+function initDom(): void {
   audioDom.value = proxy.$refs.audioRef as HTMLAudioElement
   ulDom.value = proxy.$refs.ulRef as HTMLUListElement
   containerDom.value = proxy.$refs.containerRef as HTMLDivElement

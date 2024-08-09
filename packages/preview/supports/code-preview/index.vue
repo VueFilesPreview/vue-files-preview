@@ -19,7 +19,7 @@ const code = ref()
 const extensions = [javascript(), json(), html(), oneDark]
 // Codemirror EditorView instance ref
 const codeViewer = shallowRef()
-function handleReady(payload) {
+function handleReady(payload): void {
   codeViewer.value = payload.view
 }
 

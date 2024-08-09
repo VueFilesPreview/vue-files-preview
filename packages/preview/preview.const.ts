@@ -11,23 +11,8 @@ import VideoPreview from './supports/video-preview/index.js'
 import type { IPreviewRule } from './preview.interface.js'
 import { PreviewType } from './preview.interface.js'
 
-/**
- * 根据文件类型获取rule
- * @param type
- */
-export function getRuleByFileType(type: string) {
-  return Object.values(PreviewRules).find(cur => cur.accept.includes(type)) ?? PreviewRules[PreviewType.NONE]
-}
-/**
- * 根据文件类型获取PreviewType
- * @param type
- */
-export function getPreviewTypeByFileType(type: string) {
-  return getRuleByFileType(type).type
-}
-
 export const textFilePreviewTypeList = [PreviewType.CODE, PreviewType.TXT, PreviewType.MD]
-export const arrayBufferPreviewTypeList = [PreviewType.DOC, PreviewType.DOCX, PreviewType.XLS, PreviewType.XLSX, PreviewType.PPT, PreviewType.EPUB]
+export const arrayBufferPreviewTypeList = [PreviewType.DOC, PreviewType.DOCX, PreviewType.XLSX, PreviewType.PPT, PreviewType.EPUB]
 export const imagePreviewTypeList = [PreviewType.PIC, PreviewType.AUDIO]
 export const pdfPreviewTypeList = [PreviewType.PDF]
 export const videoPreviewTypeList = [PreviewType.VIDEO]
@@ -112,4 +97,19 @@ export const PreviewRules: Record<PreviewType, IPreviewRule> = {
     type: PreviewType.VIDEO,
     accept: ['mp4', 'webm', 'ogg', 'mkv', 'avi', 'mpeg', 'flv', 'mov', 'wmv'],
   },
+}
+
+/**
+ * 根据文件类型获取rule
+ * @param type
+ */
+export function getRuleByFileType(type: string): IPreviewRule {
+  return Object.values(PreviewRules).find(cur => cur.accept.includes(type)) ?? PreviewRules[PreviewType.NONE]
+}
+/**
+ * 根据文件类型获取PreviewType
+ * @param type
+ */
+export function getPreviewTypeByFileType(type: string): PreviewType {
+  return getRuleByFileType(type).type
 }

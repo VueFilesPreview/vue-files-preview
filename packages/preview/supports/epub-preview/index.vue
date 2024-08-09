@@ -25,7 +25,7 @@ const bookAvailable = ref(false)
 const book = ref()
 const rendition = ref()
 
-function initEpub() {
+function initEpub(): void {
   if (props.file) {
     getFileRenderByFile(props.file).then((render) => {
       book.value = ePub(render as ArrayBuffer)
@@ -57,7 +57,7 @@ watch(
 )
 
 // epub翻页
-function prevPage() {
+function prevPage(): void {
   if (rendition.value) {
     rendition.value.prev()
     // 向前翻页时更新 currentPage
@@ -68,7 +68,7 @@ function prevPage() {
   }
 }
 
-function nextPage() {
+function nextPage(): void {
   if (rendition.value) {
     rendition.value.next()
     // 向后翻页时更新 currentPage
@@ -79,19 +79,19 @@ function nextPage() {
   }
 }
 
-function prevKeyDown(e) {
+function prevKeyDown(e): void {
   e.preventDefault()
 }
 
-function downKeyDown(e) {
+function downKeyDown(e): void {
   e.preventDefault()
 }
 
-onKeyStroke('ArrowLeft', (e) => {
+onKeyStroke('ArrowLeft', () => {
   prevPage()
 })
 
-onKeyStroke('ArrowRight', (e) => {
+onKeyStroke('ArrowRight', () => {
   nextPage()
 })
 </script>

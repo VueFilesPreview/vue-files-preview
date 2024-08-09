@@ -20,7 +20,7 @@ const props = withDefaults(
 
 const currentPreview = shallowRef<IPreviewRule>(PreviewRules[PreviewType.NONE])
 
-function syncPreview(file: File) {
+function syncPreview(file: File): void {
   const preview = PreviewRules[getPreviewTypeByFileType(getFileType(file))]
   if (preview) {
     preview.name = getFileName(file)

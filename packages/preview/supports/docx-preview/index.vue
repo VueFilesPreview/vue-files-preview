@@ -24,11 +24,11 @@ watch(
   { immediate: true },
 )
 
-function renderedHandler() {
+function renderedHandler(): void {
   console.log('渲染完成')
 }
 
-function errorHandler() {
+function errorHandler(): void {
   console.log('渲染失败')
 }
 </script>
