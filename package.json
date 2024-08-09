@@ -1,5 +1,8 @@
 {
   "name": "vue-files-preview",
+  "version": "1.0.24",
+  "private": false,
+  "description": "A tool for previewing files such as doc, excel, pdf, image, markdown, txt, audio, and video and so on.",
   "author": "SmallTeddy",
   "maintainers": [
     {
@@ -8,10 +11,15 @@
       "email": "hao131462@qq.com"
     }
   ],
-  "version": "1.0.24",
-  "description": "A tool for previewing files such as doc, excel, pdf, image, markdown, txt, audio, and video and so on.",
-  "private": false,
   "license": "MIT",
+  "homepage": "https://github.com/VueFilesPreview",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VueFilesPreview/vue-files-preview"
+  },
+  "bugs": {
+    "url": "https://github.com/VueFilesPreview/vue-files-preview/issues"
+  },
   "keywords": [
     "vue-file-preview",
     "vue3-file-preview",
@@ -23,8 +31,10 @@
     "vue",
     "vue3"
   ],
-  "homepage": "https://github.com/VueFilesPreview",
   "scripts": {
+    "dev": "vite",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "clean": "rimraf dist",
     "build-version": "tsx scripts/build-version.ts",
     "prebuild": "run-p clean build-version",
@@ -32,13 +42,6 @@
     "preview": "vite preview",
     "unpub": "npm unpublish",
     "pub": "cd dist && npm publish --access=public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/VueFilesPreview/vue-files-preview"
-  },
-  "bugs": {
-    "url": "https://github.com/VueFilesPreview/vue-files-preview/issues"
   },
   "publishConfig": {
     "access": "public"
@@ -51,16 +54,12 @@
     "@codemirror/lang-javascript": "^6.2.2",
     "@codemirror/lang-json": "^6.0.1",
     "@codemirror/theme-one-dark": "^6.1.2",
-    "@handsontable/vue3": "^14.4.0",
-    "@pdftron/pdfjs-express": "^8.7.5",
     "@vue-office/docx": "^1.6.2",
     "@vue-office/excel": "^1.7.8",
     "@vue-office/pdf": "^2.0.2",
     "@vueuse/core": "^10.11.0",
     "epubjs": "^0.3.93",
-    "handsontable": "^14.4.0",
     "highlight.js": "^11.10.0",
-    "hls.js": "^1.5.13",
     "markdown-it": "^14.1.0",
     "markdown-it-container": "^4.0.0",
     "markdown-it-footnote": "^4.0.0",
@@ -69,9 +68,11 @@
     "vue-demi": "0.14.8"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^2.25.0",
     "@rollup/plugin-typescript": "^11.1.6",
     "@types/node": "^22.1.0",
     "@vitejs/plugin-vue": "^5.0.5",
+    "eslint": "^9.8.0",
     "npm-run-all": "^4.1.5",
     "rimraf": "^6.0.1",
     "sass": "^1.77.6",

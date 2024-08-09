@@ -30,8 +30,8 @@ pnpm i vue-files-preview
 
 ```javascript
 import { createApp } from 'vue'
-import App from './App.vue'
 import VueFilesPreview from 'vue-files-preview'
+import App from './App.vue'
 import 'vue-files-preview/lib/style.css'
 
 const app = createApp(App)
@@ -45,9 +45,9 @@ app.mount('#app')
 
 ```javascript
 < template >
-  <VueFilesPreview :file = "file" />
+  <VueFilesPreview :file="file" />
   <!-- or -- >
-  <vue-files-preview :file = "file" />
+  <vue-files-preview :file="file" />
 </template>
 
 <script >

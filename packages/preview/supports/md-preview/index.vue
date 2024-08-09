@@ -1,26 +1,20 @@
-<template>
-  <div class="hljs">
-    <div v-html="markdownHtml"></div>
-  </div>
-</template>
-
 <script lang='ts' setup>
 import markdownit from 'markdown-it'
 import markdownItFootnote from 'markdown-it-footnote'
 import markdownItContainer from 'markdown-it-container'
-import hljs from 'highlight.js';
-import {PreviewProps} from "../../preview.interface";
-import {getFileRenderByFile} from "../../utils/utils";
-
-const markdownHtml = ref()
+import hljs from 'highlight.js'
+import type { PreviewProps } from '../../preview.interface'
+import { getFileRenderByFile } from '../../utils/utils'
 
 const props = withDefaults(
   defineProps<PreviewProps>(),
   {
     url: () => null,
     file: () => null,
-  }
+  },
 )
+
+const markdownHtml = ref()
 
 watch(
   () => props.file,
@@ -58,26 +52,33 @@ watch(
         // Highlighter function. Should return escaped HTML,
         // or '' if the source string is not changed and should be escaped externally.
         // If result starts with <pre... internal wrapper is skipped.
-        highlight: function (str, lang) {
+        highlight(str, lang) {
           if (lang && hljs.getLanguage(lang)) {
             try {
-              return '<pre><code class="hljs">' +
-                hljs.highlight(str, { language: lang, ignoreIllegals: true }).value +
-                '</code></pre>';
-            } catch (__) { }
+              return `<pre><code class="hljs">${
+                hljs.highlight(str, { language: lang, ignoreIllegals: true }).value
+                }</code></pre>`
+            }
+            catch (__) { }
           }
 
-          return '<pre><code class="hljs">' + md!.utils!.escapeHtml(str) + '</code></pre>';
-        }
-      }).use(markdownItFootnote).use(markdownItContainer);
-      getFileRenderByFile(val).then(render => {
-        markdownHtml.value = md.render(render);
+          return `<pre><code class="hljs">${md!.utils!.escapeHtml(str)}</code></pre>`
+        },
+      }).use(markdownItFootnote).use(markdownItContainer)
+      getFileRenderByFile(val).then((render) => {
+        markdownHtml.value = md.render(render)
       })
     }
   },
-  { immediate: true }
+  { immediate: true },
 )
 </script>
+
+<template>
+  <div class="hljs">
+    <div v-html="markdownHtml" />
+  </div>
+</template>
 
 <style scoped lang='scss'>
 @import 'highlight.js/styles/github-dark-dimmed.css';

@@ -1,45 +1,40 @@
-<template>
-  <div>
-    <vue-office-pdf :src="fileRender" @rendered="renderedHandler" @error="errorHandler" />
-    <div id="pdf-preview-box"></div>
-  </div>
-</template>
-
 <script lang='ts' setup>
-import {onMounted, shallowRef, watch} from 'vue'
+import { onMounted, shallowRef, watch } from 'vue'
 import VueOfficePdf from '@vue-office/pdf'
-import {PreviewProps} from "../../preview.interface";
-import {getFileRenderByFile} from "../../utils/utils";
-// import WebViewer from '@pdftron/pdfjs-express'
-
-const pdfViewer = shallowRef();
+import type { PreviewProps } from '../../preview.interface'
+import { getFileRenderByFile } from '../../utils/utils'
 
 const props = withDefaults(
   defineProps<PreviewProps>(),
   {
     url: () => null,
     file: () => null,
-  }
-);
-const fileRender = ref(null);
-watch(
-    () => props.file,
-    (file) => {
-      if (file) {
-        getFileRenderByFile(file).then(render=>fileRender.value=render);
-      }
-    },
-    { immediate: true }
+  },
 )
-const renderedHandler = () => {
-  console.log("渲染完成");
-};
 
-const errorHandler = () => {
-  console.log("渲染失败");
-};
+// import WebViewer from '@pdftron/pdfjs-express'
 
-const initPdf = () => {
+const pdfViewer = shallowRef()
+
+const fileRender = ref(null)
+watch(
+  () => props.file,
+  (file) => {
+    if (file) {
+      getFileRenderByFile(file).then(render => fileRender.value = render)
+    }
+  },
+  { immediate: true },
+)
+function renderedHandler() {
+  console.log('渲染完成')
+}
+
+function errorHandler() {
+  console.log('渲染失败')
+}
+
+function initPdf() {
   // WebViewer({
   //   // path: props.fileRender,
   //   // initialDoc: props.fileRender,
@@ -58,14 +53,21 @@ const initPdf = () => {
   //     annotationManager.addAnnotation(rectangleAnnot);
   //   })
   // });
-};
+}
 
 onMounted(() => {
   // pdfViewer.value = document.getElementById('pdf-preview-box');
   // if (pdfViewer.value) {
   //   initPdf()
   // }
-});
+})
 </script>
+
+<template>
+  <div>
+    <VueOfficePdf :src="fileRender" @rendered="renderedHandler" @error="errorHandler" />
+    <!-- <div id="pdf-preview-box"></div> -->
+  </div>
+</template>
 
 <style scoped lang="scss"></style>

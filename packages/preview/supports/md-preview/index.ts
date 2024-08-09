@@ -1,6 +1,7 @@
-import MdPreview from './index.vue';
-import { App as Application } from 'vue'
+import type { App as Application } from 'vue'
+import MdPreview from './index.vue'
+
 MdPreview.install = (app: Application) => {
-  app.component("MdPreview", MdPreview);
-};
-export default MdPreview;
+  app.component('MdPreview', MdPreview)
+}
+export default MdPreview

@@ -1,6 +1,7 @@
+import type { App as Application } from 'vue'
+import { createApp } from 'vue'
 import App from './App.vue'
-import { createApp, App as Application } from 'vue'
 
-const app: Application = createApp(App);
+const app: Application = createApp(App)
 
-app.mount('#app');
+app.mount('#app')
