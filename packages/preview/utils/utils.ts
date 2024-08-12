@@ -54,13 +54,9 @@ export function getFileRenderByFile(file: File): Promise<ArrayBuffer | string> {
         resolve(window.URL.createObjectURL(raw))
         break
       case 'pdf': {
-        // const pdfBlobUrl = new Blob([raw], { type: 'application/pdf' })
-        // const pdfBlobUrl = raw
-        // resolve(pdfBlobUrl)
-        fileReader.readAsArrayBuffer(raw)
-        fileReader.onload = () => {
-          resolve(fileReader.result)
-        }
+        const pdfBloBlob = new Blob([raw], { type: 'application/pdf' })
+        const pdfBlobUrl = URL.createObjectURL(pdfBloBlob)
+        resolve(pdfBlobUrl)
         break
       }
       case 'video': {

@@ -2,7 +2,6 @@ import path from 'node:path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
-import tsconfigPaths from 'vite-tsconfig-paths'
 import AutoImport from 'unplugin-auto-import/vite'
 import { copyPackageJsonPlugin } from './vite-plugins/copy.plugin'
 
@@ -19,7 +18,6 @@ export default defineConfig({
   },
   plugins: [
     vue(),
-    tsconfigPaths(),
     dts({
       insertTypesEntry: true,
       outDir: 'dist/types',

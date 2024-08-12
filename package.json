@@ -1,6 +1,6 @@
 {
   "name": "vue-files-preview",
-  "version": "1.0.26",
+  "version": "1.0.27",
   "private": false,
   "description": "A tool for previewing files such as doc, excel, pdf, image, markdown, txt, audio, and video and so on.",
   "author": "SmallTeddy",
@@ -55,7 +55,6 @@
     "@codemirror/theme-one-dark": "^6.1.2",
     "@vue-office/docx": "^1.6.2",
     "@vue-office/excel": "^1.7.8",
-    "@vue-office/pdf": "^2.0.2",
     "@vueuse/core": "^10.11.0",
     "epubjs": "^0.3.93",
     "highlight.js": "^11.10.0",
