@@ -63,8 +63,7 @@
     "markdown-it-footnote": "4.0.0",
     "vue": "3.4.33",
     "vue-codemirror": "6.1.1",
-    "vue-demi": "0.14.8",
-    "vue-markdown": "2.2.4"
+    "vue-demi": "0.14.8"
   },
   "devDependencies": {
     "@antfu/eslint-config": "2.25.0",

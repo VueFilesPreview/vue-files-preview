@@ -1,17 +1,28 @@
-# Vue Files Preview
+<p align="center">
+<a href="https://github.com/vueuse/vueuse#gh-light-mode-only">
+  <img src="./public/file.svg#gh-light-mode-only" alt="VueUse - Collection of essential Vue Composition Utilities" width="300">
+</a>
+</p>
 
-## Introduce
+<p align="center">
+<a href="https://www.npmjs.com/package/vue-files-preview" target="__blank"><img src="https://img.shields.io/npm/v/vue-files-preview?color=a1b858&label=" alt="NPM version"></a>
+<a href="https://www.npmjs.com/package/vue-files-preview" target="__blank"><img alt="NPM Downloads" src="https://img.shields.io/npm/dm/vue-files-preview?color=50a36f&label="></a>
+<a href="https://vuefilespreview.github.io/vue-files-preview-demo/" target="__blank"><img src="https://img.shields.io/static/v1?label=&message=demo&color=1e8a7a" alt="Demos"></a>
+<a href="https://github.com/SmallTeddy/vue-files-preview" target="__blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/SmallTeddy/vue-files-preview?style=social"></a>
+</p>
+
+## 📖 Introduce
 
 This project is dedicated to previewing any file format on the `Vue3` framework, supporting file previews such as docx, xlsx, pdf, image, txt, epub, markdown, code, etc
 
 Project repository: [https://github.com/VueFilesPreview/vue-files-preview](https://github.com/VueFilesPreview/vue-files-preview)
 
-## 📖 Features
+## 🚀 Features
 
-- [ ] Support success and error callbacks
-- [ ] Reconfiguration pdf-preview
-- [ ] Fix excel-preview style
-- [ ] Friendly interface for unknown file
+* [ ] Support success and error callbacks
+* [x] Reconfiguration pdf-preview
+* [ ] Fix excel-preview style
+* [ ] Friendly interface for unknown file
 
 ## 📦 Install
 
@@ -31,7 +42,9 @@ pnpm i vue-files-preview
 ### In Main.js
 
 ```javascript
-import { createApp } from 'vue'
+import {
+  createApp
+} from 'vue'
 import VueFilesPreview from 'vue-files-preview'
 import App from './App.vue'
 import 'vue-files-preview/lib/style.css'
@@ -57,7 +70,7 @@ app.mount('#app')
 </script>
 ```
 
-## Demo
+## 🦄 Demo
 
 ### Code
 
@@ -165,3 +178,12 @@ Currently, there may still be issues with formulas and other aspects, which will
 using [epubjs](http://epubjs.org/documentation/0.3/) to adapt to EPUB file preview and configure page-flipping function for secondary development
 
 ![epub preview](assets/images/readme/epub.png)
+
+## 🌸 Thanks
+
+* [vue-office](https://github.com/501351981/vue-office?tab=readme)
+* [codemirror](https://github.com/codemirror/dev/)
+* [marked](https://github.com/markedjs/marked)
+* [commonmark.js](https://github.com/commonmark/commonmark.js)
+* [markdown-it](https://github.com/markdown-it/markdown-it)
+* [epubjs](http://epubjs.org/documentation/0.3/)
