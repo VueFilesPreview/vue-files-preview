@@ -1,6 +1,6 @@
 <p align="center">
-<a href="https://github.com/vueuse/vueuse#gh-light-mode-only">
-  <img src="./public/file.svg#gh-light-mode-only" alt="VueUse - Collection of essential Vue Composition Utilities" width="300">
+<a href="https://github.com/SmallTeddy/vue-files-preview">
+  <img src="./public/file.svg" alt="VueUse - Collection of essential Vue Composition Utilities" width="300">
 </a>
 </p>
 
