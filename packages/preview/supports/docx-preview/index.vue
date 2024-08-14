@@ -1,27 +1,27 @@
 <script lang='ts' setup>
 import VueOfficeDocx from '@vue-office/docx'
 import '@vue-office/docx/lib/index.css'
-import { ref, watch } from 'vue'
-import type { PreviewProps } from '../../preview.interface'
-import { getFileRenderByFile } from '../../utils/utils'
+import {ref, watch} from 'vue'
+import type {PreviewProps} from '../../preview.interface'
+import {getFileRenderByFile} from '../../utils/utils'
 
 const props = withDefaults(
-  defineProps<PreviewProps>(),
-  {
-    url: () => null,
-    file: () => null,
-  },
+    defineProps<PreviewProps>(),
+    {
+      url: () => null,
+      file: () => null,
+    },
 )
 
 const fileRender = ref(null)
 watch(
-  () => props.file,
-  () => {
-    getFileRenderByFile(props.file).then((render) => {
-      fileRender.value = render
-    })
-  },
-  { immediate: true },
+    () => props.file,
+    () => {
+      getFileRenderByFile(props.file).then((render) => {
+        fileRender.value = render
+      })
+    },
+    {immediate: true},
 )
 
 function renderedHandler(): void {
@@ -35,7 +35,7 @@ function errorHandler(): void {
 
 <template>
   <div>
-    <VueOfficeDocx :src="fileRender" @rendered="renderedHandler" @error="errorHandler" />
+    <VueOfficeDocx :src="fileRender" @rendered="renderedHandler" @error="errorHandler"/>
   </div>
 </template>
 

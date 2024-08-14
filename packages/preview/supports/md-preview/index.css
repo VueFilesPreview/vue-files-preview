@@ -1,40 +1,40 @@
 html,
 body,
 .full-height {
-  height: 100%;
+    height: 100%;
 }
 
 body {
-  overflow-x: hidden;
-  padding-bottom: 160px;
-  background-color: #fbfbfb;
+    overflow-x: hidden;
+    padding-bottom: 160px;
+    background-color: #fbfbfb;
 }
 
 pre {
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
 .checkbox {
-  margin-right: 10px;
+    margin-right: 10px;
 }
 
 .source {
-  width: 100%;
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-  font-size: 13px;
-  padding: 2px;
+    width: 100%;
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-size: 13px;
+    padding: 2px;
 }
 
 .hljs {
-  overflow: hidden;
+    overflow: hidden;
 }
 
 .hljs img {
-  max-width: 35%;
+    max-width: 35%;
 }
 
 .hljs code {
-  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  font-size: 14px;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 14px;
 }

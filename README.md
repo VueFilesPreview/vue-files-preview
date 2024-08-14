@@ -13,16 +13,19 @@
 
 ## 📖 Introduce
 
-This project is dedicated to previewing any file format on the `Vue3` framework, supporting file previews such as docx, xlsx, pdf, image, txt, epub, markdown, code, etc
+This project is dedicated to previewing any file format on the `Vue3` framework, supporting file previews such as docx,
+xlsx, pdf, image, txt, epub, markdown, code, etc
 
-Project repository: [https://github.com/VueFilesPreview/vue-files-preview](https://github.com/VueFilesPreview/vue-files-preview)
+Project
+repository: [https://github.com/VueFilesPreview/vue-files-preview](https://github.com/VueFilesPreview/vue-files-preview)
 
 ## 🚀 Features
 
-* [ ] Support success and error callbacks
-* [x] Reconfiguration pdf-preview
-* [ ] Fix excel-preview style
-* [ ] Friendly interface for unknown file
+[ ] Reconfiguration docx-preview
+[ ] Reconfiguration excel-preview
+[x] Reconfiguration pdf-preview
+[ ] Support success and error callbacks
+[ ] Friendly interface for unknown file
 
 ## 📦 Install
 
@@ -110,7 +113,8 @@ const beforeFileUpload = (rawFile) => {
 
 ![测试默认界面](assets/images/readme/default.png)
 
-This demo is already here [vue-files-preview-demo](https://github.com/VueFilesPreview/vue-files-preview-demo), click to view it.
+This demo is already here [vue-files-preview-demo](https://github.com/VueFilesPreview/vue-files-preview-demo), click to
+view it.
 
 ## doc、xls、ppt preview
 
@@ -152,7 +156,9 @@ using native img tags to implement image preview
 
 ## code preview
 
-using [codemirror](https://github.com/codemirror/dev/) to adapt the code file preview, support `Angular, CSS, C++, Go, HTML, Java, JavaScript, JSON, Liquid, Markdown, PHP, Python, Rust, Sass, Vue, XML, YAML, C#, CMake, CoffeeScript, Dart, Elixir, GLSL, Haskell, Lua, Objective-C, R, Ruby, Scala, Shell, Swift, TeX, TypeScript, Visual Basic` code file preview
+using [codemirror](https://github.com/codemirror/dev/) to adapt the code file preview,
+support `Angular, CSS, C++, Go, HTML, Java, JavaScript, JSON, Liquid, Markdown, PHP, Python, Rust, Sass, Vue, XML, YAML, C#, CMake, CoffeeScript, Dart, Elixir, GLSL, Haskell, Lua, Objective-C, R, Ruby, Scala, Shell, Swift, TeX, TypeScript, Visual Basic`
+code file preview
 
 <p style="text-align: center">
   <img src="assets/images/readme/html.png" alt="html preview" style="width: 20%" />
@@ -167,7 +173,9 @@ using [codemirror](https://github.com/codemirror/dev/) to adapt the code file pr
 
 ## markdown preview
 
-I have tried using both the [marked](https://github.com/markedjs/marked) and [commonmark.js](https://github.com/commonmark/commonmark.js) tool libraries for simple implementation, and ultimately adopted the [markdown-it](https://github.com/markdown-it/markdown-it) tool library
+I have tried using both the [marked](https://github.com/markedjs/marked)
+and [commonmark.js](https://github.com/commonmark/commonmark.js) tool libraries for simple implementation, and
+ultimately adopted the [markdown-it](https://github.com/markdown-it/markdown-it) tool library
 
 Currently, there may still be issues with formulas and other aspects, which will be further optimized in the future
 
@@ -175,7 +183,8 @@ Currently, there may still be issues with formulas and other aspects, which will
 
 ## epub preview
 
-using [epubjs](http://epubjs.org/documentation/0.3/) to adapt to EPUB file preview and configure page-flipping function for secondary development
+using [epubjs](http://epubjs.org/documentation/0.3/) to adapt to EPUB file preview and configure page-flipping function
+for secondary development
 
 ![epub preview](assets/images/readme/epub.png)
 

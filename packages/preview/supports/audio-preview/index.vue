@@ -1,17 +1,17 @@
 <script lang='ts' setup>
-import { computed, getCurrentInstance, onBeforeMount, onMounted, ref } from 'vue'
-import type { PreviewProps } from '../../preview.interface'
-import { getFileRenderByFile } from '../../utils/utils'
+import {computed, getCurrentInstance, onBeforeMount, onMounted, ref} from 'vue'
+import type {PreviewProps} from '../../preview.interface'
+import {getFileRenderByFile} from '../../utils/utils'
 
 const props = withDefaults(
-  defineProps<PreviewProps>(),
-  {
-    file: () => null,
-    name: () => null,
-  },
+    defineProps<PreviewProps>(),
+    {
+      file: () => null,
+      name: () => null,
+    },
 )
 
-const { proxy } = getCurrentInstance() as any
+const {proxy} = getCurrentInstance() as any
 
 const audioDom = ref()
 const ulDom = ref()
@@ -75,7 +75,7 @@ function audioPlay() {
 // 柱状
 function drawColumnar() {
   requestAnimationFrame(drawColumnar)
-  const { width, height } = canvasDom.value
+  const {width, height} = canvasDom.value
   ctx.value.clearRect(0, 0, width, height)
   if (!isInit.value)
     return
@@ -97,7 +97,7 @@ function drawColumnar() {
 // 波浪
 function drawWavy() {
   requestAnimationFrame(drawWavy)
-  const { width, height } = canvasDom.value
+  const {width, height} = canvasDom.value
   ctx.value.clearRect(0, 0, width, height)
   if (!isInit.value)
     return
@@ -157,7 +157,7 @@ onMounted(() => {
         </div>
       </div>
       <div class="mp3Box">
-        <audio ref="audioRef" controls :src="src" />
+        <audio ref="audioRef" controls :src="src"/>
       </div>
       <div>
         <el-button link @click="changeMode">
@@ -166,7 +166,7 @@ onMounted(() => {
       </div>
     </div>
     <div class="cvs-container">
-      <canvas ref="canvasRef" />
+      <canvas ref="canvasRef"/>
     </div>
   </div>
 </template>

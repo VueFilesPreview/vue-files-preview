@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { watch } from 'vue'
-import type { PreviewProps } from '../../preview.interface'
-import { getFileRenderByFile } from '../../utils/utils'
+import {watch} from 'vue'
+import type {PreviewProps} from '../../preview.interface'
+import {getFileRenderByFile} from '../../utils/utils'
 
 const props = withDefaults(defineProps<PreviewProps>(), {
   url: () => null,
@@ -10,19 +10,19 @@ const props = withDefaults(defineProps<PreviewProps>(), {
 
 const fileRender = ref(null)
 watch(
-  () => props.file,
-  (file) => {
-    if (file) {
-      getFileRenderByFile(file).then(render => (fileRender.value = render))
-    }
-  },
-  { immediate: true },
+    () => props.file,
+    (file) => {
+      if (file) {
+        getFileRenderByFile(file).then(render => (fileRender.value = render))
+      }
+    },
+    {immediate: true},
 )
 </script>
 
 <template>
   <div>
-    <iframe class="pdf-iframe" :src="fileRender" frameborder="0" />
+    <iframe class="pdf-iframe" :src="fileRender" frameborder="0"/>
   </div>
 </template>
 

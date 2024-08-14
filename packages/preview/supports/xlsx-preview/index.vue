@@ -1,31 +1,31 @@
 <script lang="ts" setup>
 import VueOfficeExcel from '@vue-office/excel'
 import '@vue-office/excel/lib/index.css'
-import { ref, watch } from 'vue'
-import type { PreviewProps } from '../../preview.interface'
-import { getFileRenderByFile } from '../../utils/utils'
+import {ref, watch} from 'vue'
+import type {PreviewProps} from '../../preview.interface'
+import {getFileRenderByFile} from '../../utils/utils'
 
 const props = withDefaults(
-  defineProps<
-    PreviewProps & {
+    defineProps<
+        PreviewProps & {
       width?: string
       height?: string
     }
-  >(),
-  {
-    url: () => null,
-    file: () => null,
-  },
+    >(),
+    {
+      url: () => null,
+      file: () => null,
+    },
 )
 const fileRender = ref(null)
 watch(
-  () => props.file,
-  (file) => {
-    if (file) {
-      getFileRenderByFile(file).then(render => (fileRender.value = render))
-    }
-  },
-  { immediate: true },
+    () => props.file,
+    (file) => {
+      if (file) {
+        getFileRenderByFile(file).then(render => (fileRender.value = render))
+      }
+    },
+    {immediate: true},
 )
 
 function renderedHandler(): void {
@@ -38,7 +38,7 @@ function errorHandler(): void {
 </script>
 
 <template>
-    <VueOfficeExcel :src="fileRender" @rendered="renderedHandler" @error="errorHandler" />
+  <VueOfficeExcel :src="fileRender" @rendered="renderedHandler" @error="errorHandler"/>
 </template>
 
 <style scoped lang="scss">

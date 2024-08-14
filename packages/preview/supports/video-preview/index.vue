@@ -1,30 +1,30 @@
 <script lang='ts' setup>
-import { onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
-import type { PreviewProps } from '../../preview.interface'
-import { getFileRenderByFile } from '../../utils/utils'
+import {onBeforeUnmount, onMounted, ref, shallowRef, watch} from 'vue'
+import type {PreviewProps} from '../../preview.interface'
+import {getFileRenderByFile} from '../../utils/utils'
 
 const props = withDefaults(
-  defineProps<PreviewProps>(),
-  {
-    url: () => null,
-    file: () => null,
-  },
+    defineProps<PreviewProps>(),
+    {
+      url: () => null,
+      file: () => null,
+    },
 )
 
 const fileRender = ref(null)
 watch(
-  () => props.file,
-  (file) => {
-    if (file) {
-      fileRender.value && URL.revokeObjectURL(fileRender.value)
-      getFileRenderByFile(file).then((render) => {
-        fileRender.value = render
-        // 设置视频元素的src
-        videoPreviewRef.value.src = fileRender.value
-      })
-    }
-  },
-  { immediate: true },
+    () => props.file,
+    (file) => {
+      if (file) {
+        fileRender.value && URL.revokeObjectURL(fileRender.value)
+        getFileRenderByFile(file).then((render) => {
+          fileRender.value = render
+          // 设置视频元素的src
+          videoPreviewRef.value.src = fileRender.value
+        })
+      }
+    },
+    {immediate: true},
 )
 const videoPreviewRef = shallowRef(null)
 onMounted(() => {
@@ -45,7 +45,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="web-full-screen">
-    <video ref="videoPreviewRef" class="player-video-main" controls autoplay />
+    <video ref="videoPreviewRef" class="player-video-main" controls autoplay/>
   </div>
 </template>
 

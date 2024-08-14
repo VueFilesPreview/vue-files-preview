@@ -11,15 +11,15 @@ import VideoPreview from './video-preview/index.js'
 import XlsxPreview from './xlsx-preview/index.js'
 
 export {
-  VueFilesPreview,
-  AudioPreview,
-  CodePreview,
-  DocxPreview,
-  EpubPreview,
-  MdPreview,
-  PdfPreview,
-  PicPreview,
-  TxtPreview,
-  VideoPreview,
-  XlsxPreview,
+    VueFilesPreview,
+    AudioPreview,
+    CodePreview,
+    DocxPreview,
+    EpubPreview,
+    MdPreview,
+    PdfPreview,
+    PicPreview,
+    TxtPreview,
+    VideoPreview,
+    XlsxPreview,
 }

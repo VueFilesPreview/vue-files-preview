@@ -1,20 +1,20 @@
 <script lang='ts' setup>
-import { ref, watch } from 'vue'
+import {ref, watch} from 'vue'
 import ePub from 'epubjs'
-import type { PreviewProps } from '../../preview.interface'
-import { getFileRenderByFile } from '../../utils/utils'
+import type {PreviewProps} from '../../preview.interface'
+import {getFileRenderByFile} from '../../utils/utils'
 
 const props = withDefaults(
-  defineProps<PreviewProps & {
-    width?: string
-    height?: string
-  }>(),
-  {
-    url: () => null,
-    file: () => null,
-    width: () => '100%',
-    height: () => '100%',
-  },
+    defineProps<PreviewProps & {
+      width?: string
+      height?: string
+    }>(),
+    {
+      url: () => null,
+      file: () => null,
+      width: () => '100%',
+      height: () => '100%',
+    },
 )
 
 const navigation = ref()
@@ -49,11 +49,11 @@ function initEpub(): void {
 }
 
 watch(
-  () => props.file,
-  () => {
-    initEpub()
-  },
-  { immediate: true },
+    () => props.file,
+    () => {
+      initEpub()
+    },
+    {immediate: true},
 )
 
 // epub翻页
@@ -101,7 +101,7 @@ onKeyStroke('ArrowRight', () => {
     <button class="btn" style="display: none" @keydown="prevKeyDown">
       上一页
     </button>
-    <div id="epub-viewer" class="epub-viewer" />
+    <div id="epub-viewer" class="epub-viewer"/>
     <button class="btn" style="display: none" @keydown="downKeyDown">
       下一页
     </button>
