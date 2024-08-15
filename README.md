@@ -21,12 +21,12 @@ repository: [https://github.com/VueFilesPreview/vue-files-preview](https://githu
 
 ## 🚀 Features
 
-[ ] Feat `CDN` support
-[ ] Reconfiguration docx-preview
-[ ] Reconfiguration excel-preview
-[x] Reconfiguration pdf-preview
-[ ] Support `Success` and `Error` callbacks
-[ ] Friendly interface for unknown file
+- [ ] Feat `CDN` support
+- [ ] Reconfiguration docx-preview
+- [ ] Reconfiguration excel-preview
+- [x] Reconfiguration pdf-preview
+- [ ] Support `Success` and `Error` callbacks
+- [ ] Friendly interface for unknown file
 
 ## 📦 Install
 
