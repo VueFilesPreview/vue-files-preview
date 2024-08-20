@@ -66,7 +66,7 @@
     "vue-demi": "0.14.8"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "2.25.0",
+    "@antfu/eslint-config": "2.26.0",
     "@rollup/plugin-typescript": "11.1.6",
     "@types/node": "22.1.0",
     "@vitejs/plugin-vue": "5.0.5",
