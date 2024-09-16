@@ -1,6 +1,6 @@
 {
   "name": "vue-files-preview",
-  "version": "1.0.30",
+  "version": "1.0.32",
   "private": false,
   "description": "A tool for previewing files such as doc, excel, pdf, image, markdown, txt, audio, and video and so on.",
   "author": "SmallTeddy",
@@ -45,9 +45,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "peerDependencies": {
-    "vue": "3.2.0"
-  },
   "dependencies": {
     "@codemirror/lang-html": "6.4.9",
     "@codemirror/lang-javascript": "6.2.2",
@@ -68,7 +65,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "2.26.0",
     "@rollup/plugin-typescript": "11.1.6",
-    "@types/node": "22.5.2",
+    "@types/node": "22.5.5",
     "@vitejs/plugin-vue": "5.1.2",
     "eslint": "9.9.1",
     "npm-run-all": "4.1.5",
@@ -76,9 +73,10 @@
     "sass": "1.78.0",
     "ts-node": "10.9.2",
     "tslib": "2.7.0",
-    "tsx": "4.16.5",
     "unplugin-auto-import": "0.18.3",
-    "vite": "5.4.3",
+    "tsx": "4.19.1",
+    "unplugin-auto-import": "0.18.2",
+    "vite": "5.4.5",
     "vite-plugin-dts": "4.2.1",
     "vite-tsconfig-paths": "5.0.1"
   },
