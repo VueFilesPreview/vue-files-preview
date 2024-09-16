@@ -1,6 +1,6 @@
 {
   "name": "vue-files-preview",
-  "version": "1.0.30",
+  "version": "1.0.31",
   "private": false,
   "description": "A tool for previewing files such as doc, excel, pdf, image, markdown, txt, audio, and video and so on.",
   "author": "SmallTeddy",
@@ -44,9 +44,6 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "peerDependencies": {
-    "vue": "3.2.0"
   },
   "dependencies": {
     "@codemirror/lang-html": "6.4.9",
