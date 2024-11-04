@@ -13,6 +13,8 @@ jobs:
       # Step 1: 检出源仓库代码
       - name: Checkout Source Repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # 拉取完整历史记录
 
       # Step 2: 检查 package.json 的版本号是否变化
       - name: Check for Version Change
@@ -40,10 +42,10 @@ jobs:
         run: |
           # 克隆目标仓库
           git clone https://x-access-token:${TARGET_REPO_TOKEN}@github.com/VueFilesPreview/vue-files-preview-demo.git vue-files-preview-demo
-          
           # 进入目标仓库目录
           cd vue-files-preview-demo
-          
+          # 安装依赖
+          npm install
           # 确保脚本有执行权限
           npm run gh
           
