@@ -18,16 +18,20 @@ jobs:
       - name: Check for Version Change
         id: version
         run: |
-          OLD_VERSION=$(git show HEAD~1:package.json | jq -r .version)
-          NEW_VERSION=$(jq -r .version package.json)
-          echo "Old version: $OLD_VERSION"
-          echo "New version: $NEW_VERSION"
-          if [ "$OLD_VERSION" != "$NEW_VERSION" ]; then
-            echo "version_changed=true" >> $GITHUB_ENV
-          else
-            echo "version_changed=false" >> $GITHUB_ENV
-          fi
-
+          if [ "$(git rev-list --count HEAD)" -eq 1 ]; then
+             echo "No previous commit, setting version_changed to true."
+             echo "version_changed=true" >> $GITHUB_ENV
+           else
+             OLD_VERSION=$(git show HEAD~1:package.json | jq -r .version)
+             NEW_VERSION=$(jq -r .version package.json)
+             echo "Old version: $OLD_VERSION"
+             echo "New version: $NEW_VERSION"
+             if [ "$OLD_VERSION" != "$NEW_VERSION" ]; then
+               echo "version_changed=true" >> $GITHUB_ENV
+             else
+               echo "version_changed=false" >> $GITHUB_ENV
+             fi
+           fi
       # Step 3: 如果版本号改变，则拉取目标仓库并执行 gh 指令
       - name: Deploy to Target Repo
         if: env.version_changed == 'true'
