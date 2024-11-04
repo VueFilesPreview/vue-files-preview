@@ -40,7 +40,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "unpub": "npm unpublish",
-    "pub": "cd dist && npm publish --access=public"
+    "pub": "cd dist && npm publish --access=public --registry=https://registry.npmjs.com"
   },
   "publishConfig": {
     "access": "public"
