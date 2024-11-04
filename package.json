@@ -42,6 +42,7 @@
     "unpub": "npm unpublish",
     "pub": "cd dist && npm publish --access=public"
   },
+  "jsdelivr": "",
   "publishConfig": {
     "access": "public"
   },
@@ -73,7 +74,6 @@
     "sass": "1.79.5",
     "ts-node": "10.9.2",
     "tslib": "2.7.0",
-    "unplugin-auto-import": "0.18.3",
     "tsx": "4.19.1",
     "unplugin-auto-import": "0.18.3",
     "vite": "5.4.10",
