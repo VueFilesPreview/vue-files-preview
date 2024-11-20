@@ -15,6 +15,7 @@ const props = withDefaults(
       url: () => null,
       width: () => '100%',
       height: () => '100%',
+      overflow: () => 'auto',
     },
 )
 
@@ -40,7 +41,7 @@ watch(
 </script>
 
 <template>
-  <div class="vue-files-preview" :style="{ width, height }">
+  <div class="vue-files-preview" :style="{ width, height, overflow }">
     <component
         :is="currentPreview.component"
         :name="currentPreview.name"
