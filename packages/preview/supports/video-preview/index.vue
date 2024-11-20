@@ -57,16 +57,22 @@ onBeforeUnmount(() => {
   top: 0;
   width: 100vw !important;
   height: 100vh !important;
-  overflow: auto;
+  overflow: hidden; /* 隐藏溢出内容，保持全屏体验 */
+  background: rgba(0, 0, 0, 0.8); /* 背景色可提高视频对比度 */
+  display: flex; /* 使用 flexbox 来居中视频 */
+  align-items: center; /* 垂直居中 */
+  justify-content: center; /* 水平居中 */
 }
 
 .player-video-main {
   width: 100%;
-  object-fit: scale-down;
+  height: auto; /* 使视频保持宽高比 */
+  max-height: 100%; /* 限制最大高度以防溢出 */
+  object-fit: contain; /* 保持宽高比，可能会出现黑边 */
   transition: .2s;
+}
 
-  &.video-mirror {
-    transform: rotateY(180deg);
-  }
+.player-video-main.video-mirror {
+  transform: rotateY(180deg);
 }
 </style>
