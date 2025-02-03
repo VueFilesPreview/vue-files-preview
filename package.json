@@ -52,7 +52,7 @@
     "@codemirror/theme-one-dark": "6.1.2",
     "@vue-office/docx": "1.6.2",
     "@vue-office/excel": "1.7.8",
-    "@vueuse/core": "11.2.0",
+    "@vueuse/core": "12.5.0",
     "codemirror": "^6.0.1",
     "epubjs": "0.3.93",
     "highlight.js": "11.10.0",
