@@ -38,7 +38,7 @@ watch(
 </script>
 
 <template>
-  <div>
+  <div class="code-preview">
     <Codemirror
         v-model="code" :autofocus="true" :indent-with-tab="true" :tab-size="2"
         :extensions="extensions" @ready="handleReady"

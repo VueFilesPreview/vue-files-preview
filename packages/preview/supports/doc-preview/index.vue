@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div>
+  <div class="doc-preview">
     doc
   </div>
 </template>

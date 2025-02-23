@@ -149,7 +149,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="music-container flex flex-column flex-align">
+  <div class="audio-preview music-container flex flex-column flex-align">
     <div class="audio-container flex-align">
       <div class="flex-column" style="margin-left: 0.5rem;">
         <div style="font-size: 1.6rem; color: #999;">

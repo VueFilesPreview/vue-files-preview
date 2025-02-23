@@ -31,7 +31,7 @@ watch(
 </script>
 
 <template>
-  <div>
+  <div class="pdf-preview">
     <iframe class="pdf-iframe" :src="fileRender" frameborder="0" />
   </div>
 </template>

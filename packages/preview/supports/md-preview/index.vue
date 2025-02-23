@@ -75,7 +75,7 @@ watch(
 </script>
 
 <template>
-  <div class="hljs">
+  <div class="md-preview hljs">
     <div v-html="markdownHtml"/>
   </div>
 </template>

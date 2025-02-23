@@ -25,7 +25,7 @@ watch(
 </script>
 
 <template>
-  <div>
+  <div class="pic-preview">
     <img :src="fileRender" alt="">
   </div>
 </template>

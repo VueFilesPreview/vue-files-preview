@@ -34,7 +34,7 @@ function errorHandler(): void {
 </script>
 
 <template>
-  <div>
+  <div class="docx-preview">
     <VueOfficeDocx :src="fileRender" @rendered="renderedHandler" @error="errorHandler"/>
   </div>
 </template>

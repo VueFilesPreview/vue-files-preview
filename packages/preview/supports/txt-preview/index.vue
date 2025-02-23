@@ -26,7 +26,7 @@ watch(
 </script>
 
 <template>
-  <div>
+  <div class="txt-preview">
     {{ fileRender }}
   </div>
 </template>

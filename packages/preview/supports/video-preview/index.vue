@@ -44,7 +44,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="web-full-screen">
+  <div class="video-preview web-full-screen">
     <video ref="videoPreviewRef" class="player-video-main" controls autoplay/>
   </div>
 </template>

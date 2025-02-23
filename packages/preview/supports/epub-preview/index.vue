@@ -97,7 +97,7 @@ onKeyStroke('ArrowRight', () => {
 </script>
 
 <template>
-  <div class="epub-box" :style="{ width, height }">
+  <div class="epub-preview epub-box" :style="{ width, height }">
     <button class="btn" style="display: none" @keydown="prevKeyDown">
       上一页
     </button>
