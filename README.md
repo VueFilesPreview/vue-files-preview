@@ -189,6 +189,12 @@ for secondary development
 
 ![epub preview](assets/images/readme/epub.png)
 
+## 🤝 Contributors
+
+<a href="https://github.com/SmallTeddy/vue-files-preview/graphs/contributors">
+  <img src="https://raw.githubusercontent.com/SmallTeddy/vue-files-preview/svg/images/contributors.png" alt="Contributors" />
+</a>
+
 ## 🌸 Thanks
 
 * [vue-office](https://github.com/501351981/vue-office?tab=readme)
