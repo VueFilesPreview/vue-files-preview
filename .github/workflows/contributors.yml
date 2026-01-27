@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          token: ${{ secrets.ACTION_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Ensure svg branch exists
         run: |
@@ -31,7 +31,7 @@ jobs:
       - uses: thinkasany/organize-contributors@master
         with:
           organize_name: VueFilesPreview
-          github_token: ${{ secrets.ACTION_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           png_path: images/contributors.png
           json_path: contributors.json
           branch: svg
