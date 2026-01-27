@@ -22,11 +22,11 @@ repository: [https://github.com/VueFilesPreview/vue-files-preview](https://githu
 ## 🚀 Features
 
 - [ ] Feat `CDN` support
-- [ ] Reconfiguration docx-preview
-- [ ] Reconfiguration excel-preview
+- [x] Reconfiguration docx-preview
+- [x] Reconfiguration excel-preview
 - [x] Reconfiguration pdf-preview
-- [ ] Support `Success` and `Error` callbacks
-- [ ] Friendly interface for unknown file
+- [x] Support `Success` and `Error` callbacks
+- [x] Friendly interface for unknown file
 
 ## 📦 Install
 
@@ -137,7 +137,7 @@ use nature audio tag and canvas to implement the audio preview
 
 ![audio preview](assets/images/readme/audio.png)
 
-use nature video tag to implement the video preview (just support mp4)
+use nature video tag to implement the video preview (support mp4, webm, ogg, mkv, avi, mpeg, flv, mov, wmv)
 
 ![video preview](assets/images/readme/video.png)
 

@@ -1,6 +1,6 @@
 {
   "name": "vue-files-preview",
-  "version": "1.0.38",
+  "version": "1.0.39",
   "private": false,
   "description": "A tool for previewing files such as doc, excel, pdf, image, markdown, txt, audio, and video and so on.",
   "author": "SmallTeddy",
@@ -40,7 +40,11 @@
     "build": "vite build",
     "preview": "vite preview",
     "unpub": "npm unpublish",
-    "pub": "cd dist && npm publish --access=public --registry=https://registry.npmjs.com"
+    "pub": "cd dist && npm publish --access=public --registry=https://registry.npmjs.com",
+    "preexample": "npm run build",
+    "example": "cd example && pnpm dev",
+    "example:install": "cd example && pnpm install",
+    "example:build": "cd example && pnpm build"
   },
   "publishConfig": {
     "access": "public"
@@ -49,6 +53,7 @@
     "@codemirror/lang-html": "6.4.9",
     "@codemirror/lang-javascript": "6.2.2",
     "@codemirror/lang-json": "6.0.1",
+    "@codemirror/lang-xml": "^6.1.0",
     "@codemirror/theme-one-dark": "6.1.2",
     "@vue-office/docx": "1.6.2",
     "@vue-office/excel": "1.7.8",
