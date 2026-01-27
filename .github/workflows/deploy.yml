@@ -2,6 +2,8 @@ name: Deploy Example to GitHub Pages
 
 on:
   push:
+    branches:
+      - main  # 只在 main 分支上触发
     paths:
       - "package.json"  # 仅在 package.json 更新时触发
   workflow_dispatch:  # 支持手动触发
