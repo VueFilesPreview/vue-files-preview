@@ -1,6 +1,6 @@
 <script lang='ts' setup>
 import {ref, watch} from 'vue'
-import {getFileRenderByFile} from '../../utils/utils'
+import {getFileRenderByFile, getFileRenderByUrl} from '../../utils/utils'
 import type {PreviewProps} from '../../preview.interface'
 
 const props = withDefaults(
@@ -11,6 +11,11 @@ const props = withDefaults(
     },
 )
 
+const emit = defineEmits<{
+  rendered: []
+  error: [error: Error]
+}>()
+
 const fileRender = ref(null)
 watch(
     () => props.file,
@@ -18,6 +23,24 @@ watch(
       if (file) {
         getFileRenderByFile(file).then((render) => {
           fileRender.value = render
+          emit('rendered')
+        }).catch((e: Error) => {
+          emit('error', e)
+        })
+      }
+    },
+    {immediate: true},
+)
+
+watch(
+    () => props.url,
+    (url) => {
+      if (url && !props.file) {
+        getFileRenderByUrl(url).then((render) => {
+          fileRender.value = render
+          emit('rendered')
+        }).catch((e: Error) => {
+          emit('error', e)
         })
       }
     },

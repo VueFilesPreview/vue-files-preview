@@ -1,10 +1,11 @@
 <script lang='ts' setup>
+import {ref, watch} from 'vue'
 import markdownit from 'markdown-it'
 import markdownItFootnote from 'markdown-it-footnote'
 import markdownItContainer from 'markdown-it-container'
 import hljs from 'highlight.js'
 import type {PreviewProps} from '../../preview.interface'
-import {getFileRenderByFile} from '../../utils/utils'
+import {getFileRenderByFile, getFileRenderByUrl} from '../../utils/utils'
 
 const props = withDefaults(
     defineProps<PreviewProps>(),
@@ -14,59 +15,66 @@ const props = withDefaults(
     },
 )
 
+const emit = defineEmits<{
+  rendered: []
+  error: [error: Error]
+}>()
+
 const markdownHtml = ref()
+
+function createMarkdownRenderer() {
+  const md = markdownit({
+    html: true,
+    xhtmlOut: false,
+    breaks: false,
+    langPrefix: 'language-',
+    linkify: true,
+    typographer: true,
+    quotes: '\u201C\u201D\u2018\u2019',
+    highlight(str, lang) {
+      if (lang && hljs.getLanguage(lang)) {
+        try {
+          return `<pre><code class="hljs">${
+              hljs.highlight(str, {language: lang, ignoreIllegals: true}).value
+          }</code></pre>`
+        } catch (__) {
+        }
+      }
+      // 使用 md.utils.escapeHtml 而不是 this.utils.escapeHtml
+      return `<pre><code class="hljs">${md.utils.escapeHtml(str)}</code></pre>`
+    },
+  })
+  return md.use(markdownItFootnote).use(markdownItContainer)
+}
+
+function renderMarkdown(content: string | ArrayBuffer): void {
+  const md = createMarkdownRenderer()
+  markdownHtml.value = md.render(content as string)
+  emit('rendered')
+}
 
 watch(
     () => props.file,
-    (val) => {
-      if (val) {
-        const md = markdownit({
-          // Enable HTML tags in source
-          html: true,
+    (file) => {
+      if (file) {
+        getFileRenderByFile(file).then((render) => {
+          renderMarkdown(render)
+        }).catch((e: Error) => {
+          emit('error', e)
+        })
+      }
+    },
+    {immediate: true},
+)
 
-          // Use '/' to close single tags (<br />).
-          // This is only for full CommonMark compatibility.
-          xhtmlOut: false,
-
-          // Convert '\n' in paragraphs into <br>
-          breaks: false,
-
-          // CSS language prefix for fenced blocks. Can be
-          // useful for external highlighters.
-          langPrefix: 'language-',
-
-          // Autoconvert URL-like text to links
-          linkify: true,
-
-          // Enable some language-neutral replacement + quotes beautification
-          // For the full list of replacements, see https://github.com/markdown-it/markdown-it/blob/master/lib/rules_core/replacements.mjs
-          typographer: true,
-
-          // Double + single quotes replacement pairs, when typographer enabled,
-          // and smartquotes on. Could be either a String or an Array.
-          //
-          // For example, you can use '«»„“' for Russian, '„“‚‘' for German,
-          // and ['«\xA0', '\xA0»', '‹\xA0', '\xA0›'] for French (including nbsp).
-          quotes: '“”‘’',
-
-          // Highlighter function. Should return escaped HTML,
-          // or '' if the source string is not changed and should be escaped externally.
-          // If result starts with <pre... internal wrapper is skipped.
-          highlight(str, lang) {
-            if (lang && hljs.getLanguage(lang)) {
-              try {
-                return `<pre><code class="hljs">${
-                    hljs.highlight(str, {language: lang, ignoreIllegals: true}).value
-                }</code></pre>`
-              } catch (__) {
-              }
-            }
-
-            return `<pre><code class="hljs">${md!.utils!.escapeHtml(str)}</code></pre>`
-          },
-        }).use(markdownItFootnote).use(markdownItContainer)
-        getFileRenderByFile(val).then((render) => {
-          markdownHtml.value = md.render(render)
+watch(
+    () => props.url,
+    (url) => {
+      if (url && !props.file) {
+        getFileRenderByUrl(url).then((render) => {
+          renderMarkdown(render)
+        }).catch((e: Error) => {
+          emit('error', e)
         })
       }
     },
@@ -83,4 +91,12 @@ watch(
 <style scoped lang='scss'>
 @import 'highlight.js/styles/github-dark-dimmed.css';
 @import './index.css';
+
+.md-preview {
+  min-height: 100vh;
+  padding: 24px 48px;
+  background-color: #22272e;
+  color: #adbac7;
+  overflow: auto;
+}
 </style>
