@@ -32,7 +32,7 @@ export default defineConfig({
         sourcemap: true,
         lib: {
             name: 'VueFilesPreview',
-            entry: './packages/index.ts',
+            entry: './packages/index.umd.ts',
             formats: ['umd'],
             fileName: () => 'vue-files-preview.umd.js',
         },
@@ -42,7 +42,7 @@ export default defineConfig({
                 globals: {
                     vue: 'Vue',
                 },
-                exports: 'named',
+                exports: 'default',
             },
         },
         minify: true,
