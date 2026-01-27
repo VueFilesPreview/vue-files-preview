@@ -12,36 +12,40 @@ jobs:
     steps:
       # Step 1: 检出代码
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      # Step 2: 设置 Node.js 环境（根据需要调整 Node.js 版本）
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      # Step 2: 设置 pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
         with:
-          node-version: '16'  # 您的项目需要的 Node.js 版本
+          version: 8
 
-      # Step 3: 安装依赖并构建项目
+      # Step 3: 设置 Node.js 环境
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'pnpm'
+
+      # Step 4: 安装依赖并构建项目
       - name: Install dependencies and build
         run: |
-          npm install
-          npm run build  # 运行构建命令
+          pnpm install
+          pnpm build
 
-      # Step 4: 创建 Release 并上传构建文件
+      # Step 5: 压缩构建产物
+      - name: Compress dist folder
+        run: |
+          cd dist
+          zip -r ../dist.zip .
+          cd ..
+
+      # Step 6: 创建 Release 并上传构建文件
       - name: Create Release
         id: create_release
-        uses: actions/create-release@v1
+        uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ github.ref_name }}
-          release_name: Release ${{ github.ref_name }}
-          draft: false
-          prerelease: false
+          files: dist.zip
+          generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Upload Build Artifacts
-        uses: actions/upload-release-asset@v1
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./dist  # 构建输出的目录
-          asset_name: dist.zip  # 将构建的目录压缩为一个 ZIP 文件
-          asset_content_type: application/zip
