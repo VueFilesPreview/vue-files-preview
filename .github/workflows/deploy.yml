@@ -62,6 +62,8 @@ jobs:
       - name: Setup pnpm
         if: steps.version.outputs.version_changed == 'true'
         uses: pnpm/action-setup@v4
+        with:
+          version: 10
 
       # Step 4: 设置 Node.js
       - name: Setup Node.js
