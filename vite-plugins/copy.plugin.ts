@@ -1,13 +1,16 @@
-import {copyFileSync, writeFileSync} from 'node:fs'
-import {join} from 'node:path'
+import {copyFileSync, readFileSync, writeFileSync} from 'node:fs'
+import {dirname, join} from 'node:path'
+import {fileURLToPath} from 'node:url'
 import type {Plugin} from 'vite'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 export function copyPackageJsonPlugin(): Plugin {
     return {
         name: 'copy-package-json',
         closeBundle() {
             try {
-                const packageJson = require('../package.json')
+                const packageJson = JSON.parse(readFileSync(join(__dirname, '../package.json'), 'utf-8'))
                 const distPackageJson = {
                     name: packageJson.name,
                     version: packageJson.version,

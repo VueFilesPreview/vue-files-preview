@@ -13,6 +13,13 @@ export default defineConfig({
             '@packages': pathPackages,
         },
     },
+    css: {
+        preprocessorOptions: {
+            scss: {
+                api: 'modern-compiler',
+            },
+        },
+    },
     plugins: [
         vue(),
         AutoImport({
