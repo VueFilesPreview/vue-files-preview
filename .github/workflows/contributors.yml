@@ -8,11 +8,10 @@ on:
 jobs:
   generate:
     runs-on: ubuntu-latest
-    if: github.repository == 'SmallTeddy/vue-files-preview'
     steps:
       - uses: thinkasany/organize-contributors@master
         with:
-          organize_name: SmallTeddyTools
+          organize_name: VueFilesPreview
           github_token: ${{ secrets.ACTION_TOKEN }}
           png_path: images/contributors.png
           json_path: contributors.json
