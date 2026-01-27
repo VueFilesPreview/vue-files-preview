@@ -5,10 +5,29 @@ on:
     - cron: '0 0 * * *'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   generate:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.ACTION_TOKEN }}
+
+      - name: Ensure svg branch exists
+        run: |
+          if ! git ls-remote --heads origin svg | grep -q svg; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git switch --orphan svg
+            git commit --allow-empty -m "chore: init svg branch"
+            git push origin svg
+            git switch main
+          fi
+
       - uses: thinkasany/organize-contributors@master
         with:
           organize_name: VueFilesPreview
