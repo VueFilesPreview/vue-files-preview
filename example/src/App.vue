@@ -140,6 +140,23 @@ app.mount('#app')`,
   <VueFilesPreview :file="fileObject" />
 </template>`,
   },
+  {
+    key: 'cdn',
+    title: '4. CDN 引入',
+    code: ['<!-- 在 HTML 中通过 CDN 使用 -->',
+      '<script src="https://unpkg.com/vue@3"><\/script>',
+      '<script src="https://unpkg.com/vue-files-preview"><\/script>',
+      '<link rel="stylesheet" href="https://unpkg.com/vue-files-preview/umd/style.css">',
+      '',
+      '<div id="app">',
+      '  <vue-files-preview url="https://example.com/file.pdf"></vue-files-preview>',
+      '</div>',
+      '',
+      '<script>',
+      'const { createApp } = Vue',
+      'createApp({}).use(VueFilesPreview).mount(\'#app\')',
+      '<\/script>'].join('\n'),
+  },
 ]
 </script>
 
