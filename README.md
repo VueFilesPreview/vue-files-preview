@@ -7,7 +7,7 @@
 <p align="center">
 <a href="https://www.npmjs.com/package/vue-files-preview" target="__blank"><img src="https://img.shields.io/npm/v/vue-files-preview?color=a1b858&label=" alt="NPM version"></a>
 <a href="https://www.npmjs.com/package/vue-files-preview" target="__blank"><img alt="NPM Downloads" src="https://img.shields.io/npm/dm/vue-files-preview?color=50a36f&label="></a>
-<a href="https://vuefilespreview.github.io/vue-files-preview-demo/" target="__blank"><img src="https://img.shields.io/static/v1?label=&message=demo&color=1e8a7a" alt="Demos"></a>
+<a href="https://vuefilespreview.github.io/vue-files-preview/" target="__blank"><img src="https://img.shields.io/static/v1?label=&message=demo&color=1e8a7a" alt="Demos"></a>
 <a href="https://github.com/SmallTeddy/vue-files-preview" target="__blank"><img alt="GitHub stars" src="https://img.shields.io/github/stars/SmallTeddy/vue-files-preview?style=social"></a>
 </p>
 
@@ -21,7 +21,7 @@ repository: [https://github.com/VueFilesPreview/vue-files-preview](https://githu
 
 ## 🚀 Features
 
-- [ ] Feat `CDN` support
+- [x] Feat `CDN` support
 - [x] Reconfiguration docx-preview
 - [x] Reconfiguration excel-preview
 - [x] Reconfiguration pdf-preview
@@ -41,6 +41,30 @@ npm i vue-files-preview
 yarn add vue-files-preview
 # pnpm install
 pnpm i vue-files-preview
+```
+
+### CDN
+
+```html
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="https://unpkg.com/vue-files-preview"></script>
+<link rel="stylesheet" href="https://unpkg.com/vue-files-preview/umd/style.css">
+
+<div id="app">
+  <vue-files-preview :url="fileUrl"></vue-files-preview>
+</div>
+
+<script>
+  const { createApp, ref } = Vue
+  const app = createApp({
+    setup() {
+      const fileUrl = ref('https://example.com/sample.pdf')
+      return { fileUrl }
+    }
+  })
+  app.use(VueFilesPreview)
+  app.mount('#app')
+</script>
 ```
 
 ### In Main.js

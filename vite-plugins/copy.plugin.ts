@@ -13,6 +13,8 @@ export function copyPackageJsonPlugin(): Plugin {
                     version: packageJson.version,
                     main: './es/packages/index.mjs',
                     module: './es/packages/index.mjs',
+                    unpkg: './umd/vue-files-preview.umd.js',
+                    jsdelivr: './umd/vue-files-preview.umd.js',
                     types: './types/index.d.ts',
                     exports: {
                         '.': {

@@ -4,6 +4,10 @@ on:
   push:
     tags:
       - 'v*'  # 仅在推送匹配 'v*' 的标签时触发
+  workflow_dispatch:  # 支持手动触发
+
+permissions:
+  contents: write
 
 jobs:
   build-and-release:
@@ -24,7 +28,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
           cache: 'pnpm'
 
       # Step 4: 安装依赖并构建项目
@@ -33,19 +37,34 @@ jobs:
           pnpm install
           pnpm build
 
-      # Step 5: 压缩构建产物
+      # Step 5: 压缩完整构建产物
       - name: Compress dist folder
         run: |
           cd dist
           zip -r ../dist.zip .
           cd ..
 
-      # Step 6: 创建 Release 并上传构建文件
+      # Step 6: 单独打包 CDN 产物（UMD bundle + CSS）
+      - name: Package CDN assets
+        run: |
+          mkdir -p cdn
+          cp dist/umd/vue-files-preview.umd.js cdn/
+          cp dist/umd/vue-files-preview.umd.js.map cdn/
+          cp dist/umd/style.css cdn/
+          cd cdn
+          zip -r ../vue-files-preview-cdn.zip .
+          cd ..
+
+      # Step 7: 创建 Release 并上传构建文件
       - name: Create Release
         id: create_release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
-          files: dist.zip
+          files: |
+            dist.zip
+            vue-files-preview-cdn.zip
+            dist/umd/vue-files-preview.umd.js
+            dist/umd/style.css
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

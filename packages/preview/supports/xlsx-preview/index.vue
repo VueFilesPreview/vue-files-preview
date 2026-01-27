@@ -70,5 +70,8 @@ function errorHandler(e: Error): void {
 </template>
 
 <style scoped lang="scss">
-
+.xlsx-preview {
+  width: 100%;
+  height: 100%;
+}
 </style>
