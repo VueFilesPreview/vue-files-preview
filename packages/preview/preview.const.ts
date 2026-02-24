@@ -10,6 +10,7 @@ import PicPreview from './supports/pic-preview/index'
 import TxtPreview from './supports/txt-preview/index'
 import UnknownPreview from './supports/unknown-preview/index'
 import MsgPreview from './supports/msg-preview/index'
+import PptPreview from './supports/ppt-preview/index'
 import VideoPreview from './supports/video-preview/index'
 import XlsxPreview from './supports/xlsx-preview/index'
 
@@ -53,7 +54,7 @@ export const PreviewRules: Record<PreviewType, IPreviewRule> = {
     // ppt: presentation
     [PreviewType.PPT]: {
         name: '',
-        component: UnknownPreview,
+        component: PptPreview,
         type: PreviewType.PPT,
         accept: ['ppt', 'pptx', 'fodp', 'odp', 'otp', 'pot', 'potm', 'potx', 'pps', 'ppsm', 'ppsx', 'pptm'],
     },
