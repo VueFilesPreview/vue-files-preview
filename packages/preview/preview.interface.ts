@@ -37,8 +37,8 @@ export type FileRenderType = 'text' | 'image' | 'pdf' | 'arrayBuffer' | 'video'
 // region common
 // 预览组件的基础属性 扩展属性使用 & 实现
 export interface PreviewProps {
-    // 接受文件对象
-    file?: File
+    // 接受文件对象 支持File和Blob
+    file?: File | Blob
     // 链接
     url?: string
     // 文件名称

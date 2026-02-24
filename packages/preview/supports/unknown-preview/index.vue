@@ -17,7 +17,8 @@ const emit = defineEmits<{
 
 const fileExtension = computed(() => {
   if (props.file) {
-    return `.${getFileType(props.file)}`
+    const ext = getFileType(props.file, props.name)
+    return ext ? `.${ext}` : ''
   }
   if (props.url) {
     const ext = getFileTypeFromUrl(props.url)
@@ -27,7 +28,7 @@ const fileExtension = computed(() => {
 })
 
 const fileName = computed(() => {
-  if (props.file?.name) {
+  if (props.file && 'name' in props.file && props.file.name) {
     return props.file.name
   }
   if (props.name) {

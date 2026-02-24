@@ -20,24 +20,100 @@ const videoMimeTypes: Record<string, string> = {
     wmv: 'video/x-ms-wmv',
 }
 
+// MIME type 到文件扩展名的映射 用于Blob类型推断
+const mimeToExtMap: Record<string, string> = {
+    'image/svg+xml': 'svg',
+    'image/png': 'png',
+    'image/jpeg': 'jpg',
+    'image/gif': 'gif',
+    'image/webp': 'webp',
+    'image/bmp': 'bmp',
+    'image/x-icon': 'ico',
+    'image/vnd.microsoft.icon': 'ico',
+    'application/pdf': 'pdf',
+    'text/plain': 'txt',
+    'text/markdown': 'md',
+    'text/html': 'html',
+    'text/css': 'css',
+    'text/javascript': 'js',
+    'application/javascript': 'js',
+    'application/json': 'json',
+    'application/xml': 'xml',
+    'text/xml': 'xml',
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.document': 'docx',
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': 'xlsx',
+    'application/vnd.openxmlformats-officedocument.presentationml.presentation': 'pptx',
+    'application/msword': 'doc',
+    'application/vnd.ms-excel': 'xls',
+    'application/vnd.ms-powerpoint': 'ppt',
+    'application/epub+zip': 'epub',
+    'video/mp4': 'mp4',
+    'video/webm': 'webm',
+    'video/ogg': 'ogg',
+    'video/quicktime': 'mov',
+    'audio/mpeg': 'mp3',
+    'audio/wav': 'wav',
+    'audio/ogg': 'ogg',
+    'audio/flac': 'flac',
+    'application/vnd.ms-outlook': 'msg',
+}
+
+/**
+ * 通过MIME type推断文件扩展名
+ * @param mimeType
+ */
+export function getExtFromMimeType(mimeType: string): string {
+    if (!mimeType) return ''
+    // 精确匹配
+    if (mimeToExtMap[mimeType]) return mimeToExtMap[mimeType]
+    // 尝试从 MIME subtype 提取 如 image/png -> png
+    const parts = mimeType.split('/')
+    if (parts.length === 2) {
+        const subtype = parts[1].replace(/^x-/, '')
+        return subtype
+    }
+    return ''
+}
+
 /**
  * 获取文件类型
- * @param file
+ * 支持File和Blob 对于Blob优先从name提取 其次从MIME type推断
+ * @param file File或Blob对象
+ * @param name 可选的文件名 用于从Blob推断类型
  */
-export function getFileType(file: File): string {
-    const fileName = file.name
-    const idx = fileName.lastIndexOf('.')
-    return fileName.substring(idx + 1)
+export function getFileType(file: File | Blob, name?: string): string {
+    // 优先从File.name提取
+    if ('name' in file && file.name) {
+        const idx = file.name.lastIndexOf('.')
+        if (idx !== -1) return file.name.substring(idx + 1)
+    }
+    // 其次从外部传入的name提取
+    if (name) {
+        const idx = name.lastIndexOf('.')
+        if (idx !== -1) return name.substring(idx + 1)
+    }
+    // 最后从MIME type推断
+    return getExtFromMimeType(file.type)
 }
 
 /**
  * 获取文件名
- * @param file
+ * 支持File和Blob
+ * @param file File或Blob对象
+ * @param name 可选的文件名
  */
-export function getFileName(file: File): string {
-    const fileAllName = file.name
-    const idx = fileAllName.lastIndexOf('.')
-    return fileAllName.substring(0, idx)
+export function getFileName(file: File | Blob, name?: string): string {
+    // 优先从File.name提取
+    if ('name' in file && file.name) {
+        const idx = file.name.lastIndexOf('.')
+        return idx === -1 ? file.name : file.name.substring(0, idx)
+    }
+    // 其次从外部传入的name提取
+    if (name) {
+        const idx = name.lastIndexOf('.')
+        return idx === -1 ? name : name.substring(0, idx)
+    }
+    return ''
 }
 
 /**
@@ -117,9 +193,12 @@ export async function getFileRenderByUrl(url: string, fileType?: string): Promis
 
 /**
  * 通过文件类型获取fileRender
+ * 支持File和Blob
+ * @param file File或Blob对象
+ * @param name 可选的文件名 用于Blob类型推断
  */
-export function getFileRenderByFile(file: File): Promise<ArrayBuffer | string> {
-    const previewType = getPreviewTypeByFileType(getFileType(file))
+export function getFileRenderByFile(file: File | Blob, name?: string): Promise<ArrayBuffer | string> {
+    const previewType = getPreviewTypeByFileType(getFileType(file, name))
     const renderType = getFileRenderType(previewType)
     return new Promise((resolve) => {
         const raw = file
@@ -147,7 +226,7 @@ export function getFileRenderByFile(file: File): Promise<ArrayBuffer | string> {
                 break
             }
             case 'video': {
-                const ext = getFileType(file)
+                const ext = getFileType(file, name)
                 const mimeType = videoMimeTypes[ext] || file.type || 'video/mp4'
                 const videoBlobUrl = URL.createObjectURL(new Blob([raw], {type: mimeType}))
                 resolve(videoBlobUrl)

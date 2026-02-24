@@ -28,11 +28,11 @@ const emit = defineEmits<{
 const loading = ref(true)
 const currentPreview = shallowRef<IPreviewRule>(PreviewRules[PreviewType.NONE])
 
-function syncPreviewByFile(file: File): void {
-  const rule = PreviewRules[getPreviewTypeByFileType(getFileType(file))]
+function syncPreviewByFile(file: File | Blob): void {
+  const rule = PreviewRules[getPreviewTypeByFileType(getFileType(file, props.name))]
   if (rule) {
     loading.value = true
-    currentPreview.value = { ...rule, name: getFileName(file) }
+    currentPreview.value = { ...rule, name: getFileName(file, props.name) }
   }
 }
 
