@@ -24,19 +24,20 @@ const isPreviewMode = computed(() => previewFile.value || previewUrl.value)
 const sampleLinks = [
   'https://mozilla.github.io/pdf.js/web/compressed.tracemonkey-pldi-09.pdf',
   'https://raw.githubusercontent.com/adam-p/markdown-here/master/README.md',
-  'https://www.w3schools.com/html/mov_bbb.mp4',
+  'https://raw.githubusercontent.com/VueFilesPreview/vue-files-preview-demo/main/src/assets/test/%E9%98%BF%E5%8B%92%E6%B3%B0%E9%9B%A8%E5%90%8E%E7%8E%B0%E6%A2%A6%E5%B9%BB%E4%BA%91%E6%B5%B7.mp4',
   'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
   'https://upload.wikimedia.org/wikipedia/commons/6/6b/Bitmap_VS_SVG.svg',
   'https://gist.githubusercontent.com/Ram-N/5189462/raw/books.xml',
   'https://raw.githubusercontent.com/vuejs/core/main/package.json',
   'https://github.com/github/gitignore/archive/refs/heads/main.zip',
+  'https://raw.githubusercontent.com/VueFilesPreview/vue-files-preview-demo/main/src/assets/test/test-html.msg',
 ]
 
 // 从链接中提取文件名作为标签
 function getTagFromUrl(url: string): string {
   try {
     const urlObj = new URL(url)
-    const pathname = urlObj.pathname
+    const pathname = decodeURIComponent(urlObj.pathname)
     const filename = pathname.split('/').pop() || ''
     // 如果文件名包含扩展名，直接返回
     if (filename && filename.includes('.')) {

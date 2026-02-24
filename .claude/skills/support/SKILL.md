@@ -19,7 +19,7 @@ description: 为 vue-files-preview 添加新文件类型预览支持。当用户
    - `image` - 图片类型（直接生成 Object URL）
    - `pdf` - PDF 文件
    - `video` - 视频文件
-4. **是否需要第三方库** - 如 `@vue-office/pptx`、`@kenjiuno/msgreader` 等
+4. **是否需要第三方库** - 如 `pptx-preview`、`@kenjiuno/msgreader` 等
 5. **MIME type** - 该文件类型对应的 MIME type（用于 Blob 支持）
 
 ## 项目架构概览
