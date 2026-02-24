@@ -30,8 +30,8 @@ importers:
         specifier: 1.7.14
         version: 1.7.14(vue-demi@0.14.8(vue@3.5.12(typescript@5.8.2)))(vue@3.5.12(typescript@5.8.2))
       '@vueuse/core':
-        specifier: 13.2.0
-        version: 13.2.0(vue@3.5.12(typescript@5.8.2))
+        specifier: 14.2.1
+        version: 14.2.1(vue@3.5.12(typescript@5.8.2))
       codemirror:
         specifier: ^6.0.1
         version: 6.0.2
@@ -95,7 +95,7 @@ importers:
         version: 4.19.2
       unplugin-auto-import:
         specifier: 19.2.0
-        version: 19.2.0(@vueuse/core@13.2.0(vue@3.5.12(typescript@5.8.2)))
+        version: 19.2.0(@vueuse/core@14.2.1(vue@3.5.12(typescript@5.8.2)))
       vite:
         specifier: 5.4.11
         version: 5.4.11(@types/node@25.3.0)(sass@1.97.3)
@@ -1267,16 +1267,16 @@ packages:
   '@vue/shared@3.5.27':
     resolution: {integrity: sha512-dXr/3CgqXsJkZ0n9F3I4elY8wM9jMJpP3pvRG52r6m0tu/MsAFIe6JpXVGeNMd/D9F4hQynWT8Rfuj0bdm9kFQ==}
 
-  '@vueuse/core@13.2.0':
-    resolution: {integrity: sha512-n5TZoIAxbWAQ3PqdVPDzLgIRQOujFfMlatdI+f7ditSmoEeNpPBvp7h2zamzikCmrhFIePAwdEQB6ENccHr7Rg==}
+  '@vueuse/core@14.2.1':
+    resolution: {integrity: sha512-3vwDzV+GDUNpdegRY6kzpLm4Igptq+GA0QkJ3W61Iv27YWwW/ufSlOfgQIpN6FZRMG0mkaz4gglJRtq5SeJyIQ==}
     peerDependencies:
       vue: ^3.5.0
 
-  '@vueuse/metadata@13.2.0':
-    resolution: {integrity: sha512-kPpzuQCU0+D8DZCzK0iPpIcXI+6ufWSgwnjJ6//GNpEn+SHViaCtR+XurzORChSgvpHO9YC8gGM97Y1kB+UabA==}
+  '@vueuse/metadata@14.2.1':
+    resolution: {integrity: sha512-1ButlVtj5Sb/HDtIy1HFr1VqCP4G6Ypqt5MAo0lCgjokrk2mvQKsK2uuy0vqu/Ks+sHfuHo0B9Y9jn9xKdjZsw==}
 
-  '@vueuse/shared@13.2.0':
-    resolution: {integrity: sha512-vx9ZPDF5HcU9up3Jgt3G62dMUfZEdk6tLyBAHYAG4F4n73vpaA7J5hdncDI/lS9Vm7GA/FPlbOmh9TrDZROTpg==}
+  '@vueuse/shared@14.2.1':
+    resolution: {integrity: sha512-shTJncjV9JTI4oVNyF1FQonetYAiTBd+Qj7cY89SWbXSkx7gyhrgtEdF2ZAVWS1S3SHlaROO6F2IesJxQEkZBw==}
     peerDependencies:
       vue: ^3.5.0
 
@@ -4421,16 +4421,16 @@ snapshots:
 
   '@vue/shared@3.5.27': {}
 
-  '@vueuse/core@13.2.0(vue@3.5.12(typescript@5.8.2))':
+  '@vueuse/core@14.2.1(vue@3.5.12(typescript@5.8.2))':
     dependencies:
       '@types/web-bluetooth': 0.0.21
-      '@vueuse/metadata': 13.2.0
-      '@vueuse/shared': 13.2.0(vue@3.5.12(typescript@5.8.2))
+      '@vueuse/metadata': 14.2.1
+      '@vueuse/shared': 14.2.1(vue@3.5.12(typescript@5.8.2))
       vue: 3.5.12(typescript@5.8.2)
 
-  '@vueuse/metadata@13.2.0': {}
+  '@vueuse/metadata@14.2.1': {}
 
-  '@vueuse/shared@13.2.0(vue@3.5.12(typescript@5.8.2))':
+  '@vueuse/shared@14.2.1(vue@3.5.12(typescript@5.8.2))':
     dependencies:
       vue: 3.5.12(typescript@5.8.2)
 
@@ -6670,7 +6670,7 @@ snapshots:
 
   universalify@2.0.1: {}
 
-  unplugin-auto-import@19.2.0(@vueuse/core@13.2.0(vue@3.5.12(typescript@5.8.2))):
+  unplugin-auto-import@19.2.0(@vueuse/core@14.2.1(vue@3.5.12(typescript@5.8.2))):
     dependencies:
       local-pkg: 1.1.2
       magic-string: 0.30.21
@@ -6679,7 +6679,7 @@ snapshots:
       unplugin: 2.3.11
       unplugin-utils: 0.2.5
     optionalDependencies:
-      '@vueuse/core': 13.2.0(vue@3.5.12(typescript@5.8.2))
+      '@vueuse/core': 14.2.1(vue@3.5.12(typescript@5.8.2))
 
   unplugin-utils@0.2.5:
     dependencies:
