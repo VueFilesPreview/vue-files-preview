@@ -1,6 +1,6 @@
 {
   "name": "vue-files-preview",
-  "version": "1.0.41",
+  "version": "1.0.42",
   "type": "module",
   "private": false,
   "description": "A tool for previewing files such as doc, excel, pdf, image, markdown, txt, audio, and video and so on.",
@@ -41,6 +41,7 @@
     "build": "vite build && vite build --config vite.config.umd.ts",
     "preview": "vite preview",
     "unpub": "npm unpublish",
+    "prepub": "npm run build",
     "pub": "cd dist && npm publish --access=public --registry=https://registry.npmjs.com",
     "preexample": "npm run build",
     "example": "cd example && pnpm dev",
