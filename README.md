@@ -26,7 +26,7 @@ Project repository: [https://github.com/VueFilesPreview/vue-files-preview](https
 - [x] Support `CDN` / `ESM` / `CommonJS` import
 - [x] Preview docx files via [vue-office](https://github.com/501351981/vue-office)
 - [x] Preview xlsx / xls / csv and other spreadsheet formats via [vue-office](https://github.com/501351981/vue-office)
-- [x] Preview pptx / ppt presentation files via [vue-office](https://github.com/501351981/vue-office)
+- [x] Preview pptx / ppt presentation files via [pptx-preview](https://github.com/nicl-dev/pptx-preview)
 - [x] Preview pdf files via native iframe
 - [x] Preview 28+ code file types with syntax highlighting via [codemirror](https://github.com/codemirror/dev/)
 - [x] Preview markdown files via [markdown-it](https://github.com/markdown-it/markdown-it)
@@ -208,7 +208,7 @@ Supported formats: `xlsx`, `xls`, `csv`, `fods`, `ods`, `ots`, `xlsm`, `xlt`, `x
 
 ### pptx preview
 
-Using [Vue Office](https://github.com/501351981/vue-office) to preview presentation files.
+Using [pptx-preview](https://github.com/nicl-dev/pptx-preview) to preview presentation files with responsive layout and all slides tiled vertically.
 
 Supported formats: `ppt`, `pptx`, `fodp`, `odp`, `otp`, `pot`, `potm`, `potx`, `pps`, `ppsm`, `ppsx`, `pptm`
 
@@ -309,6 +309,7 @@ Recognized but not yet previewable: `doc`, `docm`, `dot`, `dotm`, `dotx`, `fodt`
 
 ## 🌸 Thanks
 
+* [pptx-preview](https://github.com/nicl-dev/pptx-preview)
 * [vue-office](https://github.com/501351981/vue-office)
 * [codemirror](https://github.com/codemirror/dev/)
 * [markdown-it](https://github.com/markdown-it/markdown-it)

@@ -26,7 +26,7 @@
 - [x] 支持 `CDN` / `ESM` / `CommonJS` 三种引入方式
 - [x] 通过 [vue-office](https://github.com/501351981/vue-office) 预览 docx 文档
 - [x] 通过 [vue-office](https://github.com/501351981/vue-office) 预览 xlsx / xls / csv 等电子表格
-- [x] 通过 [vue-office](https://github.com/501351981/vue-office) 预览 pptx / ppt 演示文稿
+- [x] 通过 [pptx-preview](https://github.com/nicl-dev/pptx-preview) 预览 pptx / ppt 演示文稿
 - [x] 通过原生 iframe 预览 pdf 文件
 - [x] 通过 [codemirror](https://github.com/codemirror/dev/) 预览 28+ 种代码文件（语法高亮）
 - [x] 通过 [markdown-it](https://github.com/markdown-it/markdown-it) 预览 markdown 文件
@@ -208,7 +208,7 @@ pnpm example
 
 ### pptx 预览
 
-使用 [Vue Office](https://github.com/501351981/vue-office) 预览演示文稿文件。
+使用 [pptx-preview](https://github.com/nicl-dev/pptx-preview) 预览演示文稿文件，支持自适应布局和全部幻灯片纵向平铺展示。
 
 支持格式：`ppt`、`pptx`、`fodp`、`odp`、`otp`、`pot`、`potm`、`potx`、`pps`、`ppsm`、`ppsx`、`pptm`
 
@@ -309,6 +309,7 @@ pnpm example
 
 ## 🌸 致谢
 
+* [pptx-preview](https://github.com/nicl-dev/pptx-preview)
 * [vue-office](https://github.com/501351981/vue-office)
 * [codemirror](https://github.com/codemirror/dev/)
 * [markdown-it](https://github.com/markdown-it/markdown-it)
