@@ -117,45 +117,79 @@ export function getFileName(file: File | Blob, name?: string): string {
 }
 
 /**
- * 从 URL 获取文件扩展名
- * @param url
+ * 安全解码URI组件 解码失败时返回原字符串
+ * @param str
  */
-export function getFileTypeFromUrl(url: string): string {
+function safeDecodeURIComponent(str: string): string {
+    try {
+        return decodeURIComponent(str)
+    } catch {
+        return str
+    }
+}
+
+/**
+ * 从 URL 获取文件扩展名
+ * 支持从URL路径、name参数、Content-Type头三级推断
+ * @param url
+ * @param name 可选的文件名 用于fallback推断
+ */
+export function getFileTypeFromUrl(url: string, name?: string): string {
+    // 优先从URL路径提取
     try {
         const urlObj = new URL(url, window.location.origin)
-        const pathname = urlObj.pathname
+        const pathname = safeDecodeURIComponent(urlObj.pathname)
         const idx = pathname.lastIndexOf('.')
-        if (idx === -1) return ''
-        const ext = pathname.substring(idx + 1).toLowerCase()
-        // 移除可能的查询参数残留
-        return ext.split('?')[0].split('#')[0]
+        if (idx !== -1) {
+            const ext = pathname.substring(idx + 1).toLowerCase()
+            // 移除可能的查询参数残留
+            const cleaned = ext.split('?')[0].split('#')[0]
+            if (cleaned) return cleaned
+        }
     } catch {
-        // 简单的字符串处理作为后备
-        const idx = url.lastIndexOf('.')
-        if (idx === -1) return ''
-        const ext = url.substring(idx + 1).toLowerCase()
-        return ext.split('?')[0].split('#')[0]
+        const decoded = safeDecodeURIComponent(url)
+        const idx = decoded.lastIndexOf('.')
+        if (idx !== -1) {
+            const ext = decoded.substring(idx + 1).toLowerCase()
+            const cleaned = ext.split('?')[0].split('#')[0]
+            if (cleaned) return cleaned
+        }
     }
+    // 其次从name参数提取
+    if (name) {
+        const idx = name.lastIndexOf('.')
+        if (idx !== -1) return name.substring(idx + 1).toLowerCase()
+    }
+    return ''
 }
 
 /**
  * 从 URL 获取文件名（不含扩展名）
  * @param url
+ * @param name 可选的文件名 用于fallback
  */
-export function getFileNameFromUrl(url: string): string {
+export function getFileNameFromUrl(url: string, name?: string): string {
     try {
         const urlObj = new URL(url, window.location.origin)
-        const pathname = urlObj.pathname
+        const pathname = safeDecodeURIComponent(urlObj.pathname)
         const lastSlash = pathname.lastIndexOf('/')
         const filename = pathname.substring(lastSlash + 1)
         const dotIdx = filename.lastIndexOf('.')
-        return dotIdx === -1 ? filename : filename.substring(0, dotIdx)
+        const result = dotIdx === -1 ? filename : filename.substring(0, dotIdx)
+        if (result) return result
     } catch {
         const lastSlash = url.lastIndexOf('/')
-        const filename = url.substring(lastSlash + 1).split('?')[0].split('#')[0]
+        const filename = safeDecodeURIComponent(url.substring(lastSlash + 1).split('?')[0].split('#')[0])
         const dotIdx = filename.lastIndexOf('.')
-        return dotIdx === -1 ? filename : filename.substring(0, dotIdx)
+        const result = dotIdx === -1 ? filename : filename.substring(0, dotIdx)
+        if (result) return result
     }
+    // fallback 到 name 参数
+    if (name) {
+        const idx = name.lastIndexOf('.')
+        return idx === -1 ? name : name.substring(0, idx)
+    }
+    return ''
 }
 
 /**
@@ -165,6 +199,7 @@ export function getFileNameFromUrl(url: string): string {
  */
 export async function getFileRenderByUrl(url: string, fileType?: string): Promise<ArrayBuffer | string> {
     const ext = fileType || getFileTypeFromUrl(url)
+
     const previewType = getPreviewTypeByFileType(ext)
     const renderType = getFileRenderType(previewType)
 

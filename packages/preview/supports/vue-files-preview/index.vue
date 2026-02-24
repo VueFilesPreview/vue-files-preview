@@ -36,13 +36,19 @@ function syncPreviewByFile(file: File | Blob): void {
   }
 }
 
-function syncPreviewByUrl(url: string): void {
-  const fileType = getFileTypeFromUrl(url)
+function applyPreviewRule(fileType: string, name: string): void {
   const rule = PreviewRules[getPreviewTypeByFileType(fileType)]
   if (rule) {
     loading.value = true
-    currentPreview.value = { ...rule, name: getFileNameFromUrl(url) }
+    currentPreview.value = { ...rule, name }
   }
+}
+
+async function syncPreviewByUrl(url: string): Promise<void> {
+  const fileType = getFileTypeFromUrl(url, props.name)
+  const fileName = getFileNameFromUrl(url, props.name)
+
+  applyPreviewRule(fileType, fileName)
 }
 
 function onRendered() {
