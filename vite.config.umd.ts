@@ -11,6 +11,7 @@ export default defineConfig({
         alias: {
             '@src': path.resolve(__dirname, 'src'),
             '@packages': pathPackages,
+            'buffer': 'buffer/',
         },
     },
     css: {

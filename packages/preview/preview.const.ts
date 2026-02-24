@@ -9,11 +9,12 @@ import PdfPreview from './supports/pdf-preview/index'
 import PicPreview from './supports/pic-preview/index'
 import TxtPreview from './supports/txt-preview/index'
 import UnknownPreview from './supports/unknown-preview/index'
+import MsgPreview from './supports/msg-preview/index'
 import VideoPreview from './supports/video-preview/index'
 import XlsxPreview from './supports/xlsx-preview/index'
 
 export const textFilePreviewTypeList = [PreviewType.CODE, PreviewType.TXT, PreviewType.MD]
-export const arrayBufferPreviewTypeList = [PreviewType.DOC, PreviewType.DOCX, PreviewType.XLSX, PreviewType.PPT, PreviewType.EPUB]
+export const arrayBufferPreviewTypeList = [PreviewType.DOC, PreviewType.DOCX, PreviewType.XLSX, PreviewType.PPT, PreviewType.EPUB, PreviewType.MSG]
 export const imagePreviewTypeList = [PreviewType.PIC, PreviewType.AUDIO]
 export const pdfPreviewTypeList = [PreviewType.PDF]
 export const videoPreviewTypeList = [PreviewType.VIDEO]
@@ -97,6 +98,12 @@ export const PreviewRules: Record<PreviewType, IPreviewRule> = {
         component: VideoPreview,
         type: PreviewType.VIDEO,
         accept: ['mp4', 'webm', 'ogg', 'mkv', 'avi', 'mpeg', 'flv', 'mov', 'wmv'],
+    },
+    [PreviewType.MSG]: {
+        name: '',
+        component: MsgPreview,
+        type: PreviewType.MSG,
+        accept: ['msg'],
     },
 }
 

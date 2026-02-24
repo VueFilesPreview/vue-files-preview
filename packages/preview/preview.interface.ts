@@ -27,6 +27,7 @@ export enum PreviewType {
     PPT = 'ppt',
     AUDIO = 'audio',
     VIDEO = 'video',
+    MSG = 'msg',
 }
 
 // render读取时使用的类型

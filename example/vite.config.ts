@@ -11,6 +11,8 @@ export default defineConfig({
       { find: /^vue-files-preview\/(.*)/, replacement: resolve(__dirname, '../dist/$1') },
       // vue-files-preview -> ../dist/es/packages/index.mjs
       { find: 'vue-files-preview', replacement: resolve(__dirname, '../dist/es/packages/index.mjs') },
+      // buffer polyfill for browser
+      { find: 'buffer', replacement: 'buffer/' },
     ],
   },
   server: {
