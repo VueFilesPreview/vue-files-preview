@@ -59,4 +59,18 @@ function onImageError(): void {
   </div>
 </template>
 
-<style scoped lang='scss'></style>
+<style scoped lang='scss'>
+.pic-preview {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+}
+</style>
