@@ -8,7 +8,7 @@ const version = VFP.version
 const activeTab = ref<'demo' | 'code'>('demo')
 
 // 预览源：文件或链接
-const previewFile = ref<File | null>(null)
+const previewFile = ref<File | Blob | null>(null)
 const previewUrl = ref('')
 
 // 链接输入
@@ -97,6 +97,15 @@ function goBack() {
   previewFile.value = null
   previewUrl.value = ''
   urlInput.value = ''
+}
+
+// 测试 Blob SVG 预览
+async function testBlobSvg() {
+  const response = await fetch('https://upload.wikimedia.org/wikipedia/commons/6/6b/Bitmap_VS_SVG.svg')
+  const blob = await response.blob()
+  // 直接传 Blob，不包装成 File，验证 MIME type 推断
+  previewFile.value = blob
+  previewUrl.value = ''
 }
 
 // 复制状态：用对象记录每个代码块的复制状态
@@ -276,6 +285,13 @@ app.mount('#app')`,
                     @click="previewSampleLink(link)"
                   >
                     {{ getTagFromUrl(link) }}
+                  </button>
+                  <button
+                    class="sample-tag blob-test"
+                    title="测试 Blob SVG 预览"
+                    @click="testBlobSvg"
+                  >
+                    Blob SVG Test
                   </button>
                 </div>
               </div>
@@ -607,6 +623,10 @@ body {
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
 }
 
+.sample-tag.blob-test {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
 /* Code Section */
 .code-section {
   display: flex;
@@ -692,13 +712,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(10px);
   color: white;
   border: none;
   border-radius: 12px;
   cursor: pointer;
   z-index: 9999999;
+  opacity: 0.3;
   transition: all 0.3s;
 }
 
@@ -708,6 +729,7 @@ body {
 }
 
 .back-btn:hover {
+  opacity: 1;
   background: rgba(0, 0, 0, 0.7);
   transform: scale(1.05);
 }
