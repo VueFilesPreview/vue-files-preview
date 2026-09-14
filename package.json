@@ -58,7 +58,7 @@
     "@codemirror/lang-xml": "^6.1.0",
     "@codemirror/theme-one-dark": "6.1.2",
     "@kenjiuno/msgreader": "^1.28.0",
-    "@vue-office/docx": "1.6.2",
+    "@vue-office/docx": "1.6.3",
     "@vue-office/excel": "1.7.14",
     "@vueuse/core": "14.2.1",
     "buffer": "^6.0.3",

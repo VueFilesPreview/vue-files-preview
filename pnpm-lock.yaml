@@ -27,8 +27,8 @@ importers:
         specifier: ^1.28.0
         version: 1.28.0
       '@vue-office/docx':
-        specifier: 1.6.2
-        version: 1.6.2(vue-demi@0.14.8(vue@3.5.28(typescript@5.8.2)))(vue@3.5.28(typescript@5.8.2))
+        specifier: 1.6.3
+        version: 1.6.3(vue-demi@0.14.8(vue@3.5.28(typescript@5.8.2)))(vue@3.5.28(typescript@5.8.2))
       '@vue-office/excel':
         specifier: 1.7.14
         version: 1.7.14(vue-demi@0.14.8(vue@3.5.28(typescript@5.8.2)))(vue@3.5.28(typescript@5.8.2))
@@ -1217,8 +1217,8 @@ packages:
   '@volar/typescript@2.4.27':
     resolution: {integrity: sha512-eWaYCcl/uAPInSK2Lze6IqVWaBu/itVqR5InXcHXFyles4zO++Mglt3oxdgj75BDcv1Knr9Y93nowS8U3wqhxg==}
 
-  '@vue-office/docx@1.6.2':
-    resolution: {integrity: sha512-OHAoUHeY8nHjhWvwDhlPx+/rmRkxmqLpvPgtfCEOZ4H1c1LCdJ6eDbdV3152ww8dcdZ7fgGQu3fmSSaI7JwdpQ==}
+  '@vue-office/docx@1.6.3':
+    resolution: {integrity: sha512-Cs+3CAaRBOWOiW4XAhTwwxJ0dy8cPIf6DqfNvYcD3YACiLwO4kuawLF2IAXxyijhbuOeoFsfvoVbOc16A/4bZA==}
     peerDependencies:
       '@vue/composition-api': ^1.7.1
       vue: ^2.0.0 || >=3.0.0
@@ -4376,7 +4376,7 @@ snapshots:
       path-browserify: 1.0.1
       vscode-uri: 3.1.0
 
-  '@vue-office/docx@1.6.2(vue-demi@0.14.8(vue@3.5.28(typescript@5.8.2)))(vue@3.5.28(typescript@5.8.2))':
+  '@vue-office/docx@1.6.3(vue-demi@0.14.8(vue@3.5.28(typescript@5.8.2)))(vue@3.5.28(typescript@5.8.2))':
     dependencies:
       vue: 3.5.28(typescript@5.8.2)
       vue-demi: 0.14.8(vue@3.5.28(typescript@5.8.2))
