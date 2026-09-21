@@ -71,7 +71,7 @@
     "pptx-preview": "^1.0.7",
     "vue": "3.5.28",
     "vue-codemirror": "6.1.1",
-    "vue-demi": "0.14.8"
+    "vue-demi": "0.14.10"
   },
   "devDependencies": {
     "@antfu/eslint-config": "4.13.1",
